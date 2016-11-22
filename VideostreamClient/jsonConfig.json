@@ -1,0 +1,49 @@
+{
+    "Left_Nav_Screen": {
+        "header": {
+            "profileImage": {
+                "placeholder": "profilePlaceholderImage"
+            }
+        },
+        "body": {
+            "buttonStack": [
+                {
+                    "image": "navGoLiveImage",
+                    "title": "Go Live",
+                    "action": "Broadcaster_Screen"   
+                },{
+                    "image": "navWatchLiveImage",
+                    "title": "Watch Live",
+                    "action": "from_nav_to_LiveStreams"   
+                },{
+                    "image": "navStreamsImage",
+                    "title": "Streams",
+                    "action": "from_nav_to_Streams"   
+                }
+            ]
+        },
+        "footer": {
+            "buttonStack": [
+                {
+                    "image": "navEULAImage",
+                    "title": "EULA",
+                    "action": {
+                        "show" : "from_nav_to_EULA"
+                    }   
+                },{
+                    "image": "navLogoutImage",
+                    "title": "Logout",
+                    "action": {
+                        "code" : "logout"
+                    }  
+                }
+            ]
+        } 
+    },
+    "services": {
+        "basePubURL": "https://pub.videostream.pixeljaw.com",
+        "baseApiURL": "https://api.videostream.pixeljaw.com",
+        "baseRtmpPushURL": "rtmp://rtmpserver.pixeljaw.com/live",
+        "baseRtmpPlayURL": "rtmp://rtmpserver.pixeljaw.com/live"
+    }
+}
