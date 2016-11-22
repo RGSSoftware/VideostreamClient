@@ -33,6 +33,7 @@
 		229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */; };
 		229E9FE81DE1414900160514 /* NavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE71DE1414900160514 /* NavCell.swift */; };
 		229E9FEA1DE15D3E00160514 /* NavProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE91DE15D3E00160514 /* NavProfileView.swift */; };
+		22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D24B8C1DE49796000E76DB /* StreamerCell.swift */; };
 		D83E6E6D425D9A168C2C0697 /* Pods_VideostreamClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F493205884C172C7FFE5228A /* Pods_VideostreamClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavViewController.swift; sourceTree = "<group>"; };
 		229E9FE71DE1414900160514 /* NavCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavCell.swift; sourceTree = "<group>"; };
 		229E9FE91DE15D3E00160514 /* NavProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavProfileView.swift; sourceTree = "<group>"; };
+		22D24B8C1DE49796000E76DB /* StreamerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerCell.swift; sourceTree = "<group>"; };
 		7D3B93D2E84BCF79C8FA372C /* Pods-VideostreamClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideostreamClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideostreamClient/Pods-VideostreamClient.release.xcconfig"; sourceTree = "<group>"; };
 		F493205884C172C7FFE5228A /* Pods_VideostreamClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideostreamClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF48BE4DB777BA4CE798CFC6 /* Pods-VideostreamClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideostreamClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideostreamClient/Pods-VideostreamClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,12 +149,13 @@
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
 				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
 				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
+				224FBA9D1DE0DFB600574B2D /* LiveStreamsViewController.swift */,
+				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
 				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
 				225330691DE12649008F61C1 /* UIView+Exten.swift */,
 				224597CE1DDED84A00E784B2 /* Assets.xcassets */,
 				224597D01DDED84A00E784B2 /* LaunchScreen.storyboard */,
 				224597D31DDED84A00E784B2 /* Info.plist */,
-				224FBA9D1DE0DFB600574B2D /* LiveStreamsViewController.swift */,
 				229E9FE31DE136D200160514 /* ConfigManger.swift */,
 				229E9FE01DE1363C00160514 /* jsonConfig.json */,
 			);
@@ -352,6 +355,7 @@
 				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
 				224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */,
 				224FBA9E1DE0DFB600574B2D /* LiveStreamsViewController.swift in Sources */,
+				22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */,
 				229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */,
 				224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */,
 				224FBA681DDEEDC300574B2D /* HomeViewController.swift in Sources */,

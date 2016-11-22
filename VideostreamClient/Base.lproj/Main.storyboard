@@ -333,10 +333,10 @@
             </objects>
             <point key="canvasLocation" x="-362" y="1728"/>
         </scene>
-        <!--View Controller-->
+        <!--Live Streams View Controller-->
         <scene sceneID="1Ju-zs-tJy">
             <objects>
-                <viewController id="tVM-6Z-eIu" sceneMemberID="viewController">
+                <viewController id="tVM-6Z-eIu" customClass="LiveStreamsViewController" customModule="VideostreamClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BSf-qM-w9q"/>
                         <viewControllerLayoutGuide type="bottom" id="xeo-a0-APa"/>
@@ -355,19 +355,39 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eaQ-cA-95O">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StreamerCell" id="eaQ-cA-95O" customClass="StreamerCell" customModule="VideostreamClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="119" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="119" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8K-zJ-fij">
+                                                    <rect key="frame" x="8" y="20" width="103" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="x8K-zJ-fij" secondAttribute="trailing" id="BsV-V3-e8C"/>
+                                            <constraint firstItem="x8K-zJ-fij" firstAttribute="centerY" secondItem="eaQ-cA-95O" secondAttribute="centerY" id="JoT-o5-P0C"/>
+                                            <constraint firstItem="x8K-zJ-fij" firstAttribute="leading" secondItem="eaQ-cA-95O" secondAttribute="leadingMargin" id="V44-1D-buv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="x8K-zJ-fij" id="zHA-C5-08H"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eu1-vK-2bn">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="tVM-6Z-eIu" id="YI3-33-QxT"/>
+                                    <outlet property="delegate" destination="tVM-6Z-eIu" id="TEV-SR-ajg"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -378,10 +398,13 @@
                             <constraint firstItem="xeo-a0-APa" firstAttribute="top" secondItem="2Fu-1I-mwx" secondAttribute="bottom" id="f9Q-5M-Fpu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="2Fu-1I-mwx" id="CTL-ZT-emS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-Qv-lDA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="365.60000000000002" y="1937.1814092953525"/>
+            <point key="canvasLocation" x="183" y="1693"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="lRh-nK-UtS">
