@@ -28,10 +28,6 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     @IBAction func goLive(_ sender: Any) {
         
         Alamofire.request(baseEndPoint+"/user/streamkey", method: .delete).responseJSON { (response) in

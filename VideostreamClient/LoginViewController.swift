@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
         ]
         
         
-        
         Alamofire.request(ConfigManger.shared["services"]["baseApiURL"].stringValue + "/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().response { (response) in
                 if let error = response.error {
                     return print("error: \(error)")

@@ -33,10 +33,6 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return data.count
     }

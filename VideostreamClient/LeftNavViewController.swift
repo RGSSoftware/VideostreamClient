@@ -23,10 +23,6 @@ class LeftNavViewController: UIViewController {
         navProfileView.profileImageButton.setImage(UIImage(named: config["header"]["profileImage"]["placeholder"].stringValue), for: .normal)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     @IBAction func profileImageDidTap(_ sender: Any) {
     }
 }
