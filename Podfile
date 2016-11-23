@@ -10,6 +10,7 @@ target 'VideostreamClient' do
     pod 'Hue', '2.0.1'
     pod 'IQKeyboardManagerSwift', '4.0.7'
     pod 'MBProgressHUD', '1.0.0'
+    pod 'XLPagerTabStrip', '6.0.0'
     
     pod 'RESideMenu', :git => 'https://github.com/RGSSoftware/RESideMenu.git'
 end

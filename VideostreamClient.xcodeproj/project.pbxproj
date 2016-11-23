@@ -24,10 +24,12 @@
 		224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA771DDEF61C00574B2D /* VideoToolbox.framework */; };
 		224FBA961DDEFEF000574B2D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA911DDEFEE400574B2D /* IJKMediaFramework.framework */; };
 		224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */; };
-		224FBA9E1DE0DFB600574B2D /* LiveStreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA9D1DE0DFB600574B2D /* LiveStreamsViewController.swift */; };
+		224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */; };
 		224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBAA01DE10E4100574B2D /* SplashViewController.swift */; };
 		225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225330661DE125B5008F61C1 /* UIButton+Exten.swift */; };
 		2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225330691DE12649008F61C1 /* UIView+Exten.swift */; };
+		226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */; };
+		226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */; };
 		229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 229E9FE01DE1363C00160514 /* jsonConfig.json */; };
 		229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE31DE136D200160514 /* ConfigManger.swift */; };
 		229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */; };
@@ -81,10 +83,12 @@
 		224FBA771DDEF61C00574B2D /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../Desktop/hateRE/ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudienceViewController.swift; sourceTree = "<group>"; };
-		224FBA9D1DE0DFB600574B2D /* LiveStreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamsViewController.swift; sourceTree = "<group>"; };
+		224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamsViewController.swift; sourceTree = "<group>"; };
 		224FBAA01DE10E4100574B2D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		225330661DE125B5008F61C1 /* UIButton+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Exten.swift"; sourceTree = "<group>"; };
 		225330691DE12649008F61C1 /* UIView+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Exten.swift"; sourceTree = "<group>"; };
+		226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramPagerViewController.swift; sourceTree = "<group>"; };
+		226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Exten.swift"; sourceTree = "<group>"; };
 		229E9FE01DE1363C00160514 /* jsonConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonConfig.json; sourceTree = "<group>"; };
 		229E9FE31DE136D200160514 /* ConfigManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManger.swift; sourceTree = "<group>"; };
 		229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavViewController.swift; sourceTree = "<group>"; };
@@ -149,10 +153,12 @@
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
 				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
 				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
-				224FBA9D1DE0DFB600574B2D /* LiveStreamsViewController.swift */,
+				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
+				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
 				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
 				225330691DE12649008F61C1 /* UIView+Exten.swift */,
+				226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */,
 				224597CE1DDED84A00E784B2 /* Assets.xcassets */,
 				224597D01DDED84A00E784B2 /* LaunchScreen.storyboard */,
 				224597D31DDED84A00E784B2 /* Info.plist */,
@@ -348,13 +354,15 @@
 				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
 				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
 				229E9FEA1DE15D3E00160514 /* NavProfileView.swift in Sources */,
+				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
 				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,
 				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
 				224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */,
 				225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */,
 				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
 				224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */,
-				224FBA9E1DE0DFB600574B2D /* LiveStreamsViewController.swift in Sources */,
+				226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */,
+				224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */,
 				22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */,
 				229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */,
 				224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */,

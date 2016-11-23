@@ -94,21 +94,57 @@ extension LeftNavViewController : UITableViewDelegate{
             data = config["footer"]["buttonStack"][indexPath.row]
         }
         
-        let VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data!["action"].stringValue)
+        var VC : UIViewController!
         
-        if data!["action"] == "Broadcaster_Screen"{
-            present(VC, animated: true, completion: nil)
-        } else {
-            sideMenuViewController.setContentViewController(VC, animated: true)
+        let screenId = sideMenuViewController.contentViewController.screenId
+        
+        if screenId == nil ||
+            screenId != data!["action"].stringValue {
+            
+            
+            if data!["action"] == "Broadcaster_Screen" {
+                VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data!["action"].stringValue)
+                present(VC, animated: true, completion: nil)
+            } else {
+                
+                if screenId != "NavPager_Screen" {
+                    if data!["action"] == "LiveStreams_Screen" {
+                        
+                        let nVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavPager_Screen") as! UINavigationController
+                        nVC.screenId = "NavPager_Screen"
+                        
+                        let ipVC = nVC.topViewController as! InstagramPagerViewController
+                        
+                        let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
+                        child_1.itemInfo = "TOP"
+                        
+                        let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
+                        child_2.itemInfo = "FOLLOWING"
+                        
+                        ipVC.pageControllers = [child_1, child_2]
+                        
+                        let leftArrowButton = UIButton(image: UIImage(named: "menu")!)
+                        leftArrowButton?.setFrameSizeHeight((nVC.navigationBar.frame.size.height))
+                        leftArrowButton?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
+                        ipVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
+                        
+                        VC = nVC
+                        
+                    }
+                    sideMenuViewController.setContentViewController(VC, animated: true)
+                }
+                
+            }
+
         }
-        
         
         sideMenuViewController.hideViewController()
         
-        
-
-        
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func leftNavTap(_ id: Any) {
+        sideMenuViewController.presentLeftMenuViewController()
     }
 //
 //    func tableView(_ tableView: UITableView, deselectRow indexPath: IndexPath) {

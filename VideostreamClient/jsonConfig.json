@@ -14,7 +14,7 @@
                 },{
                     "image": "navWatchLiveImage",
                     "title": "Watch Live",
-                    "action": "from_nav_to_LiveStreams"   
+                    "action": "LiveStreams_Screen"   
                 },{
                     "image": "navStreamsImage",
                     "title": "Streams",
