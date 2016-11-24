@@ -30,6 +30,7 @@
 		2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225330691DE12649008F61C1 /* UIView+Exten.swift */; };
 		226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */; };
 		226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */; };
+		226F19011DE697A900A68678 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19001DE697A900A68678 /* DataStore.swift */; };
 		229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 229E9FE01DE1363C00160514 /* jsonConfig.json */; };
 		229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE31DE136D200160514 /* ConfigManger.swift */; };
 		229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */; };
@@ -89,6 +90,7 @@
 		225330691DE12649008F61C1 /* UIView+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Exten.swift"; sourceTree = "<group>"; };
 		226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramPagerViewController.swift; sourceTree = "<group>"; };
 		226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Exten.swift"; sourceTree = "<group>"; };
+		226F19001DE697A900A68678 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		229E9FE01DE1363C00160514 /* jsonConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonConfig.json; sourceTree = "<group>"; };
 		229E9FE31DE136D200160514 /* ConfigManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManger.swift; sourceTree = "<group>"; };
 		229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
 				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
 				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
+				226F19001DE697A900A68678 /* DataStore.swift */,
 				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
 				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
@@ -353,6 +356,7 @@
 			files = (
 				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
 				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
+				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
 				229E9FEA1DE15D3E00160514 /* NavProfileView.swift in Sources */,
 				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
 				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,

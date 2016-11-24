@@ -113,9 +113,13 @@ extension LeftNavViewController : UITableViewDelegate{
                         
                         let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
                         child_1.itemInfo = "TOP"
+                        child_1.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=0", fetchSize: 50)
+                        
                         
                         let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
                         child_2.itemInfo = "FOLLOWING"
+                        child_2.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=1", fetchSize: 50)
+                        
                         
                         ipVC.pageControllers = [child_1, child_2]
                         
