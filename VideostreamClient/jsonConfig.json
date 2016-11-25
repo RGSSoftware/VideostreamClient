@@ -18,7 +18,7 @@
                 },{
                     "image": "navStreamsImage",
                     "title": "Streams",
-                    "action": "from_nav_to_Streams"   
+                    "action": "Search_Nav_Screen"   
                 }
             ]
         },

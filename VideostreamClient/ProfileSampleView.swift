@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavProfileView: UIView {
+class ProfileSampleView: UIView {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var profileNameLabel: UILabel!
 }

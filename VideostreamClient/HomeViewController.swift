@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         leftArrowButton?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
     }
+    
 
     @IBAction func goLive(_ sender: Any) {
         

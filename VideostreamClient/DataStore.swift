@@ -29,7 +29,7 @@ class DataStore {
     }
     
     func fetch(_ fetchClosure: @escaping FetchClosure){
-        Alamofire.request(baseURL + "&page=\(currentPage)&limit=\(limit)", method: .get).responseJSON {[weak self] (response) in
+        Alamofire.request(baseURL + "?page=\(currentPage)&limit=\(limit)", method: .get).responseJSON {[weak self] (response) in
             guard let strongSelf = self else { return }
             
             if (response.response?.statusCode)! > 200 {

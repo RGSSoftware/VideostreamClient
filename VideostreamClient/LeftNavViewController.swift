@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class LeftNavViewController: UIViewController {
     
-    @IBOutlet weak var navProfileView: NavProfileView!
+    @IBOutlet weak var navProfileView: ProfileSampleView!
 
     let config = ConfigManger.shared["Left_Nav_Screen"]
     
@@ -24,6 +24,23 @@ class LeftNavViewController: UIViewController {
     }
 
     @IBAction func profileImageDidTap(_ sender: Any) {
+        
+        let contentVCScreenId = sideMenuViewController.contentViewController.screenId
+        if contentVCScreenId == "Profile_Nav_Screen" {
+            return sideMenuViewController.hideViewController()
+
+        }
+        
+        let pVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Profile_Screen") as! MyProfileViewController
+        
+        let nVC = UINavigationController(rootViewController: pVC)
+        nVC.screenId = "Profile_Nav_Screen"
+        
+
+        sideMenuViewController.setContentViewController(nVC, animated: true)
+        sideMenuViewController.hideViewController()
+
+        
     }
 }
 
@@ -130,6 +147,9 @@ extension LeftNavViewController : UITableViewDelegate{
                         
                         VC = nVC
                         
+                    } else if data!["action"] == "Search_Nav_Screen" {
+                        let sVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search_Nav_Screen")
+                        VC = sVC
                     }
                     sideMenuViewController.setContentViewController(VC, animated: true)
                 }
