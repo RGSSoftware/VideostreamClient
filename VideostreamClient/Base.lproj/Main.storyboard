@@ -379,7 +379,59 @@
                     <view key="view" contentMode="scaleToFill" id="ywI-JM-0sH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="guf-oe-jMx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="73" id="nPT-ZC-r96" customClass="ProfileSampleCell" customModule="VideostreamClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nPT-ZC-r96" id="iJ5-P2-rho">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-wM-gYw">
+                                                    <rect key="frame" x="16" y="11" width="51" height="51"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="YqX-wM-gYw" secondAttribute="height" multiplier="1:1" id="s1b-i2-cMw"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqB-bp-ppE">
+                                                    <rect key="frame" x="83" y="26" width="284" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KqB-bp-ppE" firstAttribute="centerY" secondItem="iJ5-P2-rho" secondAttribute="centerY" id="9gJ-hq-SB2"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="YqX-wM-gYw" secondAttribute="leading" constant="-8" id="Jtv-ba-7cM"/>
+                                                <constraint firstItem="YqX-wM-gYw" firstAttribute="centerY" secondItem="iJ5-P2-rho" secondAttribute="centerY" id="WZ3-ZX-akr"/>
+                                                <constraint firstItem="YqX-wM-gYw" firstAttribute="height" secondItem="iJ5-P2-rho" secondAttribute="height" multiplier="0.7" id="Wuy-DF-4WZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KqB-bp-ppE" secondAttribute="trailing" id="swZ-aO-Gp9"/>
+                                                <constraint firstItem="KqB-bp-ppE" firstAttribute="leading" secondItem="YqX-wM-gYw" secondAttribute="trailing" constant="16" id="t0J-D4-vSb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="YqX-wM-gYw" id="QRh-Jv-bPJ"/>
+                                            <outlet property="profileNameLabel" destination="KqB-bp-ppE" id="s5w-iT-Xxf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="gl4-uz-8X0" id="rw8-kG-CC9"/>
+                                    <outlet property="delegate" destination="gl4-uz-8X0" id="83l-o4-LmP"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="guf-oe-jMx" firstAttribute="top" secondItem="ywI-JM-0sH" secondAttribute="top" id="5Mo-Yc-kX7"/>
+                            <constraint firstAttribute="trailing" secondItem="guf-oe-jMx" secondAttribute="trailing" id="Be5-QI-fQG"/>
+                            <constraint firstItem="16Y-d5-gbp" firstAttribute="top" secondItem="guf-oe-jMx" secondAttribute="bottom" id="lKm-oA-eYt"/>
+                            <constraint firstItem="guf-oe-jMx" firstAttribute="leading" secondItem="ywI-JM-0sH" secondAttribute="leading" id="uBg-fN-uLm"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RSg-Hk-4ru">
                         <nil key="title"/>
@@ -405,6 +457,11 @@
                             </constraints>
                         </view>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchTextField" destination="qUo-eR-d0Z" id="S2V-eP-2Gg"/>
+                        <outlet property="tableView" destination="guf-oe-jMx" id="xHp-dX-xHH"/>
+                        <segue destination="b4b-gP-Nlh" kind="show" identifier="from_Search_to_Profile" id="Tur-Is-62h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smb-zr-lVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -925,4 +982,7 @@
         <image name="icon-close" width="15" height="15"/>
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Tur-Is-62h"/>
+    </inferredMetricsTieBreakers>
 </document>

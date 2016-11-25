@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 class LeftNavViewController: UIViewController {
     
@@ -41,6 +42,29 @@ class LeftNavViewController: UIViewController {
         sideMenuViewController.hideViewController()
 
         
+    }
+    
+    func logoutCurrentUser() {
+        let baseURL = ConfigManger.shared["services"]["baseApiURL"].stringValue
+        Alamofire.request(baseURL + "/logout", method: .get).validate().response{[weak self] (response) in
+            
+            guard let strongSelf = self else { return }
+            
+            if let error = response.error{
+                
+            } else {
+                
+                if let cookies = HTTPCookieStorage.shared.cookies(for: URL(string: baseURL)!){
+                    for cookie in cookies {
+                        HTTPCookieStorage.shared.deleteCookie(cookie)
+                        
+                    }
+                }
+                
+                strongSelf.dismiss(animated: true, completion: nil)
+            }
+            
+        }
     }
 }
 
@@ -99,29 +123,24 @@ extension LeftNavViewController : UITableViewDataSource{
 
 extension LeftNavViewController : UITableViewDelegate{
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var data : JSON?
-        if tableView == bodyTableView {
-            data = config["body"]["buttonStack"][indexPath.row]
-        } else if tableView == footerTableView {
-            data = config["footer"]["buttonStack"][indexPath.row]
-        }
+    private func handleBodyTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var data = config["body"]["buttonStack"][indexPath.row]
         
         var VC : UIViewController!
         
         let screenId = sideMenuViewController.contentViewController.screenId
         
         if screenId == nil ||
-            screenId != data!["action"].stringValue {
+            screenId != data["action"].stringValue {
             
             
-            if data!["action"] == "Broadcaster_Screen" {
-                VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data!["action"].stringValue)
+            if data["action"] == "Broadcaster_Screen" {
+                VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data["action"].stringValue)
                 present(VC, animated: true, completion: nil)
             } else {
                 
                 if screenId != "NavPager_Screen" {
-                    if data!["action"] == "LiveStreams_Screen" {
+                    if data["action"] == "LiveStreams_Screen" {
                         
                         let nVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavPager_Screen") as! UINavigationController
                         nVC.screenId = "NavPager_Screen"
@@ -147,7 +166,7 @@ extension LeftNavViewController : UITableViewDelegate{
                         
                         VC = nVC
                         
-                    } else if data!["action"] == "Search_Nav_Screen" {
+                    } else if data["action"] == "Search_Nav_Screen" {
                         let sVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search_Nav_Screen")
                         VC = sVC
                     }
@@ -155,12 +174,37 @@ extension LeftNavViewController : UITableViewDelegate{
                 }
                 
             }
-
+            
         }
         
         sideMenuViewController.hideViewController()
         
+    }
+    
+    private func handleFooterTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var data = config["footer"]["buttonStack"][indexPath.row]
+        
+        if let action = data["action"].dictionary{
+            if let code = action["code"]?.string {
+                if code == "logout"{
+                    logoutCurrentUser()
+                }
+            }
+        }
+        
+        sideMenuViewController.hideViewController()
+    }
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == bodyTableView {
+            handleBodyTableView(tableView, didSelectRowAt: indexPath)
+        } else if tableView == footerTableView {
+            handleFooterTableView(tableView, didSelectRowAt: indexPath)
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     func leftNavTap(_ id: Any) {

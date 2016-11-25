@@ -34,12 +34,11 @@ class SplashViewController: UIViewController {
 
     func isUserAuthenticatedUrl(url: URL) -> Bool {
         
-        for cookie in HTTPCookieStorage.shared.cookies! {
+        for cookie in HTTPCookieStorage.shared.cookies(for: url)! {
             
-            if let host = url.host, let expiresDate = cookie.expiresDate {
+            if let expiresDate = cookie.expiresDate {
                 
-                if host == cookie.domain &&
-                    expiresDate > Date(){
+                if expiresDate > Date(){
                     return true
                     
                 }
