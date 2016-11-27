@@ -15,8 +15,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @IBAction func login(_ sender: AnyObject) {
@@ -26,14 +28,13 @@ class LoginViewController: UIViewController {
             "password": PasswordTextField.text!
         ]
         
-        
         Alamofire.request(ConfigManger.shared["services"]["baseApiURL"].stringValue + "/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().response { (response) in
-                if let error = response.error {
-                    return print("error: \(error)")
-                }
-                
-                self.dismiss(animated: true, completion: nil)
+            if let error = response.error {
+                return print("error: \(error)")
             }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
 }
