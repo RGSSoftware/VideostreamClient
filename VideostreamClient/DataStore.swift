@@ -16,20 +16,35 @@ class DataStore {
     private let limit: Int
     private let baseURL: String
     
+    private let streamStatus: Bool?
+    
     var currentPage: Int
     
     var isEnd = false
     var data: [[String: Any]] = []
     
-    init(baseURL: String, fetchSize: Int) {
+    init(baseURL: String, fetchSize: Int, streamStatus: Bool? = nil) {
         self.baseURL = baseURL
         limit = fetchSize
+        self.streamStatus = streamStatus
         
         currentPage = 0
     }
     
+
+    
     func fetch(_ fetchClosure: @escaping FetchClosure){
-        Alamofire.request(baseURL + "?page=\(currentPage)&limit=\(limit)", method: .get).responseJSON {[weak self] (response) in
+        
+        var q = "?page=\(currentPage)&limit=\(limit)"
+        if let streamStatus = streamStatus {
+            if streamStatus {
+                q = q + "&streamStatus=1"
+            } else {
+                q = q + "&streamStatus=0"
+            }
+        }
+        
+        Alamofire.request(baseURL + q, method: .get).responseJSON {[weak self] (response) in
             guard let strongSelf = self else { return }
             
             if (response.response?.statusCode)! > 200 {

@@ -68,19 +68,7 @@ class LeftNavViewController: UIViewController {
     }
 }
 
-extension LeftNavViewController : UITableViewDataSource{
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        
-        if tableView == bodyTableView {
-            return 1
-        } else if tableView == footerTableView {
-            return 1
-        } else {
-            return 0
-        }
-
-    }
+extension LeftNavViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -105,7 +93,7 @@ extension LeftNavViewController : UITableViewDataSource{
         }
         
         cell.iconImageView.image = UIImage(named: dataStack![indexPath.row]["image"].stringValue)
-        cell.titleLabel.text = dataStack![indexPath.row]["title"].stringValue
+        cell.titleLabel.text = dataStack![indexPath.row]["title"].string
         
         if indexPath.row == (dataStack!.count - 1){
             cell.separatorView.isHidden = true
@@ -121,7 +109,7 @@ extension LeftNavViewController : UITableViewDataSource{
     
 }
 
-extension LeftNavViewController : UITableViewDelegate{
+extension LeftNavViewController: UITableViewDelegate {
     
     private func handleBodyTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var data = config["body"]["buttonStack"][indexPath.row]
@@ -137,10 +125,10 @@ extension LeftNavViewController : UITableViewDelegate{
             if data["action"] == "Broadcaster_Screen" {
                 VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data["action"].stringValue)
                 present(VC, animated: true, completion: nil)
-            } else {
+            } else if data["action"] == "LiveStreams_Screen"{
                 
                 if screenId != "NavPager_Screen" {
-                    if data["action"] == "LiveStreams_Screen" {
+                    
                         
                         let nVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavPager_Screen") as! UINavigationController
                         nVC.screenId = "NavPager_Screen"
@@ -149,12 +137,12 @@ extension LeftNavViewController : UITableViewDelegate{
                         
                         let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
                         child_1.itemInfo = "TOP"
-                        child_1.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=0", fetchSize: 50)
+                        child_1.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following", fetchSize: 50, streamStatus: false)
                         
                         
                         let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
                         child_2.itemInfo = "FOLLOWING"
-                        child_2.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=1", fetchSize: 50)
+                        child_2.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=1", fetchSize: 50, streamStatus: true)
                         
                         
                         ipVC.pageControllers = [child_1, child_2]
@@ -165,16 +153,21 @@ extension LeftNavViewController : UITableViewDelegate{
                         ipVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
                         
                         VC = nVC
-                        
-                    } else if data["action"] == "Search_Nav_Screen" {
-                        let sVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search_Nav_Screen")
-                        VC = sVC
-                    }
-                    sideMenuViewController.setContentViewController(VC, animated: true)
+                        sideMenuViewController.setContentViewController(VC, animated: true)
+                    
+                    
                 }
                 
+                
+                
+            }else if data["action"] == "Search_Nav_Screen" {
+                if screenId != data["action"].stringValue {
+                    let sVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search_Nav_Screen")
+                    sVC.screenId = data["action"].stringValue
+                    VC = sVC
+                    sideMenuViewController.setContentViewController(VC, animated: true)
+                }
             }
-            
         }
         
         sideMenuViewController.hideViewController()
