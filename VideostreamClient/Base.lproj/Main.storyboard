@@ -172,7 +172,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-Ge-CbZ">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-Ge-CbZ">
                                                     <rect key="frame" x="15" y="52" width="50" height="1"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -232,7 +232,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCJ-z1-XI4">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCJ-z1-XI4">
                                                     <rect key="frame" x="23" y="52" width="50" height="1"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -572,6 +572,22 @@
             </objects>
             <point key="canvasLocation" x="-3020" y="1185.1574212893554"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jaz-X6-dbd">
+            <objects>
+                <navigationController storyboardIdentifier="Profile_Nav_Screen" id="g41-B6-GcG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WlO-yL-AcK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZFb-WN-UKW" kind="relationship" relationship="rootViewController" id="1SZ-c5-BeD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="byj-Us-0ir" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4158" y="1910"/>
+        </scene>
         <!--My Profile View Controller-->
         <scene sceneID="mGg-hf-Xt4">
             <objects>
@@ -585,7 +601,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJG-wz-3Ei" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="117" y="44" width="140" height="140"/>
+                                <rect key="frame" x="117" y="88" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-aU-Jbj">
                                         <rect key="frame" x="17.5" y="0.0" width="105" height="105"/>
@@ -620,7 +636,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-FA-V2Z">
-                                <rect key="frame" x="136.5" y="212" width="101.5" height="17"/>
+                                <rect key="frame" x="136.5" y="256" width="101.5" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAz-zY-0CH">
                                         <rect key="frame" x="0.0" y="0.0" width="9" height="17"/>
@@ -637,7 +653,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-Jf-m4n">
-                                <rect key="frame" x="0.0" y="236" width="375" height="431"/>
+                                <rect key="frame" x="0.0" y="280" width="375" height="387"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="73" id="4xq-Tq-YbJ" customClass="ProfileSampleCell" customModule="VideostreamClient" customModuleProvider="target">
@@ -694,6 +710,7 @@
                             <constraint firstItem="QJG-wz-3Ei" firstAttribute="centerX" secondItem="H3K-8j-jSF" secondAttribute="centerX" id="zOD-YP-Rgn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RD3-ZE-r0n"/>
                     <connections>
                         <outlet property="followingCountLabel" destination="cAz-zY-0CH" id="T4f-Zs-uiK"/>
                         <outlet property="profileSampleView" destination="QJG-wz-3Ei" id="vWx-39-Ipr"/>
@@ -876,7 +893,7 @@
         <!--WATCH LIVE-->
         <scene sceneID="7b1-Wi-RRZ">
             <objects>
-                <viewController storyboardIdentifier="InstagramPager_Screen" id="eYf-TN-bgA" customClass="InstagramPagerViewController" customModule="VideostreamClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InstagramPager_Screen" id="eYf-TN-bgA" customClass="WatchPagerViewController" customModule="VideostreamClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oaz-0n-ZE9"/>
                         <viewControllerLayoutGuide type="bottom" id="ZV1-wf-sb7"/>
@@ -966,11 +983,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d8R-PP-NG2" id="mdP-ut-JaJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5fp-31-weM">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="66"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="66.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1088,6 +1105,6 @@
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tur-Is-62h"/>
+        <segue reference="v6F-7I-Xhm"/>
     </inferredMetricsTieBreakers>
 </document>

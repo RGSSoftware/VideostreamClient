@@ -149,7 +149,7 @@ extension SearchViewController: UITableViewDataSource {
         let cellData = data?[indexPath.row]
         
         cell.profileNameLabel?.text =  "@\(cellData?["username"] as! String)"
-        cell.profileImageView.image = UIImage(named: ConfigManger.shared["Left_Nav_Screen"]["header"]["profileImage"]["placeholder"].stringValue)
+        cell.profileImageView.image = R.image.profilePlaceholderImage()
         
         return cell
     }

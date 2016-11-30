@@ -22,7 +22,6 @@
 		224FBA741DDEF60F00574B2D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA731DDEF60F00574B2D /* MediaPlayer.framework */; };
 		224FBA761DDEF61600574B2D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA751DDEF61600574B2D /* OpenGLES.framework */; };
 		224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA771DDEF61C00574B2D /* VideoToolbox.framework */; };
-		224FBA961DDEFEF000574B2D /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA911DDEFEE400574B2D /* IJKMediaFramework.framework */; };
 		224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */; };
 		224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */; };
 		224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBAA01DE10E4100574B2D /* SplashViewController.swift */; };
@@ -36,6 +35,10 @@
 		226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19061DE7E5D500A68678 /* ProfileViewController.swift */; };
 		226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19081DE8A23A00A68678 /* SearchViewController.swift */; };
 		226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F190C1DE8DABC00A68678 /* SignupViewController.swift */; };
+		226F19261DEE334E00A68678 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226F19211DEE32E000A68678 /* IJKMediaFramework.framework */; };
+		226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F192D1DEE3B5D00A68678 /* R.generated.swift */; };
+		226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */; };
+		226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19311DEE576600A68678 /* LeftNavModel.swift */; };
 		229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 229E9FE01DE1363C00160514 /* jsonConfig.json */; };
 		229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE31DE136D200160514 /* ConfigManger.swift */; };
 		229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */; };
@@ -46,23 +49,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		224FBA901DDEFEE400574B2D /* PBXContainerItemProxy */ = {
+		226F19201DEE32E000A68678 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
 		};
-		224FBA921DDEFEE400574B2D /* PBXContainerItemProxy */ = {
+		226F19221DEE32E000A68678 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFrameworkTests;
 		};
-		224FBA941DDEFEEA00574B2D /* PBXContainerItemProxy */ = {
+		226F19241DEE334300A68678 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E654EA891B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
@@ -87,7 +90,6 @@
 		224FBA731DDEF60F00574B2D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		224FBA751DDEF61600574B2D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		224FBA771DDEF61C00574B2D /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../Desktop/hateRE/ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudienceViewController.swift; sourceTree = "<group>"; };
 		224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamsViewController.swift; sourceTree = "<group>"; };
 		224FBAA01DE10E4100574B2D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,10 @@
 		226F19061DE7E5D500A68678 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		226F19081DE8A23A00A68678 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		226F190C1DE8DABC00A68678 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../Desktop/hateRE/ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
+		226F192D1DEE3B5D00A68678 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchPagerViewController.swift; sourceTree = "<group>"; };
+		226F19311DEE576600A68678 /* LeftNavModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavModel.swift; sourceTree = "<group>"; };
 		229E9FE01DE1363C00160514 /* jsonConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonConfig.json; sourceTree = "<group>"; };
 		229E9FE31DE136D200160514 /* ConfigManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManger.swift; sourceTree = "<group>"; };
 		229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavViewController.swift; sourceTree = "<group>"; };
@@ -117,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224FBA961DDEFEF000574B2D /* IJKMediaFramework.framework in Frameworks */,
+				226F19261DEE334E00A68678 /* IJKMediaFramework.framework in Frameworks */,
 				224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */,
 				224FBA761DDEF61600574B2D /* OpenGLES.framework in Frameworks */,
 				224FBA741DDEF60F00574B2D /* MediaPlayer.framework in Frameworks */,
@@ -136,7 +142,7 @@
 		224597BB1DDED84A00E784B2 = {
 			isa = PBXGroup;
 			children = (
-				224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */,
+				226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */,
 				224597C61DDED84A00E784B2 /* VideostreamClient */,
 				224597C51DDED84A00E784B2 /* Products */,
 				E0B5F6950F584EEEE8ABBF01 /* Pods */,
@@ -155,6 +161,7 @@
 		224597C61DDED84A00E784B2 /* VideostreamClient */ = {
 			isa = PBXGroup;
 			children = (
+				226F192D1DEE3B5D00A68678 /* R.generated.swift */,
 				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				224597C71DDED84A00E784B2 /* AppDelegate.swift */,
 				224597CB1DDED84A00E784B2 /* Main.storyboard */,
@@ -163,6 +170,7 @@
 				226F19061DE7E5D500A68678 /* ProfileViewController.swift */,
 				226F19041DE7954700A68678 /* ProfileSampleCell.swift */,
 				229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */,
+				226F19311DEE576600A68678 /* LeftNavModel.swift */,
 				229E9FE91DE15D3E00160514 /* ProfileSampleView.swift */,
 				229E9FE71DE1414900160514 /* NavCell.swift */,
 				224FBA671DDEEDC300574B2D /* HomeViewController.swift */,
@@ -173,6 +181,7 @@
 				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
 				226F19001DE697A900A68678 /* DataStore.swift */,
 				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
+				226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
 				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
 				225330691DE12649008F61C1 /* UIView+Exten.swift */,
@@ -186,11 +195,11 @@
 			path = VideostreamClient;
 			sourceTree = "<group>";
 		};
-		224FBA8C1DDEFEE300574B2D /* Products */ = {
+		226F191C1DEE32DF00A68678 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				224FBA911DDEFEE400574B2D /* IJKMediaFramework.framework */,
-				224FBA931DDEFEE400574B2D /* IJKMediaFrameworkTests.xctest */,
+				226F19211DEE32E000A68678 /* IJKMediaFramework.framework */,
+				226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 			buildConfigurationList = 224597D61DDED84A00E784B2 /* Build configuration list for PBXNativeTarget "VideostreamClient" */;
 			buildPhases = (
 				102C4099748DEBDE1E4198A8 /* [CP] Check Pods Manifest.lock */,
+				226F19291DEE3A8900A68678 /* r.swift */,
 				224597C01DDED84A00E784B2 /* Sources */,
 				224597C11DDED84A00E784B2 /* Frameworks */,
 				224597C21DDED84A00E784B2 /* Resources */,
@@ -237,7 +247,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				224FBA951DDEFEEA00574B2D /* PBXTargetDependency */,
+				226F19251DEE334300A68678 /* PBXTargetDependency */,
 			);
 			name = VideostreamClient;
 			productName = VideostreamClient;
@@ -274,8 +284,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 224FBA8C1DDEFEE300574B2D /* Products */;
-					ProjectRef = 224FBA8B1DDEFEE300574B2D /* IJKMediaPlayer.xcodeproj */;
+					ProductGroup = 226F191C1DEE32DF00A68678 /* Products */;
+					ProjectRef = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -286,18 +296,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		224FBA911DDEFEE400574B2D /* IJKMediaFramework.framework */ = {
+		226F19211DEE32E000A68678 /* IJKMediaFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IJKMediaFramework.framework;
-			remoteRef = 224FBA901DDEFEE400574B2D /* PBXContainerItemProxy */;
+			remoteRef = 226F19201DEE32E000A68678 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		224FBA931DDEFEE400574B2D /* IJKMediaFrameworkTests.xctest */ = {
+		226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = IJKMediaFrameworkTests.xctest;
-			remoteRef = 224FBA921DDEFEE400574B2D /* PBXContainerItemProxy */;
+			remoteRef = 226F19221DEE32E000A68678 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -331,6 +341,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		226F19291DEE3A8900A68678 /* r.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = r.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"\n";
 		};
 		7F8A022B07F573B61445A303 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -369,18 +393,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */,
 				226F19051DE7954700A68678 /* ProfileSampleCell.swift in Sources */,
 				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
 				226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */,
 				226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */,
 				226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */,
 				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
+				226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */,
 				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
 				229E9FEA1DE15D3E00160514 /* ProfileSampleView.swift in Sources */,
 				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
 				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,
 				226F19031DE789C300A68678 /* MyProfileViewController.swift in Sources */,
 				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
+				226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */,
 				224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */,
 				225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */,
 				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
@@ -397,10 +424,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		224FBA951DDEFEEA00574B2D /* PBXTargetDependency */ = {
+		226F19251DEE334300A68678 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IJKMediaFramework;
-			targetProxy = 224FBA941DDEFEEA00574B2D /* PBXContainerItemProxy */;
+			targetProxy = 226F19241DEE334300A68678 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

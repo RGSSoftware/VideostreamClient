@@ -10,6 +10,7 @@
 import UIKit
 import IJKMediaFramework
 
+
 class AudienceViewController: UIViewController {
 
     @IBOutlet weak var previewView: UIView!

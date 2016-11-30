@@ -14,33 +14,30 @@ class LeftNavViewController: UIViewController {
     
     @IBOutlet weak var navProfileView: ProfileSampleView!
 
-    let config = ConfigManger.shared["Left_Nav_Screen"]
+    let model = LeftNavModel.fromJSON(ConfigManger.shared["Left_Nav_Screen"])
     
     @IBOutlet weak var bodyTableView: UITableView!
     @IBOutlet weak var footerTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navProfileView.profileImageButton.setImage(UIImage(named: config["header"]["profileImage"]["placeholder"].stringValue), for: .normal)
+        navProfileView.profileImageButton.setImage(R.image.profilePlaceholderImage(), for: .normal)
     }
 
     @IBAction func profileImageDidTap(_ sender: Any) {
         
         let contentVCScreenId = sideMenuViewController.contentViewController.screenId
-        if contentVCScreenId == "Profile_Nav_Screen" {
+        if contentVCScreenId == R.storyboard.main.profile_Nav_Screen.identifier {
+            
             return sideMenuViewController.hideViewController()
 
         }
         
-        let pVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Profile_Screen") as! MyProfileViewController
+        let nVC = R.storyboard.main.profile_Nav_Screen()!
+        nVC.screenId = R.storyboard.main.profile_Nav_Screen.identifier
         
-        let nVC = UINavigationController(rootViewController: pVC)
-        nVC.screenId = "Profile_Nav_Screen"
-        
-
         sideMenuViewController.setContentViewController(nVC, animated: true)
         sideMenuViewController.hideViewController()
-
         
     }
     
@@ -73,31 +70,30 @@ extension LeftNavViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == bodyTableView {
-            return config["body"]["buttonStack"].arrayValue.count
-        } else if tableView == footerTableView {
-            return config["footer"]["buttonStack"].arrayValue.count
+            
+            return model.bodyCells.count
+            
         } else {
-            return 0
+            
+            return model.footerCells.count
+            
         }
-
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NavCell", for: indexPath) as! NavCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.navCell.identifier, for: indexPath) as! NavCell
         
-        var dataStack : [JSON]?
+        var data: [NavCellModel]
         if tableView == bodyTableView {
-            dataStack = config["body"]["buttonStack"].array
-        } else if tableView == footerTableView {
-            dataStack = config["footer"]["buttonStack"].array
+            data = model.bodyCells
+        } else {
+            data = model.footerCells
         }
         
-        cell.iconImageView.image = UIImage(named: dataStack![indexPath.row]["image"].stringValue)
-        cell.titleLabel.text = dataStack![indexPath.row]["title"].string
+        cell.iconImageView.image = UIImage(named: data[indexPath.row].image)
+        cell.titleLabel.text = data[indexPath.row].title
         
-        if indexPath.row == (dataStack!.count - 1){
-            cell.separatorView.isHidden = true
-        } else {
+        if indexPath.row != (data.count - 1){
             cell.separatorView.isHidden = false
         }
         
@@ -112,62 +108,36 @@ extension LeftNavViewController: UITableViewDataSource {
 extension LeftNavViewController: UITableViewDelegate {
     
     private func handleBodyTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var data = config["body"]["buttonStack"][indexPath.row]
-        
-        var VC : UIViewController!
+        let data = model.bodyCells[indexPath.row]
         
         let screenId = sideMenuViewController.contentViewController.screenId
         
-        if screenId == nil ||
-            screenId != data["action"].stringValue {
+        switch data.action {
+        case .show(let screen):
             
-            
-            if data["action"] == "Broadcaster_Screen" {
-                VC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: data["action"].stringValue)
-                present(VC, animated: true, completion: nil)
-            } else if data["action"] == "LiveStreams_Screen"{
+            if screenId == nil ||
+                screenId != screen {
                 
-                if screenId != "NavPager_Screen" {
+                if screen == R.storyboard.main.broadcaster_Screen.identifier {
                     
-                        
-                        let nVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavPager_Screen") as! UINavigationController
-                        nVC.screenId = "NavPager_Screen"
-                        
-                        let ipVC = nVC.topViewController as! InstagramPagerViewController
-                        
-                        let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
-                        child_1.itemInfo = "TOP"
-                        child_1.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following", fetchSize: 50, streamStatus: false)
-                        
-                        
-                        let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Streams_Screen")as! StreamsViewController
-                        child_2.itemInfo = "FOLLOWING"
-                        child_2.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=1", fetchSize: 50, streamStatus: true)
-                        
-                        
-                        ipVC.pageControllers = [child_1, child_2]
-                        
-                        let leftArrowButton = UIButton(image: UIImage(named: "menu")!)
-                        leftArrowButton?.setFrameSizeHeight((nVC.navigationBar.frame.size.height))
-                        leftArrowButton?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
-                        ipVC.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
-                        
-                        VC = nVC
-                        sideMenuViewController.setContentViewController(VC, animated: true)
+                    let bVC = R.storyboard.main.broadcaster_Screen()!
+                    present(bVC, animated: true, completion: nil)
                     
+                } else if screen == R.storyboard.main.navPager_Screen.identifier {
                     
-                }
-                
-                
-                
-            }else if data["action"] == "Search_Nav_Screen" {
-                if screenId != data["action"].stringValue {
-                    let sVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search_Nav_Screen")
-                    sVC.screenId = data["action"].stringValue
-                    VC = sVC
-                    sideMenuViewController.setContentViewController(VC, animated: true)
+                    let nVC = R.storyboard.main.navPager_Screen()!
+                    nVC.screenId = R.storyboard.main.navPager_Screen.identifier
+                    sideMenuViewController.setContentViewController(nVC, animated: true)
+                    
+                } else if screen == R.storyboard.main.search_Nav_Screen.identifier {
+                    
+                    let sVC = R.storyboard.main.search_Nav_Screen()!
+                    sVC.screenId = R.storyboard.main.search_Nav_Screen.identifier
+                    sideMenuViewController.setContentViewController(sVC, animated: true)
                 }
             }
+
+        default:()
         }
         
         sideMenuViewController.hideViewController()
@@ -175,15 +145,42 @@ extension LeftNavViewController: UITableViewDelegate {
     }
     
     private func handleFooterTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var data = config["footer"]["buttonStack"][indexPath.row]
+
+        let data = model.bodyCells[indexPath.row]
         
-        if let action = data["action"].dictionary{
-            if let code = action["code"]?.string {
-                if code == "logout"{
-                    logoutCurrentUser()
-                }
+        let screenId = sideMenuViewController.contentViewController.screenId
+        
+        switch data.action {
+        case .show(let screen):
+            
+            if screenId == nil ||
+                screenId != screen {
+                
+//                if screen == R.storyboard.main.broadcaster_Screen.identifier {
+//                    
+//                    let bVC = R.storyboard.main.broadcaster_Screen()!
+//                    present(bVC, animated: true, completion: nil)
+//                    
+//                } else if screen == R.storyboard.main.navPager_Screen.identifier {
+//                    
+//                    let nVC = R.storyboard.main.navPager_Screen()!
+//                    nVC.screenId = R.storyboard.main.navPager_Screen.identifier
+//                    sideMenuViewController.setContentViewController(nVC, animated: true)
+//                    
+//                } else if screen == R.storyboard.main.search_Nav_Screen.identifier {
+//                    
+//                    let sVC = R.storyboard.main.search_Nav_Screen()!
+//                    sVC.screenId = R.storyboard.main.search_Nav_Screen.identifier
+//                    sideMenuViewController.setContentViewController(sVC, animated: true)
+//                }
+            }
+            
+        case .code(let code):
+            if code == "logout"{
+                logoutCurrentUser()
             }
         }
+
         
         sideMenuViewController.hideViewController()
     }
@@ -191,29 +188,15 @@ extension LeftNavViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == bodyTableView {
+            
             handleBodyTableView(tableView, didSelectRowAt: indexPath)
-        } else if tableView == footerTableView {
+            
+        } else {
+            
             handleFooterTableView(tableView, didSelectRowAt: indexPath)
+            
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
-    
-    func leftNavTap(_ id: Any) {
-        sideMenuViewController.presentLeftMenuViewController()
-    }
-//
-//    func tableView(_ tableView: UITableView, deselectRow indexPath: IndexPath) {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "NavCell", for: indexPath) as! NavCell
-//        
-//        cell.iconImageView.backgroundColor = .clear
-//        
-//    }
-//    
-//    tabledes
-    
-    
-    
-    
 }

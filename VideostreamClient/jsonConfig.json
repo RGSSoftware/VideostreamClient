@@ -1,24 +1,25 @@
 {
     "Left_Nav_Screen": {
-        "header": {
-            "profileImage": {
-                "placeholder": "profilePlaceholderImage"
-            }
-        },
         "body": {
             "buttonStack": [
                 {
                     "image": "navGoLiveImage",
                     "title": "Go Live",
-                    "action": "Broadcaster_Screen"   
+                    "action": {
+                        "show" : "Broadcaster_Screen"
+                    }  
                 },{
                     "image": "navWatchLiveImage",
                     "title": "Watch Live",
-                    "action": "LiveStreams_Screen"   
+                    "action": {
+                        "show" : "NavPager_Screen"
+                    } 
                 },{
                     "image": "navStreamsImage",
                     "title": "Streams",
-                    "action": "Search_Nav_Screen"   
+                    "action": {
+                        "show" : "Search_Nav_Screen"
+                    }
                 }
             ]
         },

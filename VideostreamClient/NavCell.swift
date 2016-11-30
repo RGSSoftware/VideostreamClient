@@ -14,4 +14,10 @@ class NavCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var separatorView: UIView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        separatorView.isHidden = true
+    }
+    
 }
