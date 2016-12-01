@@ -17,7 +17,7 @@ class SplashViewController: UIViewController {
         if isUserAuthenticatedUrl(url: URL(string: ConfigManger.shared["services"]["baseApiURL"].stringValue)!){
             
             let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home_Screen")
-            let leftNavVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Left_Nav_Screen")
+            let leftNavVC = R.storyboard.main.left_Nav_Screen()
             let sideMenuVC = RESideMenu(contentViewController: homeVC, leftMenuViewController: leftNavVC, rightMenuViewController: nil)
             sideMenuVC?.panGestureEnabled = false
             sideMenuVC?.menuPrefersStatusBarHidden = true
@@ -27,7 +27,8 @@ class SplashViewController: UIViewController {
             
             
         } else {
-            performSegue(withIdentifier: "from_Splash_to_Login", sender: self)
+            
+            performSegue(withIdentifier: R.segue.splashViewController.from_Splash_to_Login, sender: self)
         }
     }
     

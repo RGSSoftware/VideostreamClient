@@ -5,7 +5,7 @@ struct NavCellModel {
     
     enum Action{
         case show(screen: String)
-        case code(code: String)
+        case code(String)
     }
     
     let image: String
@@ -35,7 +35,7 @@ struct LeftNavModel {
             var action: NavCellModel.Action
             
                 if let code = data["action"]["code"].string {
-                    action = NavCellModel.Action.code(code: code)
+                    action = NavCellModel.Action.code(code)
                 } else {
                     action = NavCellModel.Action.show(screen: data["action"]["show"].stringValue)
             }
