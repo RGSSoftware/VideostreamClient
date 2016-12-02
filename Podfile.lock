@@ -1,5 +1,14 @@
 PODS:
+  - Action (2.1.0):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - Alamofire (4.2.0)
+  - Artsy+OSSUIFonts (1.1.0)
+  - Artsy+UIColors (3.1.0)
+  - Artsy-UIButtons (2.0.3):
+    - Artsy+OSSUIFonts
+    - Artsy+UIColors (~> 3.0)
+    - UIView+BooleanAnimations
   - Hue (2.0.1)
   - IQKeyboardManagerSwift (4.0.7)
   - LFLiveKit (2.3)
@@ -23,11 +32,15 @@ PODS:
     - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
   - Socket.IO-Client-Swift (8.1.2)
+  - SVProgressHUD (2.0.4)
   - SwiftyJSON (3.1.3)
+  - UIView+BooleanAnimations (1.0.2)
   - XLPagerTabStrip (6.0.0)
 
 DEPENDENCIES:
+  - Action (= 2.1.0)
   - Alamofire (= 4.2.0)
+  - Artsy-UIButtons (= 2.0.3)
   - Hue (= 2.0.1)
   - IQKeyboardManagerSwift (= 4.0.7)
   - LFLiveKit (= 2.3)
@@ -37,8 +50,9 @@ DEPENDENCIES:
   - NSObject+Rx (= 2.0.0)
   - R.swift (= 3.1.0)
   - RESideMenu (from `https://github.com/RGSSoftware/RESideMenu.git`)
-  - RxCocoa
+  - RxCocoa (= 3.0.1)
   - Socket.IO-Client-Swift (= 8.1.2)
+  - SVProgressHUD
   - SwiftyJSON (= 3.1.3)
   - XLPagerTabStrip (= 6.0.0)
 
@@ -52,7 +66,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/RGSSoftware/RESideMenu.git
 
 SPEC CHECKSUMS:
+  Action: b02569f7169ae825e71d5a41ef727719ca5cc840
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  Artsy+OSSUIFonts: 4b01bb7451a35a877a055cefcdd92cffa2207781
+  Artsy+UIColors: 31c03c4146f5e6618a9b950f37dfe02dd9ac09a6
+  Artsy-UIButtons: 0c87d8a112e6b1d688b153c2a7a8f155e2f1a18f
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   LFLiveKit: 76a5cb34509f8cbe25e3a95824cf80f36d36679b
@@ -66,9 +84,11 @@ SPEC CHECKSUMS:
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   Socket.IO-Client-Swift: 542d82e6708f9901b3f6c1d134fb60fa0d09d4d1
+  SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
+  UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 73cde0b1e4f8d6eeb0da937db7116db669512d09
+PODFILE CHECKSUM: 90a76fbac467552345c736dc5e789ec8558ece91
 
 COCOAPODS: 1.1.1

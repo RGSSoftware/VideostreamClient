@@ -123,6 +123,8 @@
 		22F076631DF08800007C1CA2 /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
 		22F076661DF0BAC5007C1CA2 /* Sequence+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Exten.swift"; sourceTree = "<group>"; };
 		22F076681DF0C40C007C1CA2 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		22F076701DF0DAB0007C1CA2 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = "Supporting Files/BridgingHeader.h"; sourceTree = "<group>"; };
+		22F076711DF0DAB0007C1CA2 /* PodsBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PodsBridgingHeader.h; path = "Supporting Files/PodsBridgingHeader.h"; sourceTree = "<group>"; };
 		7D3B93D2E84BCF79C8FA372C /* Pods-VideostreamClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideostreamClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideostreamClient/Pods-VideostreamClient.release.xcconfig"; sourceTree = "<group>"; };
 		F493205884C172C7FFE5228A /* Pods_VideostreamClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideostreamClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF48BE4DB777BA4CE798CFC6 /* Pods-VideostreamClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideostreamClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideostreamClient/Pods-VideostreamClient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,7 +178,6 @@
 				22F076631DF08800007C1CA2 /* Observable+Operators.swift */,
 				22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */,
 				226F192D1DEE3B5D00A68678 /* R.generated.swift */,
-				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */,
 				224597C71DDED84A00E784B2 /* AppDelegate.swift */,
 				224597CB1DDED84A00E784B2 /* Main.storyboard */,
@@ -190,6 +191,7 @@
 				229E9FE71DE1414900160514 /* NavCell.swift */,
 				224FBA671DDEEDC300574B2D /* HomeViewController.swift */,
 				224FBA631DDEE79500574B2D /* LoginViewController.swift */,
+				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
 				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
 				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
@@ -206,6 +208,7 @@
 				224597D31DDED84A00E784B2 /* Info.plist */,
 				229E9FE31DE136D200160514 /* ConfigManger.swift */,
 				229E9FE01DE1363C00160514 /* jsonConfig.json */,
+				22F0766F1DF0DA5F007C1CA2 /* Supporting Files */,
 			);
 			path = VideostreamClient;
 			sourceTree = "<group>";
@@ -217,6 +220,15 @@
 				226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		22F0766F1DF0DA5F007C1CA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22F076701DF0DAB0007C1CA2 /* BridgingHeader.h */,
+				22F076711DF0DAB0007C1CA2 /* PodsBridgingHeader.h */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		344FA227281DE77BD4994FB4 /* Frameworks */ = {
@@ -574,6 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Software.VideostreamClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideostreamClient/Supporting Files/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -588,6 +601,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Software.VideostreamClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VideostreamClient/Supporting Files/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

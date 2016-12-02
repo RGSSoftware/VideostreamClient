@@ -36,3 +36,7 @@ func isStringLength(oneOf lengths: [Int]) -> (String) -> Bool {
     }
 }
 
+// Useful for mapping an Observable<Whatever> into an Observable<Void> to hide details.
+func void<T>(_: T) -> Void {
+    return Void()
+}

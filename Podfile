@@ -1,3 +1,5 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/artsy/Specs.git'
 use_frameworks!
 
 platform :ios, '10.0'
@@ -15,7 +17,10 @@ target 'VideostreamClient' do
     pod 'Moya', '8.0.0-beta.5'
     pod 'Moya/RxSwift', '= 8.0.0-beta.5'
     pod 'NSObject+Rx', '2.0.0'
-    pod 'RxCocoa'
+    pod 'RxCocoa', '3.0.1'
+    pod 'Action', '2.1.0'
+    pod 'Artsy-UIButtons', '2.0.3'
+    pod 'SVProgressHUD'
     
     pod 'RESideMenu', :git => 'https://github.com/RGSSoftware/RESideMenu.git'
 end
