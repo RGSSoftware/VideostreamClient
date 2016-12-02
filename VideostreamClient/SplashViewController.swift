@@ -1,11 +1,3 @@
-//
-//  SplashViewController.swift
-//  VideostreamClient
-//
-//  Created by PC on 11/19/16.
-//  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
-//
-
 import UIKit
 import RESideMenu
 
@@ -13,12 +5,12 @@ class SplashViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if isUserAuthenticatedUrl(url: URL(string: ConfigManger.shared["services"]["baseApiURL"].stringValue)!){
+        if isUserAuthenticatedFor(URL(string: StreamAPI.base)!){
             
-            let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home_Screen")
+            let nVC = R.storyboard.main.navPager_Screen()!
+            nVC.screenId = R.storyboard.main.navPager_Screen.identifier
             let leftNavVC = R.storyboard.main.left_Nav_Screen()
-            let sideMenuVC = RESideMenu(contentViewController: homeVC, leftMenuViewController: leftNavVC, rightMenuViewController: nil)
+            let sideMenuVC = RESideMenu(contentViewController: nVC, leftMenuViewController: leftNavVC, rightMenuViewController: nil)
             sideMenuVC?.panGestureEnabled = false
             sideMenuVC?.menuPrefersStatusBarHidden = true
             sideMenuVC?.contentViewScaleValue = 0.9
@@ -33,7 +25,7 @@ class SplashViewController: UIViewController {
     }
     
 
-    func isUserAuthenticatedUrl(url: URL) -> Bool {
+    func isUserAuthenticatedFor(_ url: URL) -> Bool {
         
         for cookie in HTTPCookieStorage.shared.cookies(for: url)! {
             

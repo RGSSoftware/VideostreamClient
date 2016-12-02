@@ -65,8 +65,8 @@ extension StreamAPI : TargetType {
         }
     }
     
-    var base: String { return "https://api.videostream.pixeljaw.com" }
-    var baseURL: URL { return URL(string: base)! }
+    static var base: String { return "https://api.videostream.pixeljaw.com" }
+    var baseURL: URL { return URL(string: StreamAPI.base)! }
     
     var parameters: [String: Any]? {
         switch self {
@@ -110,3 +110,4 @@ func stubbedResponse(_ filename: String) -> Data! {
     let path = bundle.path(forResource: filename, ofType: "json")
     return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
 }
+

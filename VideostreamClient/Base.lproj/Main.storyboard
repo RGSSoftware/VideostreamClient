@@ -88,7 +88,7 @@
         <scene sceneID="Zzb-pA-laZ">
             <objects>
                 <navigationController id="2vO-TZ-42H" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wa2-A3-Srg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wa2-A3-Srg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -438,7 +438,7 @@
         <scene sceneID="muP-GL-SNQ">
             <objects>
                 <navigationController storyboardIdentifier="Search_Nav_Screen" id="JZ8-Kx-qZR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gQ-HM-aoI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2gQ-HM-aoI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94117647059999998" green="0.5450980392" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -554,7 +554,7 @@
         <scene sceneID="Jaz-X6-dbd">
             <objects>
                 <navigationController storyboardIdentifier="Profile_Nav_Screen" id="g41-B6-GcG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WlO-yL-AcK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WlO-yL-AcK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -614,7 +614,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-FA-V2Z">
-                                <rect key="frame" x="136" y="256" width="102" height="17"/>
+                                <rect key="frame" x="136.5" y="256" width="101.5" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAz-zY-0CH">
                                         <rect key="frame" x="0.0" y="0.0" width="9" height="17"/>
@@ -623,7 +623,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NG-3z-gz1">
-                                        <rect key="frame" x="20" y="0.0" width="82" height="17"/>
+                                        <rect key="frame" x="20" y="0.0" width="81.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -725,7 +725,7 @@
         <scene sceneID="nNq-eT-mHH">
             <objects>
                 <navigationController storyboardIdentifier="Home_Screen" id="Mcc-D5-Lia" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Hi-0l-BsL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Hi-0l-BsL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -926,7 +926,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7zX-ip-1Lt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="7zX-ip-1Lt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94117647059999998" green="0.5450980392" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
