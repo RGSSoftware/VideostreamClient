@@ -40,8 +40,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 19 images.
   struct image {
+    /// Image `emailSle`.
+    static let emailSle = Rswift.ImageResource(bundle: R.hostingBundle, name: "emailSle")
+    /// Image `email`.
+    static let email = Rswift.ImageResource(bundle: R.hostingBundle, name: "email")
     /// Image `fullProfileImageSlec`.
     static let fullProfileImageSlec = Rswift.ImageResource(bundle: R.hostingBundle, name: "fullProfileImageSlec")
     /// Image `fullProfileImage`.
@@ -50,6 +54,10 @@ struct R: Rswift.Validatable {
     static let iconClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon-close")
     /// Image `liveImageSlec`.
     static let liveImageSlec = Rswift.ImageResource(bundle: R.hostingBundle, name: "liveImageSlec")
+    /// Image `lockSle`.
+    static let lockSle = Rswift.ImageResource(bundle: R.hostingBundle, name: "lockSle")
+    /// Image `lock`.
+    static let lock = Rswift.ImageResource(bundle: R.hostingBundle, name: "lock")
     /// Image `menu`.
     static let menu = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu")
     /// Image `navBackArrowImage`.
@@ -66,8 +74,22 @@ struct R: Rswift.Validatable {
     static let navWatchLiveImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "navWatchLiveImage")
     /// Image `profilePlaceholderImage`.
     static let profilePlaceholderImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "profilePlaceholderImage")
+    /// Image `profileUsernameSle`.
+    static let profileUsernameSle = Rswift.ImageResource(bundle: R.hostingBundle, name: "profileUsernameSle")
+    /// Image `profileUsername`.
+    static let profileUsername = Rswift.ImageResource(bundle: R.hostingBundle, name: "profileUsername")
     /// Image `searchCancelImage`.
     static let searchCancelImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "searchCancelImage")
+    
+    /// `UIImage(named: "email", bundle: ..., traitCollection: ...)`
+    static func email(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.email, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "emailSle", bundle: ..., traitCollection: ...)`
+    static func emailSle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.emailSle, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "fullProfileImage", bundle: ..., traitCollection: ...)`
     static func fullProfileImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -87,6 +109,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "liveImageSlec", bundle: ..., traitCollection: ...)`
     static func liveImageSlec(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.liveImageSlec, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "lock", bundle: ..., traitCollection: ...)`
+    static func lock(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lock, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "lockSle", bundle: ..., traitCollection: ...)`
+    static func lockSle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.lockSle, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "menu", bundle: ..., traitCollection: ...)`
@@ -127,6 +159,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "profilePlaceholderImage", bundle: ..., traitCollection: ...)`
     static func profilePlaceholderImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.profilePlaceholderImage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "profileUsername", bundle: ..., traitCollection: ...)`
+    static func profileUsername(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileUsername, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "profileUsernameSle", bundle: ..., traitCollection: ...)`
+    static func profileUsernameSle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profileUsernameSle, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "searchCancelImage", bundle: ..., traitCollection: ...)`

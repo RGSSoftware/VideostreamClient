@@ -11,38 +11,30 @@ import SVProgressHUD
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var loginButton: ARFlatButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let view = UIView(frame: CGRect(x: 15, y: 5, width: 22, height: 20))
-        let imageView =  UIImageView(image: R.image.navWatchLiveImage())
-        imageView.highlightedImage = R.image.navGoLiveImage()
-        imageView.contentMode = .scaleAspectFit
-
-        imageView.frame = CGRect(x: 5, y: 0, width: 20, height: 20)
-        view.addSubview(imageView)
+        loginButton.layer.cornerRadius = 3
+        loginButton.setBorderColor(UIColor.darkGray, for: .disabled)
+        
+        let usernameImageView = UIImageView(image: R.image.profileUsername())
+        usernameImageView.highlightedImage = R.image.profileUsernameSle()
+        usernameImageView.contentMode = .scaleAspectFit
         
         usernameTextField.leftViewMode = .always
-        usernameTextField.leftView = view
-
-        let dview = UIView(frame: CGRect(x: 15, y: 5, width: 22, height: 20))
-        //        view.backgroundColor = .red
-        let dimageView =  UIImageView(image: R.image.navWatchLiveImage())
-        dimageView.highlightedImage = R.image.navGoLiveImage()
-        dimageView.contentMode = .scaleAspectFit
-        dimageView.frame = CGRect(x: 5, y: 0, width: 20, height: 20)
-        //        imageView.backgroundColor = .green
-        dview.addSubview(dimageView)
-        PasswordTextField.leftViewMode = .always
-        PasswordTextField.leftView = dview
+        usernameTextField.leftView = mapLeftView(usernameImageView)
         
-        loginButton.setTitle("dd", for: .disabled)
-
-        loginButton.layer.cornerRadius = 3
+        let passwordImageView = UIImageView(image: R.image.lock())
+        passwordImageView.highlightedImage = R.image.lockSle()
+        passwordImageView.contentMode = .scaleAspectFit
+        
+        passwordTextField.leftViewMode = .always
+        passwordTextField.leftView = mapLeftView(passwordImageView)
+        
         
         let usernameIsLongEnough = usernameTextField.rx.text
             .asObservable()
@@ -50,23 +42,21 @@ class LoginViewController: UIViewController {
             .map(isStringLengthAtLeast(length: 5))
         
         usernameIsLongEnough.bindNext{ (isHighlight) in
-                imageView.isHighlighted = isHighlight
+            usernameImageView.isHighlighted = isHighlight
             }
-        .addDisposableTo(rx_disposeBag)
+            .addDisposableTo(rx_disposeBag)
         
-        let passwordIsLongEnough = PasswordTextField.rx.text
+        let passwordIsLongEnough = passwordTextField.rx.text
             .asObservable()
             .replaceNil(with: "")
             .map(isStringLengthAtLeast(length: 6))
         
         passwordIsLongEnough.bindNext{ (isHighlight) in
-            dimageView.isHighlighted = isHighlight
+            passwordImageView.isHighlighted = isHighlight
             }
             .addDisposableTo(rx_disposeBag)
         
         let formIsValid = [usernameIsLongEnough, passwordIsLongEnough].combineLatestAnd()
-        
-        let r = [true, false].reduceAnd()
         
         loginButton.rx.action = CocoaAction(enabledIf: formIsValid, workFactory: { [weak self] _ -> Observable<Void> in
             
@@ -74,7 +64,7 @@ class LoginViewController: UIViewController {
             
             print(self!.loginButton.isEnabled)
             let provider = StreamProvider
-            let req = provider.request(.login(password: self!.PasswordTextField.text!, username: self!.usernameTextField.text!))
+            let req = provider.request(.login(password: self!.passwordTextField.text!, username: self!.usernameTextField.text!))
             req.subscribe(onNext: { (res) in
                     
                     SVProgressHUD.dismiss()
@@ -105,13 +95,21 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
+
+    }
+    
+    func mapLeftView(_ containView: UIView) -> UIView {
+        let view = UIView(frame: CGRect(x: 15, y: 5, width: 22, height: 20))
+        containView.frame = CGRect(x: 5, y: 0, width: 20, height: 20)
+        view.addSubview(containView)
+        return view
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         usernameTextField.resignFirstResponder()
-        PasswordTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
         
     }
     
@@ -119,7 +117,7 @@ class LoginViewController: UIViewController {
         super.viewDidDisappear(animated)
         
         usernameTextField.text = ""
-        PasswordTextField.text = ""
+        passwordTextField.text = ""
     }
     
 }

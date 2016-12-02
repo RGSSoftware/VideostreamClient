@@ -52,6 +52,7 @@ let StreamProvider = RxMoyaProvider<StreamAPI>()
 
 enum StreamAPI {
     case login(password: String, username: String)
+    case register(password: String, username: String, email: String)
 }
 
 extension StreamAPI : TargetType {
@@ -59,6 +60,8 @@ extension StreamAPI : TargetType {
         switch self {
         case .login(_, _):
             return "/login"
+        case .register(_, _, _):
+            return "/register"
         }
     }
     
@@ -69,7 +72,10 @@ extension StreamAPI : TargetType {
         switch self {
         case .login(let password, let username):
             return ["password": password, "username": username]
+        case .register(let password, let username, let email):
+            return ["password": password, "username": username, "email": email]
         }
+        
     }
     
     public var task: Task {
@@ -77,26 +83,21 @@ extension StreamAPI : TargetType {
     }
     
     var method: Moya.Method {
-        switch self {
-            
-        default:
-            return .post
-        }
+        return .post
     }
     
     var sampleData: Data {
         switch self {
         case .login:
             return stubbedResponse("Me")
+        case .register:
+            return stubbedResponse("Me")
             
         }
     }
     
     var parameterEncoding: Moya.ParameterEncoding {
-        switch self {
-        case .login:
-            return JSONEncoding.default
-        }
+        return JSONEncoding.default
     }
     
 }
