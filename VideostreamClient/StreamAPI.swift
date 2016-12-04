@@ -49,10 +49,12 @@ extension StreamAuthorizedAPI : TargetType {
 }
 
 let StreamProvider = RxMoyaProvider<StreamAPI>()
+let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
 
 enum StreamAPI {
     case login(password: String, username: String)
     case register(password: String, username: String, email: String)
+    case liveTop(page: Int, pageSize: Int)
 }
 
 extension StreamAPI : TargetType {
@@ -62,6 +64,8 @@ extension StreamAPI : TargetType {
             return "/login"
         case .register(_, _, _):
             return "/register"
+        case .liveTop(_, _):
+            return "/live/top"
         }
     }
     
@@ -74,6 +78,8 @@ extension StreamAPI : TargetType {
             return ["password": password, "username": username]
         case .register(let password, let username, let email):
             return ["password": password, "username": username, "email": email]
+        case .liveTop(let page, let pageSize):
+            return ["page": page, "limit": pageSize]
         }
         
     }
@@ -83,7 +89,13 @@ extension StreamAPI : TargetType {
     }
     
     var method: Moya.Method {
-        return .post
+        switch self {
+        case .login,
+             .register:
+            return .post
+        case .liveTop:
+            return .get
+        }
     }
     
     var sampleData: Data {
@@ -92,12 +104,21 @@ extension StreamAPI : TargetType {
             return stubbedResponse("Me")
         case .register:
             return stubbedResponse("Me")
+        case .liveTop:
+            return stubbedResponse("watch_live")
             
         }
     }
     
     var parameterEncoding: Moya.ParameterEncoding {
-        return JSONEncoding.default
+        switch self {
+        case .login,
+             .register:
+            return JSONEncoding.default
+        case .liveTop:
+            return URLEncoding.default
+        }
+        
     }
     
 }

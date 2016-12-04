@@ -1,10 +1,10 @@
-- profile screen
-- search screen
-- signup screen
-- logout
+* - profile screen
+* - search screen
+* - signup screen
+* - logout
 - eula screen
 - watch live screen
   - top cap
   - streamer profile image
-
+- log error to file
 

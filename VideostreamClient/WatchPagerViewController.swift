@@ -31,3 +31,23 @@ class WatchPagerViewController: InstagramPagerViewController {
     }
 
 }
+
+protocol Callable{
+    var first: String { get }
+}
+
+//protocol Person{
+//    var last: String { get set }
+//}
+
+class Person {
+    
+    var last: String?
+}
+
+class Joe: Person, Callable {
+    var first: String {
+        return "Joe"
+    }
+}
+

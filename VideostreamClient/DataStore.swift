@@ -51,6 +51,8 @@ class DataStore {
                 print(response.result.value)
             }
             
+            print(response.result.value)
+            
             strongSelf.data = response.result.value as! [[String : Any]]
 
             if strongSelf.data.count < strongSelf.limit {

@@ -75,7 +75,7 @@ class ProfileViewController: UIViewController {
     }
     
     func leftNavTap(_ id: Any) {
-        navigationController?.popViewController(animated: true)
+        _ = navigationController?.popViewController(animated: true)
     }
 
 }
