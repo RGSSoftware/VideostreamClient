@@ -55,6 +55,7 @@ enum StreamAPI {
     case login(password: String, username: String)
     case register(password: String, username: String, email: String)
     case liveTop(page: Int, pageSize: Int)
+    case liveFollowing(page: Int, pageSize: Int)
 }
 
 extension StreamAPI : TargetType {
@@ -64,7 +65,8 @@ extension StreamAPI : TargetType {
             return "/login"
         case .register(_, _, _):
             return "/register"
-        case .liveTop(_, _):
+        case .liveTop(_, _),
+             .liveFollowing(_, _):
             return "/live/top"
         }
     }
@@ -78,7 +80,8 @@ extension StreamAPI : TargetType {
             return ["password": password, "username": username]
         case .register(let password, let username, let email):
             return ["password": password, "username": username, "email": email]
-        case .liveTop(let page, let pageSize):
+        case .liveTop(let page, let pageSize),
+             .liveFollowing(let page, let pageSize):
             return ["page": page, "limit": pageSize]
         }
         
@@ -93,7 +96,8 @@ extension StreamAPI : TargetType {
         case .login,
              .register:
             return .post
-        case .liveTop:
+        case .liveTop,
+             .liveFollowing:
             return .get
         }
     }
@@ -104,9 +108,23 @@ extension StreamAPI : TargetType {
             return stubbedResponse("Me")
         case .register:
             return stubbedResponse("Me")
-        case .liveTop:
-            return stubbedResponse("watch_live")
+        case .liveTop(let page, _):
+            if page == 1{
+                return stubbedResponse("live_Top_x1")
+            } else if (page == 2){
+                return stubbedResponse("live_Top_x2")
+            } else {
+                return stubbedResponse("live_Top_x3")
+            }
             
+        case .liveFollowing(let page, _):
+            if page == 1{
+                return stubbedResponse("live_Top_x2")
+            } else if (page == 2){
+                return stubbedResponse("live_Top_x1")
+            } else {
+                return stubbedResponse("live_Top_x3")
+            }
         }
     }
     
@@ -115,7 +133,8 @@ extension StreamAPI : TargetType {
         case .login,
              .register:
             return JSONEncoding.default
-        case .liveTop:
+        case .liveTop,
+             .liveFollowing:
             return URLEncoding.default
         }
         

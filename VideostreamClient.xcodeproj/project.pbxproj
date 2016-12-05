@@ -11,7 +11,7 @@
 		2224EEE51DF3E119007828E5 /* watch_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 2224EEE41DF3E119007828E5 /* watch_live.json */; };
 		2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */; };
 		2224EEE91DF45611007828E5 /* JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEE81DF45611007828E5 /* JSONAble.swift */; };
-		2224EEEB1DF45669007828E5 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEEA1DF45669007828E5 /* UserModel.swift */; };
+		2224EEF81DF46A21007828E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEF71DF46A21007828E5 /* User.swift */; };
 		224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224597C71DDED84A00E784B2 /* AppDelegate.swift */; };
 		224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224597CB1DDED84A00E784B2 /* Main.storyboard */; };
 		224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224597CE1DDED84A00E784B2 /* Assets.xcassets */; };
@@ -50,6 +50,12 @@
 		229E9FE81DE1414900160514 /* NavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE71DE1414900160514 /* NavCell.swift */; };
 		229E9FEA1DE15D3E00160514 /* ProfileSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229E9FE91DE15D3E00160514 /* ProfileSampleView.swift */; };
 		22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D24B8C1DE49796000E76DB /* StreamerCell.swift */; };
+		22E6F97D1DF5ACF600F55F24 /* VariablePublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6F97C1DF5ACF600F55F24 /* VariablePublish.swift */; };
+		22E6F9881DF5C24200F55F24 /* live_Top_x1.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E6F9871DF5C24200F55F24 /* live_Top_x1.json */; };
+		22E6F98B1DF5C26C00F55F24 /* live_Top_x2.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */; };
+		22E6F98D1DF5C28C00F55F24 /* live_Top_x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */; };
+		22E6F99E1DF5CED100F55F24 /* Observable+VariablePublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */; };
+		22E6F9B41DF5F5C600F55F24 /* LiveStreamsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */; };
 		22F0765C1DEF2C91007C1CA2 /* StreamAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */; };
 		22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */; };
 		22F076641DF08800007C1CA2 /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F076631DF08800007C1CA2 /* Observable+Operators.swift */; };
@@ -87,7 +93,7 @@
 		2224EEE41DF3E119007828E5 /* watch_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = watch_live.json; sourceTree = "<group>"; };
 		2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
 		2224EEE81DF45611007828E5 /* JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAble.swift; sourceTree = "<group>"; };
-		2224EEEA1DF45669007828E5 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		2224EEF71DF46A21007828E5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		224597C41DDED84A00E784B2 /* VideostreamClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideostreamClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224597C71DDED84A00E784B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224597CC1DDED84A00E784B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +134,12 @@
 		229E9FE71DE1414900160514 /* NavCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavCell.swift; sourceTree = "<group>"; };
 		229E9FE91DE15D3E00160514 /* ProfileSampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSampleView.swift; sourceTree = "<group>"; };
 		22D24B8C1DE49796000E76DB /* StreamerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamerCell.swift; sourceTree = "<group>"; };
+		22E6F97C1DF5ACF600F55F24 /* VariablePublish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VariablePublish.swift; sourceTree = "<group>"; };
+		22E6F9871DF5C24200F55F24 /* live_Top_x1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live_Top_x1.json; sourceTree = "<group>"; };
+		22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live_Top_x2.json; sourceTree = "<group>"; };
+		22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live_Top_x3.json; sourceTree = "<group>"; };
+		22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+VariablePublish.swift"; sourceTree = "<group>"; };
+		22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamsNavigationController.swift; sourceTree = "<group>"; };
 		22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamAPI.swift; sourceTree = "<group>"; };
 		22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		22F076631DF08800007C1CA2 /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
@@ -145,30 +157,81 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224FBA6A1DDEF5D900574B2D /* AudioToolbox.framework in Frameworks */,
+				224FBA6C1DDEF5E100574B2D /* AVFoundation.framework in Frameworks */,
+				224FBA6E1DDEF5EA00574B2D /* CoreMedia.framework in Frameworks */,
 				226F19261DEE334E00A68678 /* IJKMediaFramework.framework in Frameworks */,
-				224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */,
-				224FBA761DDEF61600574B2D /* OpenGLES.framework in Frameworks */,
-				224FBA741DDEF60F00574B2D /* MediaPlayer.framework in Frameworks */,
 				224FBA721DDEF60800574B2D /* libbz2.tbd in Frameworks */,
 				224FBA701DDEF5FE00574B2D /* libz.tbd in Frameworks */,
-				224FBA6E1DDEF5EA00574B2D /* CoreMedia.framework in Frameworks */,
-				224FBA6C1DDEF5E100574B2D /* AVFoundation.framework in Frameworks */,
-				224FBA6A1DDEF5D900574B2D /* AudioToolbox.framework in Frameworks */,
+				224FBA741DDEF60F00574B2D /* MediaPlayer.framework in Frameworks */,
+				224FBA761DDEF61600574B2D /* OpenGLES.framework in Frameworks */,
 				D83E6E6D425D9A168C2C0697 /* Pods_VideostreamClient.framework in Frameworks */,
+				224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2224EEED1DF46793007828E5 /* Stubbed Responses */ = {
+			isa = PBXGroup;
+			children = (
+				22E6F9871DF5C24200F55F24 /* live_Top_x1.json */,
+				22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */,
+				22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */,
+				2224EEE11DF3DA44007828E5 /* Me.json */,
+				2224EEE41DF3E119007828E5 /* watch_live.json */,
+			);
+			name = "Stubbed Responses";
+			sourceTree = "<group>";
+		};
+		2224EEEF1DF467A6007828E5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				224597D01DDED84A00E784B2 /* LaunchScreen.storyboard */,
+				224597CB1DDED84A00E784B2 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2224EEF21DF467F3007828E5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		2224EEF31DF4688D007828E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				226F19311DEE576600A68678 /* LeftNavModel.swift */,
+				2224EEF71DF46A21007828E5 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2224EEF41DF468E7007828E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */,
+				22F076631DF08800007C1CA2 /* Observable+Operators.swift */,
+				22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */,
+				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
+				225330691DE12649008F61C1 /* UIView+Exten.swift */,
+				226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		224597BB1DDED84A00E784B2 = {
 			isa = PBXGroup;
 			children = (
-				226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */,
-				224597C61DDED84A00E784B2 /* VideostreamClient */,
-				224597C51DDED84A00E784B2 /* Products */,
-				E0B5F6950F584EEEE8ABBF01 /* Pods */,
 				344FA227281DE77BD4994FB4 /* Frameworks */,
+				E0B5F6950F584EEEE8ABBF01 /* Pods */,
+				224597C51DDED84A00E784B2 /* Products */,
+				224597C61DDED84A00E784B2 /* VideostreamClient */,
+				226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,47 +246,41 @@
 		224597C61DDED84A00E784B2 /* VideostreamClient */ = {
 			isa = PBXGroup;
 			children = (
-				2224EEE11DF3DA44007828E5 /* Me.json */,
-				2224EEE41DF3E119007828E5 /* watch_live.json */,
-				2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */,
-				2224EEE81DF45611007828E5 /* JSONAble.swift */,
-				22F076661DF0BAC5007C1CA2 /* Sequence+Exten.swift */,
-				22F076681DF0C40C007C1CA2 /* HelperFunctions.swift */,
-				22F076631DF08800007C1CA2 /* Observable+Operators.swift */,
-				22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */,
-				226F192D1DEE3B5D00A68678 /* R.generated.swift */,
-				22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */,
+				2224EEF41DF468E7007828E5 /* Extensions */,
+				2224EEF31DF4688D007828E5 /* Models */,
+				2224EEF21DF467F3007828E5 /* Networking */,
+				2224EEEF1DF467A6007828E5 /* Storyboards */,
+				2224EEED1DF46793007828E5 /* Stubbed Responses */,
+				22F0766F1DF0DA5F007C1CA2 /* Supporting Files */,
 				224597C71DDED84A00E784B2 /* AppDelegate.swift */,
-				2224EEEA1DF45669007828E5 /* UserModel.swift */,
-				224597CB1DDED84A00E784B2 /* Main.storyboard */,
-				226F19081DE8A23A00A68678 /* SearchViewController.swift */,
-				226F19021DE789C300A68678 /* MyProfileViewController.swift */,
-				226F19061DE7E5D500A68678 /* ProfileViewController.swift */,
-				226F19041DE7954700A68678 /* ProfileSampleCell.swift */,
-				229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */,
-				226F19311DEE576600A68678 /* LeftNavModel.swift */,
-				229E9FE91DE15D3E00160514 /* ProfileSampleView.swift */,
-				229E9FE71DE1414900160514 /* NavCell.swift */,
+				224597CE1DDED84A00E784B2 /* Assets.xcassets */,
+				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
+				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
+				229E9FE31DE136D200160514 /* ConfigManger.swift */,
+				226F19001DE697A900A68678 /* DataStore.swift */,
+				22F076681DF0C40C007C1CA2 /* HelperFunctions.swift */,
 				224FBA671DDEEDC300574B2D /* HomeViewController.swift */,
+				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
+				2224EEE81DF45611007828E5 /* JSONAble.swift */,
+				229E9FE01DE1363C00160514 /* jsonConfig.json */,
+				229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */,
+				22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */,
 				224FBA631DDEE79500574B2D /* LoginViewController.swift */,
+				22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */,
+				226F19021DE789C300A68678 /* MyProfileViewController.swift */,
+				229E9FE71DE1414900160514 /* NavCell.swift */,
+				226F19041DE7954700A68678 /* ProfileSampleCell.swift */,
+				229E9FE91DE15D3E00160514 /* ProfileSampleView.swift */,
+				226F19061DE7E5D500A68678 /* ProfileViewController.swift */,
+				226F192D1DEE3B5D00A68678 /* R.generated.swift */,
+				226F19081DE8A23A00A68678 /* SearchViewController.swift */,
+				22F076661DF0BAC5007C1CA2 /* Sequence+Exten.swift */,
 				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
-				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
-				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
-				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
-				226F19001DE697A900A68678 /* DataStore.swift */,
-				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
-				226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
-				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
-				225330691DE12649008F61C1 /* UIView+Exten.swift */,
-				226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */,
-				224597CE1DDED84A00E784B2 /* Assets.xcassets */,
-				224597D01DDED84A00E784B2 /* LaunchScreen.storyboard */,
-				224597D31DDED84A00E784B2 /* Info.plist */,
-				229E9FE31DE136D200160514 /* ConfigManger.swift */,
-				229E9FE01DE1363C00160514 /* jsonConfig.json */,
-				22F0766F1DF0DA5F007C1CA2 /* Supporting Files */,
+				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
+				22E6F97C1DF5ACF600F55F24 /* VariablePublish.swift */,
+				226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */,
 			);
 			path = VideostreamClient;
 			sourceTree = "<group>";
@@ -241,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				22F076701DF0DAB0007C1CA2 /* BridgingHeader.h */,
+				224597D31DDED84A00E784B2 /* Info.plist */,
 				22F076711DF0DAB0007C1CA2 /* PodsBridgingHeader.h */,
 			);
 			name = "Supporting Files";
@@ -249,15 +307,15 @@
 		344FA227281DE77BD4994FB4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				224FBA771DDEF61C00574B2D /* VideoToolbox.framework */,
-				224FBA751DDEF61600574B2D /* OpenGLES.framework */,
-				224FBA731DDEF60F00574B2D /* MediaPlayer.framework */,
+				224FBA691DDEF5D900574B2D /* AudioToolbox.framework */,
+				224FBA6B1DDEF5E100574B2D /* AVFoundation.framework */,
+				224FBA6D1DDEF5EA00574B2D /* CoreMedia.framework */,
 				224FBA711DDEF60800574B2D /* libbz2.tbd */,
 				224FBA6F1DDEF5FE00574B2D /* libz.tbd */,
-				224FBA6D1DDEF5EA00574B2D /* CoreMedia.framework */,
-				224FBA6B1DDEF5E100574B2D /* AVFoundation.framework */,
-				224FBA691DDEF5D900574B2D /* AudioToolbox.framework */,
+				224FBA731DDEF60F00574B2D /* MediaPlayer.framework */,
+				224FBA751DDEF61600574B2D /* OpenGLES.framework */,
 				F493205884C172C7FFE5228A /* Pods_VideostreamClient.framework */,
+				224FBA771DDEF61C00574B2D /* VideoToolbox.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,12 +417,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224597D21DDED84A00E784B2 /* LaunchScreen.storyboard in Resources */,
-				2224EEE51DF3E119007828E5 /* watch_live.json in Resources */,
 				224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */,
-				224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */,
 				229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */,
+				224597D21DDED84A00E784B2 /* LaunchScreen.storyboard in Resources */,
+				22E6F9881DF5C24200F55F24 /* live_Top_x1.json in Resources */,
+				22E6F98B1DF5C26C00F55F24 /* live_Top_x2.json in Resources */,
+				22E6F98D1DF5C28C00F55F24 /* live_Top_x3.json in Resources */,
+				224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */,
 				2224EEE21DF3DA44007828E5 /* Me.json in Resources */,
+				2224EEE51DF3E119007828E5 /* watch_live.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,39 +498,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */,
-				226F19051DE7954700A68678 /* ProfileSampleCell.swift in Sources */,
-				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
-				226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */,
-				226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */,
-				22F076691DF0C40C007C1CA2 /* HelperFunctions.swift in Sources */,
-				226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */,
-				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
-				22F076671DF0BAC5007C1CA2 /* Sequence+Exten.swift in Sources */,
-				226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */,
-				2224EEEB1DF45669007828E5 /* UserModel.swift in Sources */,
-				22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */,
-				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
-				229E9FEA1DE15D3E00160514 /* ProfileSampleView.swift in Sources */,
-				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
-				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,
-				2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */,
-				22F0765C1DEF2C91007C1CA2 /* StreamAPI.swift in Sources */,
-				226F19031DE789C300A68678 /* MyProfileViewController.swift in Sources */,
-				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
-				226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */,
-				224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */,
-				225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */,
-				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
-				2224EEE91DF45611007828E5 /* JSONAble.swift in Sources */,
 				224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */,
-				226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */,
-				224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */,
-				22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */,
-				22F076641DF08800007C1CA2 /* Observable+Operators.swift in Sources */,
+				224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */,
+				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
 				229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */,
-				224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */,
+				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
+				22F076691DF0C40C007C1CA2 /* HelperFunctions.swift in Sources */,
 				224FBA681DDEEDC300574B2D /* HomeViewController.swift in Sources */,
+				226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */,
+				2224EEE91DF45611007828E5 /* JSONAble.swift in Sources */,
+				226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */,
+				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
+				22E6F9B41DF5F5C600F55F24 /* LiveStreamsNavigationController.swift in Sources */,
+				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
+				22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */,
+				226F19031DE789C300A68678 /* MyProfileViewController.swift in Sources */,
+				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
+				2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */,
+				22F076641DF08800007C1CA2 /* Observable+Operators.swift in Sources */,
+				22E6F99E1DF5CED100F55F24 /* Observable+VariablePublish.swift in Sources */,
+				226F19051DE7954700A68678 /* ProfileSampleCell.swift in Sources */,
+				229E9FEA1DE15D3E00160514 /* ProfileSampleView.swift in Sources */,
+				226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */,
+				226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */,
+				226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */,
+				22F076671DF0BAC5007C1CA2 /* Sequence+Exten.swift in Sources */,
+				226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */,
+				224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */,
+				22F0765C1DEF2C91007C1CA2 /* StreamAPI.swift in Sources */,
+				22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */,
+				224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */,
+				225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */,
+				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,
+				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
+				2224EEF81DF46A21007828E5 /* User.swift in Sources */,
+				22E6F97D1DF5ACF600F55F24 /* VariablePublish.swift in Sources */,
+				226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

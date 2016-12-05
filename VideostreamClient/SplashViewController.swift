@@ -1,14 +1,21 @@
-import UIKit
+import Moya
 import RESideMenu
+import UIKit
 
 class SplashViewController: UIViewController {
 
+    var provider: RxMoyaProvider<StreamAPI>!
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if isUserAuthenticatedFor(URL(string: StreamAPI.base)!){
             
             let nVC = R.storyboard.main.navPager_Screen()!
             nVC.screenId = R.storyboard.main.navPager_Screen.identifier
+
+            guard let wpVC = nVC.topViewController as? WatchPagerViewController else { return }
+            wpVC.provider = provider
+            
             let leftNavVC = R.storyboard.main.left_Nav_Screen()
             let sideMenuVC = RESideMenu(contentViewController: nVC, leftMenuViewController: leftNavVC, rightMenuViewController: nil)
             sideMenuVC?.panGestureEnabled = false

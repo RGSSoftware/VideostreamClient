@@ -21,12 +21,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 6 files.
   struct file {
     /// Resource file `Me.json`.
     static let meJson = Rswift.FileResource(bundle: R.hostingBundle, name: "Me", pathExtension: "json")
     /// Resource file `jsonConfig.json`.
     static let jsonConfigJson = Rswift.FileResource(bundle: R.hostingBundle, name: "jsonConfig", pathExtension: "json")
+    /// Resource file `live_Top_x1.json`.
+    static let live_Top_x1Json = Rswift.FileResource(bundle: R.hostingBundle, name: "live_Top_x1", pathExtension: "json")
+    /// Resource file `live_Top_x2.json`.
+    static let live_Top_x2Json = Rswift.FileResource(bundle: R.hostingBundle, name: "live_Top_x2", pathExtension: "json")
+    /// Resource file `live_Top_x3.json`.
+    static let live_Top_x3Json = Rswift.FileResource(bundle: R.hostingBundle, name: "live_Top_x3", pathExtension: "json")
     /// Resource file `watch_live.json`.
     static let watch_liveJson = Rswift.FileResource(bundle: R.hostingBundle, name: "watch_live", pathExtension: "json")
     
@@ -39,6 +45,24 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "jsonConfig", withExtension: "json")`
     static func jsonConfigJson(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.jsonConfigJson
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "live_Top_x1", withExtension: "json")`
+    static func live_Top_x1Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.live_Top_x1Json
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "live_Top_x2", withExtension: "json")`
+    static func live_Top_x2Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.live_Top_x2Json
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "live_Top_x3", withExtension: "json")`
+    static func live_Top_x3Json(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.live_Top_x3Json
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -200,10 +224,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `ACell`.
-    static let aCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "ACell")
     /// Reuse identifier `NavCell`.
     static let navCell: Rswift.ReuseIdentifier<NavCell> = Rswift.ReuseIdentifier(identifier: "NavCell")
     /// Reuse identifier `ProfileCell`.

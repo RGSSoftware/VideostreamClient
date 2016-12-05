@@ -1,18 +1,15 @@
-//
-//  StreamsViewController.swift
-//  VideostreamClient
-//
-//  Created by PC on 11/19/16.
-//  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
-//
-
 import UIKit
 
 import Alamofire
 import XLPagerTabStrip
 
+import Rswift
+import UIScrollView_InfiniteScroll
+
 
 class StreamsViewController: UITableViewController, IndicatorInfoProvider {
+    
+    var viewModel: LiveViewMode!
     
     var itemInfo: IndicatorInfo = "View"
     
@@ -24,31 +21,56 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.dataStore?.fetch(){ [weak self] (error, isSuccessful) in
+        tableView.infiniteScrollIndicatorMargin = 40
+        tableView.infiniteScrollTriggerOffset = 500
+        tableView.addInfiniteScroll { [weak self] _ in
             guard let strongSelf = self else { return }
-            
-            strongSelf.tableView.reloadData()
+            strongSelf.viewModel.loadNextPage()
         }
+        
+        viewModel.endOfUsers.asObservable().bindNext{[weak self] isEnd in
+            guard let strongSelf = self else { return }
+            strongSelf.tableView.setShouldShowInfiniteScrollHandler{ _ in return !isEnd}
+        }.addDisposableTo(rx_disposeBag)
+        
+        viewModel.updatedUserIndexes.asObservable().bindNext{ [weak self] indexes in
+            guard let strongSelf = self else { return }
+        
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.insertRows(at: indexes, with: .automatic)
+            strongSelf.tableView.endUpdates()
+            
+            strongSelf.tableView.finishInfiniteScroll()
+            
+             }.addDisposableTo(rx_disposeBag)
+        
+        viewModel.loadCurrentPage()
+        
+        
+//        self.dataStore?.fetch(){ [weak self] (error, isSuccessful) in
+//            guard let strongSelf = self else { return }
+//            
+//            strongSelf.tableView.reloadData()
+//        }
         
     }
    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataStore!.data.count
+        return viewModel.numberOfUsers
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ACell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileSampleCell
         
-        let cellData = dataStore!.data[indexPath.row]
+        let user = viewModel.userAtIndexPath(indexPath)
         
-        cell.textLabel?.text =  cellData["username"] as? String
+        cell.profileNameLabel.text =  user.username
         
         return cell
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        print("itemInfo: \(itemInfo)")
+//        print("itemInfo: \(itemInfo)")
         return itemInfo
     }
     

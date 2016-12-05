@@ -1,130 +1,169 @@
-import UIKit
-import RxSwift
-import NSObject_Rx
 import Moya
+import NSObject_Rx
+import RxSwift
 import SwiftyJSON
+import UIKit
 
 protocol PagintaionReqestable {
     var pageSize: Int { get }
     var page: Int { get set }
-    var endPoint: StreamAPI { get }
 }
-
-//extension PagintaionReqestable {
-//    func requestNextPage() -> String{
-////        page += 1
-//        return reqest
-//    }
-//}
 
 enum StreamLiveStatus {
     case live
     case offline
 }
 
-struct User {
-    let username: String
-    let imageUrl: String
+
+protocol ListReqestable: class {
+    associatedtype Element: JSONAbleType
     
-    let streamKey: String
-    let streamLiveStatus: StreamLiveStatus
+    var provider: RxMoyaProvider<StreamAPI> { get }
+    
+    var elements: [Element] { get set }
+    
+    var endPoint: StreamAPI { get }
+    
+    var insertedElementIndexes: VariablePublish<Array<IndexPath>> {get set}
+    
+    func reqestPart() -> Disposable
 }
 
-extension User: JSONAbleType {
-    static func fromJSON(_ json: [String : Any]) -> User {
-        let json = JSON(json)
-        
-        let username = json["username"].stringValue
-        let imageUrl = json["imageUrl"].stringValue
-        let streamKey = json["imageUrl"].stringValue
-        
-        let status = json["streamStatus"].boolValue
-        let liveStatus = status ? StreamLiveStatus.live : StreamLiveStatus.offline
-        
-        return User(username: username, imageUrl: imageUrl, streamKey: streamKey, streamLiveStatus: liveStatus)
+extension ListReqestable {
+    
+    func reqestPart() -> Disposable {
+        return provider.request(endPoint)
+            .mapJSON()
+            .mapTo(arrayOf: Element.self)
+            .subscribe{[weak self] (event) in
+                switch event {
+                case .next(let e):
+                    
+                    let streamsCount = self!.elements.count
+                    let (start, end) = (streamsCount, e.count + streamsCount)
+                    let indexPaths = (start..<end).map { return IndexPath(row: $0, section: 0) }
+                    
+                    self!.elements.append(contentsOf: e)
+                    
+                    self!.insertedElementIndexes.value = indexPaths
+                default:()
+                }
+        }
     }
 }
 
 
-class WatchLiveViewMode: NSObject, PagintaionReqestable {
+class LiveViewMode: NSObject, ListReqestable, PagintaionReqestable {
+
     let provider: RxMoyaProvider<StreamAPI>
     
-    internal var streams: [User] = []
-    var numberOfStreams: Int {
-        return streams.count
+    internal var elements: [User] = []
+    var numberOfUsers: Int {
+        return elements.count
     }
     
-    var updatedContentIndexs = Variable<Array<IndexPath>>([])
-    var endOfContent = Variable<Bool>(false)
+    internal var insertedElementIndexes = VariablePublish<Array<IndexPath>>([])
+    var updatedUserIndexes = VariablePublish<Array<IndexPath>>([])
+
+    
+    var endOfUsers = Variable<Bool>(false)
+    
+    internal var endPoint: StreamAPI{
+        assert(false, "This method must be overriden by the subclass")
+    }
     
     internal var pageSize: Int
     internal var page: Int
-    internal var endPoint: StreamAPI{
-        return .liveTop(page: page, pageSize: pageSize)
-    }
     
     init(provider: RxMoyaProvider<StreamAPI>, pageSize: Int = 20) {
+        
         self.provider = provider
         self.pageSize = pageSize
         self.page = 1
         
-        updatedContentIndexs.value = [IndexPath(row: 1, section: 0)]
+        super.init()
+        
+        let o = insertedElementIndexes
+            .asObservable()
+            
+        o.bindTo(updatedUserIndexes).addDisposableTo(rx_disposeBag)
+        
+        o.map {
+            $0.count != pageSize ? true : false
+        }.bindTo(endOfUsers).addDisposableTo(rx_disposeBag)
+        
     }
     
     func loadCurrentPage() {
-        provider.request(endPoint)
-            .mapJSON()
-            .mapTo(arrayOf: User.self)
-            .subscribe{ [weak self] (event) in
-                switch event {
-                    case .next(let e):
-                        
-                        let streamsCount = self!.streams.count
-                        let (start, end) = (streamsCount, e.count + streamsCount)
-                        let indexPaths = (start..<end).map { return IndexPath(row: $0, section: 0) }
-                        
-                        self!.streams.append(contentsOf: e)
-                        
-                        self?.updatedContentIndexs.value = indexPaths
-                        
-                    default:()
-                }
-            
-            }.addDisposableTo(rx_disposeBag)
-     
+        reqestPart().addDisposableTo(rx_disposeBag)
     }
     
     func loadNextPage() {
-        
         page += 1
         loadCurrentPage()
-        print(endPoint)
+    }
     
+    func userAtIndexPath(_ indexPath: IndexPath) -> User {
+        return elements[indexPath.row]
     }
 }
 
+class LiveFollowingViewModel: LiveViewMode {
+    
+    override internal var endPoint: StreamAPI{
+        return .liveFollowing(page: page, pageSize: pageSize)
+    }
+}
+
+class LiveTopViewModel: LiveViewMode {
+    
+    override internal var endPoint: StreamAPI{
+        return .liveTop(page: page, pageSize: pageSize)
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let viewModel = WatchLiveViewMode(provider: StubStreamProvider)
-
-    fileprivate(set) var provider = StreamAuthorizedProvider
+    let provider = StubStreamProvider
+    let viewModel = LiveFollowingViewModel(provider: StubStreamProvider)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        viewModel.updatedContentIndexs
-            .asObservable().subscribe{ event in
-            print(event)
-        }.addDisposableTo(rx_disposeBag)
-        viewModel.loadCurrentPage()
-//        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { (timer) in
+//        viewModel.updatedUserIndexes
+//            .asObservable().subscribe{ [weak self] event in
+//                switch event {
+//                    case .next(let e):
+//
+//                        print(e.count)
+//                        print(self!.viewModel.userAtIndexPath(e[3]))
+//
+//                    default: ()
+//                }
+//               
+//        }.addDisposableTo(rx_disposeBag)
+//        
+//        viewModel.endOfUsers
+//            .asObservable().subscribe(onNext: { isEnd in
+//                print(isEnd)
+//            }).addDisposableTo(rx_disposeBag)
+//        viewModel.loadCurrentPage()
+//        
+//        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+//            self.viewModel.loadNextPage()
 //            
+//            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+//                self.viewModel.loadNextPage()
+//            }
 //        }
         
-        let data = StreamAPI.liveTop(page: 1, pageSize: 20).sampleData
-//        
+        guard let sVC = window?.rootViewController as? SplashViewController else { return false }
+        sVC.provider = provider
+        
+        
+        
+//        StreamAPI.
         ConfigManger.jsonResourceName = "jsonConfig"
         
 //        let o = provider.request(.me)

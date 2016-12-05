@@ -6,8 +6,8 @@
 //  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
 //
 
-import UIKit
 import Alamofire
+import UIKit
 
 class HomeViewController: UIViewController {
 

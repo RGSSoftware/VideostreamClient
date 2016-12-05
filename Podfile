@@ -5,6 +5,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'VideostreamClient' do
+    
     pod 'LFLiveKit', '2.3'
     pod 'Alamofire', '4.2.0'
     pod 'Socket.IO-Client-Swift', '8.1.2'
@@ -20,7 +21,9 @@ target 'VideostreamClient' do
     pod 'RxCocoa', '3.0.1'
     pod 'Action', '2.1.0'
     pod 'Artsy-UIButtons', '2.0.3'
-    pod 'SVProgressHUD'
+    pod 'SVProgressHUD', '2.1'
+    pod 'UIScrollView-InfiniteScroll', '0.9.1'
+    pod 'SDWebImage', '~> 3.7'
     
     pod 'RESideMenu', :git => 'https://github.com/RGSSoftware/RESideMenu.git'
 end
