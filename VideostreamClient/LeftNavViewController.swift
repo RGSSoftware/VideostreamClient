@@ -1,16 +1,11 @@
-//
-//  LeftNavViewController.swift
-//  VideostreamClient
-//
-//  Created by PC on 11/19/16.
-//  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
-//
-
-import UIKit
-import SwiftyJSON
 import Alamofire
+import Moya
+import SwiftyJSON
+import UIKit
 
 class LeftNavViewController: UIViewController {
+    
+    var provider: RxMoyaProvider<StreamAPI>!
     
     @IBOutlet weak var navProfileView: ProfileSampleView!
 
@@ -127,6 +122,10 @@ extension LeftNavViewController: UITableViewDelegate {
                     
                     let nVC = R.storyboard.main.navPager_Screen()!
                     nVC.screenId = R.storyboard.main.navPager_Screen.identifier
+                    
+                    guard let wpVC = nVC.topViewController as? WatchPagerViewController else { return }
+                    wpVC.provider = provider
+                    
                     sideMenuViewController.setContentViewController(nVC, animated: true)
                     
                 } else if screen == R.storyboard.main.search_Nav_Screen.identifier {

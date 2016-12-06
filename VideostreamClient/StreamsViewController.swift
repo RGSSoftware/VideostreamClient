@@ -1,10 +1,9 @@
-import UIKit
-
-import Alamofire
-import XLPagerTabStrip
-
 import Rswift
+import SDWebImage
+import SnapKit
+import UIKit
 import UIScrollView_InfiniteScroll
+import XLPagerTabStrip
 
 
 class StreamsViewController: UITableViewController, IndicatorInfoProvider {
@@ -12,11 +11,6 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     var viewModel: LiveViewMode!
     
     var itemInfo: IndicatorInfo = "View"
-    
-    var dataStore: DataStore?
-
-    
-    var data: [[String: Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +40,6 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         
         viewModel.loadCurrentPage()
         
-        
-//        self.dataStore?.fetch(){ [weak self] (error, isSuccessful) in
-//            guard let strongSelf = self else { return }
-//            
-//            strongSelf.tableView.reloadData()
-//        }
-        
     }
    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,17 +50,18 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileSampleCell
         
         let user = viewModel.userAtIndexPath(indexPath)
+        cell.profileNameLabel.text = user.username
         
-        cell.profileNameLabel.text =  user.username
+                cell.profileImageView!.sd_setImage(with: URL(string: user.imageUrl), placeholderImage:R.image.profilePlaceholderImage())
+        
+        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
+        cell.profileImageView.layer.masksToBounds = true
         
         return cell
     }
     
+    
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-//        print("itemInfo: \(itemInfo)")
         return itemInfo
     }
-    
-    
 }
-

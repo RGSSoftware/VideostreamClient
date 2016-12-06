@@ -17,6 +17,8 @@ class SplashViewController: UIViewController {
             wpVC.provider = provider
             
             let leftNavVC = R.storyboard.main.left_Nav_Screen()
+            leftNavVC?.provider = provider
+            
             let sideMenuVC = RESideMenu(contentViewController: nVC, leftMenuViewController: leftNavVC, rightMenuViewController: nil)
             sideMenuVC?.panGestureEnabled = false
             sideMenuVC?.menuPrefersStatusBarHidden = true

@@ -961,35 +961,9 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="73"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wWq-zb-6HC" id="127-uK-qdE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="duA-F0-zEq">
-                                            <rect key="frame" x="16" y="11" width="51" height="51"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="duA-F0-zEq" secondAttribute="height" multiplier="1:1" id="buJ-rl-qgz"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKz-G6-c5T">
-                                            <rect key="frame" x="83" y="26" width="284" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="qKz-G6-c5T" firstAttribute="leading" secondItem="duA-F0-zEq" secondAttribute="trailing" constant="16" id="1Bd-tB-PLw"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="qKz-G6-c5T" secondAttribute="trailing" id="5BD-Rx-VZa"/>
-                                        <constraint firstItem="duA-F0-zEq" firstAttribute="height" secondItem="127-uK-qdE" secondAttribute="height" multiplier="0.7" id="BhT-0T-aTg"/>
-                                        <constraint firstItem="duA-F0-zEq" firstAttribute="centerY" secondItem="127-uK-qdE" secondAttribute="centerY" id="I3E-LG-Fvl"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="duA-F0-zEq" secondAttribute="leading" constant="-8" id="fPH-Y0-lH1"/>
-                                        <constraint firstItem="qKz-G6-c5T" firstAttribute="centerY" secondItem="127-uK-qdE" secondAttribute="centerY" id="yHi-Xu-6y6"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="profileImageView" destination="duA-F0-zEq" id="hFW-m7-x2v"/>
-                                    <outlet property="profileNameLabel" destination="qKz-G6-c5T" id="sTG-ul-ehZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

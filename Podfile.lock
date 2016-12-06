@@ -31,6 +31,10 @@ PODS:
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
   - RxSwift (3.0.1)
+  - SDWebImage (4.0.0-beta2):
+    - SDWebImage/Core (= 4.0.0-beta2)
+  - SDWebImage/Core (4.0.0-beta2)
+  - SnapKit (3.0.2)
   - Socket.IO-Client-Swift (8.1.2)
   - SVProgressHUD (2.1)
   - SwiftyJSON (3.1.3)
@@ -52,6 +56,8 @@ DEPENDENCIES:
   - R.swift (= 3.1.0)
   - RESideMenu (from `https://github.com/RGSSoftware/RESideMenu.git`)
   - RxCocoa (= 3.0.1)
+  - SDWebImage (= 4.0.0-beta2)
+  - SnapKit (~> 3.0.2)
   - Socket.IO-Client-Swift (= 8.1.2)
   - SVProgressHUD (= 2.1)
   - SwiftyJSON (= 3.1.3)
@@ -85,6 +91,8 @@ SPEC CHECKSUMS:
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxSwift: af5680055c4ad04480189c52d28385b1029493a6
+  SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   Socket.IO-Client-Swift: 542d82e6708f9901b3f6c1d134fb60fa0d09d4d1
   SVProgressHUD: 76eacbf6f547ee13b3b25e2fb42b52d4cad76112
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
@@ -92,6 +100,6 @@ SPEC CHECKSUMS:
   UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: cf96a0e94cc875e9faa503b97091698e2dea40d9
+PODFILE CHECKSUM: 784a43575727d883030bde6ab8f0465734283fb5
 
 COCOAPODS: 1.1.1
