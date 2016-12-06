@@ -130,9 +130,13 @@ extension LeftNavViewController: UITableViewDelegate {
                     
                 } else if screen == R.storyboard.main.search_Nav_Screen.identifier {
                     
-                    let sVC = R.storyboard.main.search_Nav_Screen()!
-                    sVC.screenId = R.storyboard.main.search_Nav_Screen.identifier
-                    sideMenuViewController.setContentViewController(sVC, animated: true)
+                    let nVC = R.storyboard.main.search_Nav_Screen()!
+                    
+                    guard let sVC = nVC.topViewController as? SearchViewController else { return }
+                    sVC.provider = provider
+                    
+                    nVC.screenId = R.storyboard.main.search_Nav_Screen.identifier
+                    sideMenuViewController.setContentViewController(nVC, animated: true)
                 }
             }
 

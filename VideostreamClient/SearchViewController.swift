@@ -1,35 +1,71 @@
-//
-//  SerchViewController.swift
-//  
-//
-//  Created by PC on 11/25/16.
-//
-//
-
-import UIKit
 import Alamofire
+import Moya
+import NSObject_Rx
+import RxCocoa
+import RxSwift
+import UIKit
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
+    var provider: RxMoyaProvider<StreamAPI>!
     
-    var searchTimer: Timer?
+    lazy var viewModel: SearchUsersViewModel = {
+        return SearchUsersViewModel(provider: self.provider!)
+    }()
+    
     
     @IBOutlet weak var tableView: UITableView!
-    var data: [[String: Any]]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuNavButton()!)
         
-        data = []
-        for i in 0...50{
-            let row = ["username": String(i)]
-            data?.append(row)
+        tableView.infiniteScrollIndicatorMargin = 40
+        tableView.infiniteScrollTriggerOffset = 500
+        tableView.addInfiniteScroll { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.viewModel.loadNextPage()
         }
         
+        viewModel.endOfUsers.asObservable().bindNext{[weak self] isEnd in
+            guard let strongSelf = self else { return }
+            print(isEnd)
+            strongSelf.tableView.setShouldShowInfiniteScrollHandler{ _ in return !isEnd}
+            }.addDisposableTo(rx_disposeBag)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuNavButton()!)
+        viewModel.updatedUserIndexes.asObservable().bindNext{ [weak self] indexes in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.insertRows(at: indexes, with: .automatic)
+            strongSelf.tableView.endUpdates()
+            
+            strongSelf.tableView.finishInfiniteScroll()
+            
+            }.addDisposableTo(rx_disposeBag)
+        
+        viewModel.deletedUserIndexes.asObservable().bindNext{ [weak self] indexes in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.deleteRows(at: indexes, with: .automatic)
+            strongSelf.tableView.endUpdates()
+            
+            }.addDisposableTo(rx_disposeBag)
+        
+            searchTextField.rx.text
+                .filter { $0 != nil }
+                .map { $0! }
+                .throttle(0.5, scheduler: MainScheduler.instance)
+                .distinctUntilChanged()
+                .filter { $0.characters.count > 0 }
+                .bindNext{[weak self] q in
+                    guard let strongSelf = self else { return }
+                    strongSelf.viewModel.searchUsernamesWith(q)
+                }.addDisposableTo(rx_disposeBag)
+
     }
     
     func leftNavTap(_ id: Any) {
@@ -47,7 +83,7 @@ class SearchViewController: UIViewController {
     }
     
     func menuNavButton() -> UIButton?{
-        let button = UIButton(image: UIImage(named: "menu")!)
+        let button = UIButton(image:R.image.menu())
         button?.setFrameSizeHeight((navigationController?.navigationBar.frame.size.height)!)
         button?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
         
@@ -56,43 +92,15 @@ class SearchViewController: UIViewController {
     }
     
     func searchCancelNavButton() -> UIButton? {
-        let button = UIButton(image: UIImage(named: "searchCancelImage")!)
+        let button = UIButton(image: R.image.searchCancelImage())
         button?.setFrameSizeHeight((navigationController?.navigationBar.frame.size.height)!)
         button?.addTarget(self, action: #selector(cancelSearchTap(_:)), for: .touchUpInside)
         
         return button
     }
     
-    func performSearch(_ timer: Timer?) {
-        let info = timer?.userInfo as? [String: Any]
-//        print(info)
-        
-        if info?["q"] as! String != ""{
-            let baseURL = ConfigManger.shared["services"]["baseApiURL"].stringValue
-            //        let q = "q=\(info["q"] as! String)"
-            Alamofire.request(baseURL + "/search/users?q=\(info?["q"] as! String)", method: .get).responseJSON {[weak self] (response) in
-                
-                guard let strongSelf = self else { return }
-                
-                
-                let data = response.result.value as! [[String : Any]]
-                //            strongSelf.profileSampleView.profileNameLabel.text = "@\(data["username"] as! String)"
-                print(data)
-                
-                strongSelf.data = data
-                strongSelf.tableView.reloadData()
-            }
-        } else {
-            data?.removeAll()
-            tableView.reloadData()
-
-        }
-        
-
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "from_Search_to_Profile" &&
+        if segue.identifier == R.segue.searchViewController.from_Search_to_Profile.identifier &&
             segue.destination is ProfileViewController {
             
             let pVC = segue.destination as! ProfileViewController
@@ -100,32 +108,12 @@ class SearchViewController: UIViewController {
             
         }
     }
-
-
-
 }
 
 extension SearchViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         navigationItem.setLeftBarButton(UIBarButtonItem(customView: searchCancelNavButton()!), animated: true)
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-        if let searchTimer = self.searchTimer {
-            searchTimer.invalidate()
-        }
-        
-        searchTimer = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(performSearch(_:)), userInfo: ["q": updatedString], repeats: false)
-        
-        return true
-    }
-    
-    
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -136,19 +124,15 @@ extension SearchViewController: UITextFieldDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let data = self.data {
-            return data.count
-        }
-        
-        return 0
+        return viewModel.numberOfUsers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileSampleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.profileCell.identifier, for: indexPath) as! ProfileSampleCell
         
-        let cellData = data?[indexPath.row]
+        let user = viewModel.userAtIndexPath(indexPath)
         
-        cell.profileNameLabel?.text =  "@\(cellData?["username"] as! String)"
+        cell.profileNameLabel?.text =  user.username
         cell.profileImageView.image = R.image.profilePlaceholderImage()
         
         return cell
@@ -159,7 +143,9 @@ extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         resignSearch()
         
-        performSegue(withIdentifier: "from_Search_to_Profile", sender: data?[indexPath.row]["id"])
+        let user = viewModel.userAtIndexPath(indexPath)
+        
+        performSegue(withIdentifier: R.segue.searchViewController.from_Search_to_Profile.identifier, sender: user.id)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

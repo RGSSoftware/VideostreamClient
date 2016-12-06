@@ -11,4 +11,6 @@
 
 #import <UIScrollView_InfiniteScroll/UIScrollView+InfiniteScroll.h>
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 

@@ -1,15 +1,15 @@
-//
-//  ProfileViewController.swift
-//  VideostreamClient
-//
-//  Created by PC on 11/24/16.
-//  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
-//
-
-import UIKit
 import Alamofire
+import Moya
+import RxSwift
+import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    var provider: RxMoyaProvider<StreamAPI>!
+    
+//    lazy var viewModel: Profile = {
+//        return SearchUsersViewModel(provider: self.provider!)
+//    }()
 
     @IBOutlet weak var profileSampleView: ProfileSampleView!
     
@@ -21,7 +21,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let leftArrowButton = UIButton(image: UIImage(named: "navBackArrowImage")!)
+//        provider.request(.users(id: profileId!)).subscribe{}.addDisposableTo(rx_disposeBag)
+        
+        let leftArrowButton = UIButton(image: R.image.navBackArrowImage())
         leftArrowButton?.setFrameSizeHeight((navigationController?.navigationBar.frame.size.height)!)
         leftArrowButton?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
@@ -53,6 +55,8 @@ class ProfileViewController: UIViewController {
             Alamofire.request(baseURL + "/user/isfollowing/\(profileId)", method: .get).responseJSON {[weak self] (response) in
                 
                 guard let strongSelf = self else { return }
+                
+                print(response.result.value)
                 
                 
                 let data = response.result.value as! [String : Any]

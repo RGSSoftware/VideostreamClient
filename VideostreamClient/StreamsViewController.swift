@@ -39,6 +39,7 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
              }.addDisposableTo(rx_disposeBag)
         
         viewModel.loadCurrentPage()
+        tableView.beginInfiniteScroll(true)
         
     }
    
@@ -52,7 +53,17 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         let user = viewModel.userAtIndexPath(indexPath)
         cell.profileNameLabel.text = user.username
         
-                cell.profileImageView!.sd_setImage(with: URL(string: user.imageUrl), placeholderImage:R.image.profilePlaceholderImage())
+        cell.profileImageView!.sd_setImage(with: URL(string: user.imageUrl),
+                                           placeholderImage:R.image.profilePlaceholderImage(),
+                                           options:[SDWebImageOptions.avoidAutoSetImage]){ [weak cell] (image, _, _, _ ) in
+            guard let strongCell = cell else { return }
+            
+            UIView.transition(with: strongCell.profileImageView,
+                                      duration:0.4,
+                                      options: UIViewAnimationOptions.transitionCrossDissolve,
+                                      animations: { strongCell.profileImageView.image = image },
+                                      completion: nil)
+        }
         
         cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
         cell.profileImageView.layer.masksToBounds = true

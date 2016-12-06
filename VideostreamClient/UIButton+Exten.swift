@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIButton {
 
-    public convenience init?(image: UIImage){
+    public convenience init?(image: UIImage?){
         
         self.init(type: UIButtonType.custom)
         

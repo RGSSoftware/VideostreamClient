@@ -10,15 +10,11 @@ class WatchPagerViewController: InstagramPagerViewController {
         
         let child_1 = R.storyboard.main.streams_Screen()!
         child_1.itemInfo = "TOP"
-        child_1.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following", fetchSize: 50, streamStatus: false)
-        
         child_1.viewModel = LiveTopViewModel(provider: provider)
         
         
         let child_2 = R.storyboard.main.streams_Screen()!
         child_2.itemInfo = "FOLLOWING"
-        child_2.dataStore = DataStore(baseURL: ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/following?streamStatus=1", fetchSize: 50, streamStatus: true)
-        
         child_2.viewModel = LiveFollowingViewModel(provider: provider)
         
         

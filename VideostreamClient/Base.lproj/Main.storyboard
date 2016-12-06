@@ -473,33 +473,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nPT-ZC-r96" id="iJ5-P2-rho">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YqX-wM-gYw">
-                                                    <rect key="frame" x="16" y="11" width="51" height="51"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="YqX-wM-gYw" secondAttribute="height" multiplier="1:1" id="s1b-i2-cMw"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqB-bp-ppE">
-                                                    <rect key="frame" x="83" y="26" width="284" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="KqB-bp-ppE" firstAttribute="centerY" secondItem="iJ5-P2-rho" secondAttribute="centerY" id="9gJ-hq-SB2"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="YqX-wM-gYw" secondAttribute="leading" constant="-8" id="Jtv-ba-7cM"/>
-                                                <constraint firstItem="YqX-wM-gYw" firstAttribute="centerY" secondItem="iJ5-P2-rho" secondAttribute="centerY" id="WZ3-ZX-akr"/>
-                                                <constraint firstItem="YqX-wM-gYw" firstAttribute="height" secondItem="iJ5-P2-rho" secondAttribute="height" multiplier="0.7" id="Wuy-DF-4WZ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="KqB-bp-ppE" secondAttribute="trailing" id="swZ-aO-Gp9"/>
-                                                <constraint firstItem="KqB-bp-ppE" firstAttribute="leading" secondItem="YqX-wM-gYw" secondAttribute="trailing" constant="16" id="t0J-D4-vSb"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="profileImageView" destination="YqX-wM-gYw" id="QRh-Jv-bPJ"/>
-                                            <outlet property="profileNameLabel" destination="KqB-bp-ppE" id="s5w-iT-Xxf"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -519,7 +493,7 @@
                     <navigationItem key="navigationItem" id="RSg-Hk-4ru">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="JBV-hq-JeH">
-                            <rect key="frame" x="24" y="5.5" width="327" height="33"/>
+                            <rect key="frame" x="24" y="6" width="327" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qUo-eR-d0Z">
@@ -579,7 +553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJG-wz-3Ei" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="117.5" y="88" width="140" height="140"/>
+                                <rect key="frame" x="118" y="88" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd1-aU-Jbj">
                                         <rect key="frame" x="18" y="0.0" width="105" height="105"/>
@@ -640,33 +614,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4xq-Tq-YbJ" id="oE6-6m-q2k">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFm-Mm-17h">
-                                                    <rect key="frame" x="16" y="11" width="51" height="51"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="JFm-Mm-17h" secondAttribute="height" multiplier="1:1" id="3OJ-g1-Q8Q"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5y1-Wc-J3Z">
-                                                    <rect key="frame" x="83" y="26" width="284" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="JFm-Mm-17h" firstAttribute="centerY" secondItem="oE6-6m-q2k" secondAttribute="centerY" id="2aw-uj-qoI"/>
-                                                <constraint firstItem="5y1-Wc-J3Z" firstAttribute="leading" secondItem="JFm-Mm-17h" secondAttribute="trailing" constant="16" id="8q6-Fb-KjQ"/>
-                                                <constraint firstItem="JFm-Mm-17h" firstAttribute="height" secondItem="oE6-6m-q2k" secondAttribute="height" multiplier="0.7" id="Jhi-5l-uLm"/>
-                                                <constraint firstItem="5y1-Wc-J3Z" firstAttribute="centerY" secondItem="oE6-6m-q2k" secondAttribute="centerY" id="aJ7-ZO-Po6"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="JFm-Mm-17h" secondAttribute="leading" constant="-8" id="bPL-TQ-6Yr"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5y1-Wc-J3Z" secondAttribute="trailing" id="vR1-q3-Ysc"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="profileImageView" destination="JFm-Mm-17h" id="dWR-Ub-8g1"/>
-                                            <outlet property="profileNameLabel" destination="5y1-Wc-J3Z" id="uHH-l0-RFq"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -989,7 +937,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-fa-dVn" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="117.5" y="88" width="140" height="140"/>
+                                <rect key="frame" x="118" y="88" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dl-PX-kBw">
                                         <rect key="frame" x="18" y="0.0" width="105" height="105"/>

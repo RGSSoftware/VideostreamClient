@@ -23,7 +23,7 @@ target 'VideostreamClient' do
     pod 'SnapKit', '~> 3.0.2'
     pod 'Socket.IO-Client-Swift', '8.1.2'
     pod 'SwiftyJSON', '3.1.3'
-    pod 'UIScrollView-InfiniteScroll', '0.9.1'
+    pod 'UIScrollView-InfiniteScroll', :git => 'https://github.com/pronebird/UIScrollView-InfiniteScroll.git', :commit => '1f7b418'
     pod 'XLPagerTabStrip', '6.0.0'
 
     pod 'RESideMenu', :git => 'https://github.com/RGSSoftware/RESideMenu.git'

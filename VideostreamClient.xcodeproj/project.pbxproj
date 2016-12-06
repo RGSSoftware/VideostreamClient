@@ -55,7 +55,13 @@
 		22E6F98B1DF5C26C00F55F24 /* live_Top_x2.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */; };
 		22E6F98D1DF5C28C00F55F24 /* live_Top_x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */; };
 		22E6F99E1DF5CED100F55F24 /* Observable+VariablePublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */; };
-		22E6F9B41DF5F5C600F55F24 /* LiveStreamsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */; };
+		22E8C64D1DF669A500ED8CF1 /* ListReqestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C64C1DF669A500ED8CF1 /* ListReqestable.swift */; };
+		22E8C6501DF669CB00ED8CF1 /* PagintaionReqestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C64F1DF669CB00ED8CF1 /* PagintaionReqestable.swift */; };
+		22E8C6521DF669F400ED8CF1 /* LiveViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C6511DF669F400ED8CF1 /* LiveViewMode.swift */; };
+		22E8C6571DF66AC400ED8CF1 /* SearchUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C6561DF66AC400ED8CF1 /* SearchUsersViewModel.swift */; };
+		22E8C6751DF6891400ED8CF1 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C6741DF6891400ED8CF1 /* User.json */; };
+		22E8C6881DF759C700ED8CF1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8C6871DF759C700ED8CF1 /* ProfileViewModel.swift */; };
+		22E8C68E1DF7845900ED8CF1 /* isFollowing.json in Resources */ = {isa = PBXBuildFile; fileRef = 22E8C68D1DF7845900ED8CF1 /* isFollowing.json */; };
 		22F0765C1DEF2C91007C1CA2 /* StreamAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */; };
 		22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */; };
 		22F076641DF08800007C1CA2 /* Observable+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F076631DF08800007C1CA2 /* Observable+Operators.swift */; };
@@ -139,7 +145,13 @@
 		22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live_Top_x2.json; sourceTree = "<group>"; };
 		22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = live_Top_x3.json; sourceTree = "<group>"; };
 		22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+VariablePublish.swift"; sourceTree = "<group>"; };
-		22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveStreamsNavigationController.swift; sourceTree = "<group>"; };
+		22E8C64C1DF669A500ED8CF1 /* ListReqestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListReqestable.swift; sourceTree = "<group>"; };
+		22E8C64F1DF669CB00ED8CF1 /* PagintaionReqestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagintaionReqestable.swift; sourceTree = "<group>"; };
+		22E8C6511DF669F400ED8CF1 /* LiveViewMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewMode.swift; sourceTree = "<group>"; };
+		22E8C6561DF66AC400ED8CF1 /* SearchUsersViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersViewModel.swift; sourceTree = "<group>"; };
+		22E8C6741DF6891400ED8CF1 /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
+		22E8C6871DF759C700ED8CF1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		22E8C68D1DF7845900ED8CF1 /* isFollowing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = isFollowing.json; sourceTree = "<group>"; };
 		22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamAPI.swift; sourceTree = "<group>"; };
 		22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		22F076631DF08800007C1CA2 /* Observable+Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Operators.swift"; sourceTree = "<group>"; };
@@ -176,10 +188,12 @@
 		2224EEED1DF46793007828E5 /* Stubbed Responses */ = {
 			isa = PBXGroup;
 			children = (
+				22E8C68D1DF7845900ED8CF1 /* isFollowing.json */,
 				22E6F9871DF5C24200F55F24 /* live_Top_x1.json */,
 				22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */,
 				22E6F98C1DF5C28C00F55F24 /* live_Top_x3.json */,
 				2224EEE11DF3DA44007828E5 /* Me.json */,
+				22E8C6741DF6891400ED8CF1 /* User.json */,
 				2224EEE41DF3E119007828E5 /* watch_live.json */,
 			);
 			name = "Stubbed Responses";
@@ -197,6 +211,8 @@
 		2224EEF21DF467F3007828E5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				22E8C64C1DF669A500ED8CF1 /* ListReqestable.swift */,
+				22E8C64F1DF669CB00ED8CF1 /* PagintaionReqestable.swift */,
 				22F0765B1DEF2C91007C1CA2 /* StreamAPI.swift */,
 			);
 			name = Networking;
@@ -217,6 +233,7 @@
 				2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */,
 				22F076631DF08800007C1CA2 /* Observable+Operators.swift */,
 				22E6F99D1DF5CED100F55F24 /* Observable+VariablePublish.swift */,
+				22F076661DF0BAC5007C1CA2 /* Sequence+Exten.swift */,
 				225330661DE125B5008F61C1 /* UIButton+Exten.swift */,
 				225330691DE12649008F61C1 /* UIView+Exten.swift */,
 				226F18FE1DE5085F00A68678 /* UIViewController+Exten.swift */,
@@ -252,6 +269,7 @@
 				2224EEEF1DF467A6007828E5 /* Storyboards */,
 				2224EEED1DF46793007828E5 /* Stubbed Responses */,
 				22F0766F1DF0DA5F007C1CA2 /* Supporting Files */,
+				22E8C6531DF66A0B00ED8CF1 /* ViewModels */,
 				224597C71DDED84A00E784B2 /* AppDelegate.swift */,
 				224597CE1DDED84A00E784B2 /* Assets.xcassets */,
 				224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */,
@@ -264,7 +282,6 @@
 				2224EEE81DF45611007828E5 /* JSONAble.swift */,
 				229E9FE01DE1363C00160514 /* jsonConfig.json */,
 				229E9FE51DE13DBE00160514 /* LeftNavViewController.swift */,
-				22E6F9B31DF5F5C600F55F24 /* LiveStreamsNavigationController.swift */,
 				224FBA631DDEE79500574B2D /* LoginViewController.swift */,
 				22F0765F1DF07893007C1CA2 /* LoginViewModel.swift */,
 				226F19021DE789C300A68678 /* MyProfileViewController.swift */,
@@ -274,7 +291,6 @@
 				226F19061DE7E5D500A68678 /* ProfileViewController.swift */,
 				226F192D1DEE3B5D00A68678 /* R.generated.swift */,
 				226F19081DE8A23A00A68678 /* SearchViewController.swift */,
-				22F076661DF0BAC5007C1CA2 /* Sequence+Exten.swift */,
 				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
@@ -292,6 +308,16 @@
 				226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		22E8C6531DF66A0B00ED8CF1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				22E8C6511DF669F400ED8CF1 /* LiveViewMode.swift */,
+				22E8C6871DF759C700ED8CF1 /* ProfileViewModel.swift */,
+				22E8C6561DF66AC400ED8CF1 /* SearchUsersViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		22F0766F1DF0DA5F007C1CA2 /* Supporting Files */ = {
@@ -418,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */,
+				22E8C68E1DF7845900ED8CF1 /* isFollowing.json in Resources */,
 				229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */,
 				224597D21DDED84A00E784B2 /* LaunchScreen.storyboard in Resources */,
 				22E6F9881DF5C24200F55F24 /* live_Top_x1.json in Resources */,
@@ -425,6 +452,7 @@
 				22E6F98D1DF5C28C00F55F24 /* live_Top_x3.json in Resources */,
 				224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */,
 				2224EEE21DF3DA44007828E5 /* Me.json in Resources */,
+				22E8C6751DF6891400ED8CF1 /* User.json in Resources */,
 				2224EEE51DF3E119007828E5 /* watch_live.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +537,8 @@
 				2224EEE91DF45611007828E5 /* JSONAble.swift in Sources */,
 				226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */,
 				229E9FE61DE13DBE00160514 /* LeftNavViewController.swift in Sources */,
-				22E6F9B41DF5F5C600F55F24 /* LiveStreamsNavigationController.swift in Sources */,
+				22E8C64D1DF669A500ED8CF1 /* ListReqestable.swift in Sources */,
+				22E8C6521DF669F400ED8CF1 /* LiveViewMode.swift in Sources */,
 				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
 				22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */,
 				226F19031DE789C300A68678 /* MyProfileViewController.swift in Sources */,
@@ -517,10 +546,13 @@
 				2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */,
 				22F076641DF08800007C1CA2 /* Observable+Operators.swift in Sources */,
 				22E6F99E1DF5CED100F55F24 /* Observable+VariablePublish.swift in Sources */,
+				22E8C6501DF669CB00ED8CF1 /* PagintaionReqestable.swift in Sources */,
 				226F19051DE7954700A68678 /* ProfileSampleCell.swift in Sources */,
 				229E9FEA1DE15D3E00160514 /* ProfileSampleView.swift in Sources */,
 				226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */,
+				22E8C6881DF759C700ED8CF1 /* ProfileViewModel.swift in Sources */,
 				226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */,
+				22E8C6571DF66AC400ED8CF1 /* SearchUsersViewModel.swift in Sources */,
 				226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */,
 				22F076671DF0BAC5007C1CA2 /* Sequence+Exten.swift in Sources */,
 				226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */,
