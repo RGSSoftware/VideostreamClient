@@ -9,43 +9,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let provider = StubStreamProvider
-    let viewModel = LiveFollowingViewModel(provider: StubStreamProvider)
+//    let viewModel = ProfileViewModel(provider: StubStreamProvider, profileId: "ddld")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-//        viewModel.updatedUserIndexes
-//            .asObservable().subscribe{ [weak self] event in
-//                switch event {
-//                    case .next(let e):
-//
-//                        print(e.count)
-//                        print(self!.viewModel.userAtIndexPath(e[3]))
-//
-//                    default: ()
-//                }
-//               
-//        }.addDisposableTo(rx_disposeBag)
-//        
-//        viewModel.endOfUsers
-//            .asObservable().subscribe(onNext: { isEnd in
-//                print(isEnd)
-//            }).addDisposableTo(rx_disposeBag)
-//        viewModel.loadCurrentPage()
-//        
-//        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
-//            self.viewModel.loadNextPage()
-//            
-//            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
-//                self.viewModel.loadNextPage()
-//            }
-//        }
+
         
         guard let sVC = window?.rootViewController as? SplashViewController else { return false }
         sVC.provider = provider
         
+//        self.viewModel.isFollowing.asObservable().subscribe{e in
+//            print(e)
+//            }.addDisposableTo(self.rx_disposeBag)
         
         
-//        StreamAPI.
+//        Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (timer) in
+//            self.viewModel.isFollowing.asObservable().subscribe{e in
+//                print(e)
+//                }.addDisposableTo(self.rx_disposeBag)
+//            
+//            Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (timer) in
+//                self.viewModel.isFollowing.asObservable().subscribe{e in
+//                    print(e)
+//                    }.addDisposableTo(self.rx_disposeBag)
+//            }
+//        }
+        
+        
         ConfigManger.jsonResourceName = "jsonConfig"
         
 //        let o = provider.request(.me)

@@ -27,4 +27,12 @@ target 'VideostreamClient' do
     pod 'XLPagerTabStrip', '6.0.0'
 
     pod 'RESideMenu', :git => 'https://github.com/RGSSoftware/RESideMenu.git'
+    
+    target 'VideostreamClientTests' do
+        inherit! :search_paths
+    
+        pod 'Quick'
+        pod 'Nimble'
+        
+    end
 end

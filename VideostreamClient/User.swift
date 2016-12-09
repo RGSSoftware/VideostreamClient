@@ -1,19 +1,13 @@
 import Foundation
 import SwiftyJSON
 
-enum StreamLiveStatus {
-    case live
-    case offline
-}
-
 struct User {
     let id: String
     
     let username: String
     let imageUrl: String
     
-    let streamKey: String
-    let streamLiveStatus: StreamLiveStatus
+    let stream: Stream
 }
 
 extension User: JSONAbleType {
@@ -24,11 +18,11 @@ extension User: JSONAbleType {
         
         let username = json["username"].stringValue
         let imageUrl = json["imageUrl"].stringValue
+        
         let streamKey = json["streamKey"].stringValue
-        
         let status = json["streamStatus"].boolValue
-        let liveStatus = status ? StreamLiveStatus.live : StreamLiveStatus.offline
+        let stream = Stream(key: streamKey, isLive: status)
         
-        return User(id: id, username: username, imageUrl: imageUrl, streamKey: streamKey, streamLiveStatus: liveStatus)
+        return User(id: id, username: username, imageUrl: imageUrl, stream:stream)
     }
 }

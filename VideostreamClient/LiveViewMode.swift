@@ -3,7 +3,15 @@ import Moya
 import NSObject_Rx
 import RxSwift
 
-class LiveViewMode: NSObject, ListReqestable, PagintaionReqestable {
+protocol UserListViewModel: PagintaionReqestable {
+    var endOfUsers: Variable<Bool> { get set }
+    var numberOfUsers: Int { get }
+    var updatedUserIndexes: VariablePublish<Array<IndexPath>> { get set }
+    
+     func userAtIndexPath(_ indexPath: IndexPath) -> User
+}
+
+class LiveViewModel: NSObject, ListReqestable, UserListViewModel {
     
     let provider: RxMoyaProvider<StreamAPI>
     
@@ -14,7 +22,6 @@ class LiveViewMode: NSObject, ListReqestable, PagintaionReqestable {
     
     internal var insertedElementIndexes = VariablePublish<Array<IndexPath>>([])
     var updatedUserIndexes = VariablePublish<Array<IndexPath>>([])
-    
     
     var endOfUsers = Variable<Bool>(false)
     
@@ -48,24 +55,23 @@ class LiveViewMode: NSObject, ListReqestable, PagintaionReqestable {
         reqestPart().addDisposableTo(rx_disposeBag)
     }
     
-    func loadNextPage() {
-        page += 1
-        loadCurrentPage()
-    }
-    
     func userAtIndexPath(_ indexPath: IndexPath) -> User {
         return elements[indexPath.row]
     }
+    
+//    func liveProfileViewModel(atIndexPath: indexPath) -> <#return type#> {
+//        
+//    }
 }
 
-class LiveFollowingViewModel: LiveViewMode {
+class LiveFollowingViewModel: LiveViewModel {
     
     override internal var endPoint: StreamAPI{
         return .liveFollowing(page: page, pageSize: pageSize)
     }
 }
 
-class LiveTopViewModel: LiveViewMode {
+class LiveTopViewModel: LiveViewModel {
     
     override internal var endPoint: StreamAPI{
         return .liveTop(page: page, pageSize: pageSize)

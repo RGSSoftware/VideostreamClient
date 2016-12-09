@@ -4,49 +4,48 @@ import Moya
 
 class ProfileViewModel: NSObject {
     
-    let provider: RxMoyaProvider<StreamAPI>
+    internal let provider: RxMoyaProvider<StreamAPI>
     
-    var user: User!
-    var isFollowing: Observable<Bool>!
+    internal let user: User
     
+    var isFollowing = Variable<Bool>(false)
     
-    init(provider: RxMoyaProvider<StreamAPI>, profileId: String) {
+    var imageURL: URL?{
+        return URL(string:user.imageUrl)
+    }
+    
+    var username: String?{
+        return user.username
+    }
+    
+    var isLive: Bool?{
+        return user.stream.isLive
+    }
+    
+    init(provider: RxMoyaProvider<StreamAPI>, user: User) {
         
         self.provider = provider
+        self.user = user
         
         super.init()
         
-//        reqestUser(profileId)
-        reqestIsFollowing(profileId)
+        reqestIsFollowing(user.id)
         
-        
-    }
-    
-    func reqestUser(_ id: String) {
-        provider.request(.user(id: id))
-            .mapJSON()
-            .mapTo(object: User.self)
-            .subscribe{[weak self] (event) in
-                switch event {
-                case .next(let e):
-                    self!.user = e
-                    
-                default:()
-                }
-        }.addDisposableTo(rx_disposeBag)
     }
     
     func reqestIsFollowing(_ id: String){
         provider.request(.isCurrentUserFollowing(id: id))
             .mapJSON()
-            .subscribe{[weak self] (event) in
-                switch event {
-                case .next(let e):
-                    print("isFollowing")
-                    print(e)
-                default:()
+            .map{ json -> Bool in
+                
+                if let dict = json as? [String: AnyObject],
+                    let isFollowing = dict["isFollowing"] as? Bool{
+                    return isFollowing
                 }
-            }.addDisposableTo(rx_disposeBag)
+                
+                return false
+                
+            }.bindTo(isFollowing).addDisposableTo(rx_disposeBag)
 
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-extension Observable {
+extension ObservableType {
     public func bindTo(_ variable: VariablePublish<E>) -> Disposable {
         return subscribe { e in
             switch e {

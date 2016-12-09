@@ -8,7 +8,7 @@ import XLPagerTabStrip
 
 class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     
-    var viewModel: LiveViewMode!
+    var viewModel: UserListViewModel!
     
     var itemInfo: IndicatorInfo = "View"
 
@@ -39,7 +39,7 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
              }.addDisposableTo(rx_disposeBag)
         
         viewModel.loadCurrentPage()
-        tableView.beginInfiniteScroll(true)
+//        tableView.beginInfiniteScroll(true)
         
     }
    

@@ -3,6 +3,7 @@ import Moya
 
 let StreamProvider = RxMoyaProvider<StreamAPI>()
 let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(4))
+//let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
 
 enum StreamAPI {
     case login(password: String, username: String)
@@ -120,6 +121,11 @@ extension StreamAPI : TargetType {
 
 
 func stubbedResponse(_ filename: String) -> Data! {
+    
+    if filename == "isFollowing"{
+        print("isFollowing")
+    }
+    
     @objc class TestClass: NSObject { }
     
     let bundle = Bundle(for: TestClass.self)

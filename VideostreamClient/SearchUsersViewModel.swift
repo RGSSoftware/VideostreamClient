@@ -2,7 +2,7 @@ import Foundation
 import Moya
 import RxSwift
 
-class SearchUsersViewModel: NSObject, ListReqestable, PagintaionReqestable {
+class SearchUsersViewModel: NSObject, ListReqestable, UserListViewModel {
     
     let provider: RxMoyaProvider<StreamAPI>
     
@@ -58,12 +58,11 @@ class SearchUsersViewModel: NSObject, ListReqestable, PagintaionReqestable {
         page = 1
         
         self.q = q
-        requestDisposable = reqestPart()
-        requestDisposable?.addDisposableTo(rx_disposeBag)
+        
+        loadCurrentPage()
     }
     
-    func loadNextPage() {
-        page += 1
+    func loadCurrentPage() {
         requestDisposable = reqestPart()
         requestDisposable?.addDisposableTo(rx_disposeBag)
     }
