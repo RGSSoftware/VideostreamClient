@@ -14,6 +14,7 @@
 		2224EEF81DF46A21007828E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEF71DF46A21007828E5 /* User.swift */; };
 		2225C0C71DFB6316008A5878 /* ProfileSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0C61DFB6316008A5878 /* ProfileSampleViewModel.swift */; };
 		2225C0CA1DFB67A1008A5878 /* Array+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0C91DFB67A1008A5878 /* Array+Exten.swift */; };
+		2225C0D61DFB8157008A5878 /* ProfileSampleViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0D51DFB8157008A5878 /* ProfileSampleViewModelSpec.swift */; };
 		224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224597C71DDED84A00E784B2 /* AppDelegate.swift */; };
 		224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224597CB1DDED84A00E784B2 /* Main.storyboard */; };
 		224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224597CE1DDED84A00E784B2 /* Assets.xcassets */; };
@@ -115,6 +116,7 @@
 		2224EEF71DF46A21007828E5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2225C0C61DFB6316008A5878 /* ProfileSampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSampleViewModel.swift; sourceTree = "<group>"; };
 		2225C0C91DFB67A1008A5878 /* Array+Exten.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Exten.swift"; sourceTree = "<group>"; };
+		2225C0D51DFB8157008A5878 /* ProfileSampleViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSampleViewModelSpec.swift; sourceTree = "<group>"; };
 		224597C41DDED84A00E784B2 /* VideostreamClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideostreamClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224597C71DDED84A00E784B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224597CC1DDED84A00E784B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			children = (
 				22E8C6B31DF8963100ED8CF1 /* Info.plist */,
 				225328101DFA36840087393D /* LiveViewModeSpec.swift */,
+				2225C0D51DFB8157008A5878 /* ProfileSampleViewModelSpec.swift */,
 				22E8C6BC1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift */,
 			);
 			path = VideostreamClientTests;
@@ -705,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				225328111DFA36840087393D /* LiveViewModeSpec.swift in Sources */,
+				2225C0D61DFB8157008A5878 /* ProfileSampleViewModelSpec.swift in Sources */,
 				22E8C6BD1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

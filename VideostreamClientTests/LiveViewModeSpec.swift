@@ -23,56 +23,5 @@ class LiveFollowingViewModelSpec: QuickSpec {
             
         }
         
-        describe("profileSampleViewModel"){
-            
-            it("username should be user.username"){
-                
-                var username: String?
-                var viewModel: ProfileSampleViewModel?
-                
-                subject.loadCurrentPage()
-                
-                waitUntil { done in
-                    subject.updatedUserIndexes.asObservable().subscribe(onNext:{ e in
-                        
-                        let index = e.randomElement()
-                        
-                        username = subject.userAtIndexPath(index!).username
-                        
-                        viewModel = subject.profileSampleViewModel(forIndex: index!)
-                        done()
-                        
-                    }).addDisposableTo(disposeBag)
-                }
-                
-                expect(viewModel?.username).to(equal(username))
-                
-            }
-            
-            it("imageURL should be URL"){
-                
-                var imageURL: URL?
-                var viewModel: ProfileSampleViewModel?
-                
-                subject.loadCurrentPage()
-                
-                waitUntil { done in
-                    subject.updatedUserIndexes.asObservable().subscribe(onNext:{ e in
-                        
-                        let index = e.randomElement()
-                        
-                        imageURL = URL(string: subject.userAtIndexPath(index!).imageUrl)
-                        
-                        viewModel = subject.profileSampleViewModel(forIndex: index!)
-                        done()
-                        
-                    }).addDisposableTo(disposeBag)
-                }
-                
-                expect(viewModel?.imageURL).to(equal(imageURL))
-            }
-
-        }
-        
     }
 }
