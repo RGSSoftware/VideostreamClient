@@ -122,10 +122,6 @@ extension StreamAPI : TargetType {
 
 func stubbedResponse(_ filename: String) -> Data! {
     
-    if filename == "isFollowing"{
-        print("isFollowing")
-    }
-    
     @objc class TestClass: NSObject { }
     
     let bundle = Bundle(for: TestClass.self)

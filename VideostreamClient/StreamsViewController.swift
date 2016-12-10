@@ -39,7 +39,7 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
              }.addDisposableTo(rx_disposeBag)
         
         viewModel.loadCurrentPage()
-//        tableView.beginInfiniteScroll(true)
+
         
     }
    

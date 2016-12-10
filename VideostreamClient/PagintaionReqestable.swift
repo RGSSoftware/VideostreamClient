@@ -1,6 +1,6 @@
 import Foundation
 
-protocol PagintaionReqestable: class {
+protocol Pagintaionable: class {
     var pageSize: Int { get }
     var page: Int { get set }
     
@@ -8,7 +8,7 @@ protocol PagintaionReqestable: class {
     func loadNextPage()
 }
 
-extension PagintaionReqestable {
+extension Pagintaionable {
     func loadNextPage() {
         page += 1
         loadCurrentPage()

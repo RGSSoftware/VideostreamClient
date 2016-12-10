@@ -6,36 +6,73 @@ import Moya
 @testable
 import VideostreamClient
 
-class LiveViewModeSpec: QuickSpec {
+class LiveFollowingViewModelSpec: QuickSpec {
     
     override func spec() {
-        var subject: LiveViewMode!
+        var subject: LiveFollowingViewModel!
         
         var disposeBag: DisposeBag!
         
         beforeEach {
             
-//            user = userModel()
-            subject = MockLiveViewModel(provider: StubStreamProvider)
+            let provider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(0.1))
+            subject = LiveFollowingViewModel(provider: provider)
             
             disposeBag = DisposeBag()
             
-        }
-        
-        it("liveProfileViewMode should be nil"){
-        
-        }
-        
-        it("liveProfileViewModel.provider should be provider"){
             
         }
-    }
-}
+        
+        describe("profileSampleViewModel"){
+            
+            it("username should be user.username"){
+                
+                var username: String?
+                var viewModel: ProfileSampleViewModel?
+                
+                subject.loadCurrentPage()
+                
+                waitUntil { done in
+                    subject.updatedUserIndexes.asObservable().subscribe(onNext:{ e in
+                        
+                        let index = e.randomElement()
+                        
+                        username = subject.userAtIndexPath(index!).username
+                        
+                        viewModel = subject.profileSampleViewModel(forIndex: index!)
+                        done()
+                        
+                    }).addDisposableTo(disposeBag)
+                }
+                
+                expect(viewModel?.username).to(equal(username))
+                
+            }
+            
+            it("imageURL should be URL"){
+                
+                var imageURL: URL?
+                var viewModel: ProfileSampleViewModel?
+                
+                subject.loadCurrentPage()
+                
+                waitUntil { done in
+                    subject.updatedUserIndexes.asObservable().subscribe(onNext:{ e in
+                        
+                        let index = e.randomElement()
+                        
+                        imageURL = URL(string: subject.userAtIndexPath(index!).imageUrl)
+                        
+                        viewModel = subject.profileSampleViewModel(forIndex: index!)
+                        done()
+                        
+                    }).addDisposableTo(disposeBag)
+                }
+                
+                expect(viewModel?.imageURL).to(equal(imageURL))
+            }
 
-
-class MockLiveViewModel: LiveViewMode {
-    
-    override internal var endPoint: StreamAPI{
-        return .liveFollowing(page: page, pageSize: pageSize)
+        }
+        
     }
 }
