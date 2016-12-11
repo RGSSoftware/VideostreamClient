@@ -26,3 +26,9 @@ extension User: JSONAbleType {
         return User(id: id, username: username, imageUrl: imageUrl, stream:stream)
     }
 }
+
+extension User: Equatable {
+    static func ==(lhs: User, rhs: User) -> Bool{
+        return lhs.id == rhs.id
+    }
+}

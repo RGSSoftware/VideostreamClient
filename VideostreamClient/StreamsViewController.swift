@@ -8,7 +8,7 @@ import XLPagerTabStrip
 
 class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     
-    var viewModel: UserListViewModel!
+    var viewModel: (UserListable & ProfileSampleViewModelable)!
     
     var itemInfo: IndicatorInfo = "View"
 
@@ -17,13 +17,16 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         
         tableView.infiniteScrollIndicatorMargin = 40
         tableView.infiniteScrollTriggerOffset = 500
+        
         tableView.addInfiniteScroll { [weak self] _ in
             guard let strongSelf = self else { return }
+            
             strongSelf.viewModel.loadNextPage()
         }
         
         viewModel.endOfUsers.asObservable().bindNext{[weak self] isEnd in
             guard let strongSelf = self else { return }
+            
             strongSelf.tableView.setShouldShowInfiniteScrollHandler{ _ in return !isEnd}
         }.addDisposableTo(rx_disposeBag)
         
