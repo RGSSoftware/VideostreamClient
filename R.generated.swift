@@ -96,12 +96,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 19 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
+    /// Image `detailMenu`.
+    static let detailMenu = Rswift.ImageResource(bundle: R.hostingBundle, name: "detailMenu")
     /// Image `emailSle`.
     static let emailSle = Rswift.ImageResource(bundle: R.hostingBundle, name: "emailSle")
     /// Image `email`.
     static let email = Rswift.ImageResource(bundle: R.hostingBundle, name: "email")
+    /// Image `eye`.
+    static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "eye")
     /// Image `fullProfileImageSlec`.
     static let fullProfileImageSlec = Rswift.ImageResource(bundle: R.hostingBundle, name: "fullProfileImageSlec")
     /// Image `fullProfileImage`.
@@ -137,6 +141,11 @@ struct R: Rswift.Validatable {
     /// Image `searchCancelImage`.
     static let searchCancelImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "searchCancelImage")
     
+    /// `UIImage(named: "detailMenu", bundle: ..., traitCollection: ...)`
+    static func detailMenu(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.detailMenu, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "email", bundle: ..., traitCollection: ...)`
     static func email(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.email, compatibleWith: traitCollection)
@@ -145,6 +154,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "emailSle", bundle: ..., traitCollection: ...)`
     static func emailSle(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.emailSle, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "eye", bundle: ..., traitCollection: ...)`
+    static func eye(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eye, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "fullProfileImage", bundle: ..., traitCollection: ...)`
@@ -441,8 +455,10 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if UIKit.UIImage(named: "liveImageSlec") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'liveImageSlec' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "fullProfileImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fullProfileImage' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "eyepdf") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eyepdf' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon-close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-close' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "fullProfileImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fullProfileImage' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eye' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().search_Nav_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'search_Nav_Screen' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.main().navPager_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'navPager_Screen' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.main().streams_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'streams_Screen' could not be loaded from storyboard 'Main' as 'StreamsViewController'.") }

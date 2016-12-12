@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IM6-zp-xP7">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IM6-zp-xP7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -289,6 +289,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8g-g6-RFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-143" y="2740"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gzT-uc-eqS">
+            <objects>
+                <viewController id="uAC-3E-MVl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lrJ-pO-1SF"/>
+                        <viewControllerLayoutGuide type="bottom" id="wGc-Ko-YFK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YO4-gk-GXb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="eyepdf" translatesAutoresizingMaskIntoConstraints="NO" id="dAf-po-yJ3">
+                                <rect key="frame" x="175" y="325" width="25" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dAf-po-yJ3" secondAttribute="height" multiplier="170:107" id="c4R-Y2-uxy"/>
+                                    <constraint firstAttribute="width" constant="25" id="dHj-XX-ckh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-ay-Efi">
+                                <rect key="frame" x="175" y="363" width="25" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xrq-ay-Efi" secondAttribute="height" multiplier="170:107" id="SE8-7W-qxs"/>
+                                    <constraint firstAttribute="width" constant="25" id="khi-M3-zpy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dAf-po-yJ3" firstAttribute="centerX" secondItem="YO4-gk-GXb" secondAttribute="centerX" id="MWK-l0-Bsb"/>
+                            <constraint firstItem="xrq-ay-Efi" firstAttribute="centerX" secondItem="dAf-po-yJ3" secondAttribute="centerX" id="NMo-O4-M1B"/>
+                            <constraint firstItem="xrq-ay-Efi" firstAttribute="top" secondItem="dAf-po-yJ3" secondAttribute="bottom" constant="22" id="SFT-9f-MMe"/>
+                            <constraint firstItem="dAf-po-yJ3" firstAttribute="centerY" secondItem="YO4-gk-GXb" secondAttribute="centerY" id="lm9-81-mbk"/>
+                            <constraint firstItem="xrq-ay-Efi" firstAttribute="width" secondItem="xrq-ay-Efi" secondAttribute="height" multiplier="170:107" id="sDb-Ih-cdG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tts-XD-Q3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3226.4000000000001" y="3828.9355322338834"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="WDu-vj-Efw">
@@ -922,7 +963,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pud-a0-kNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="3868"/>
+            <point key="canvasLocation" x="496.80000000000001" y="3867.6161919040483"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="ubb-UW-wRv">
@@ -1017,6 +1058,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="eye" width="24" height="15"/>
+        <image name="eyepdf" width="24" height="15"/>
         <image name="fullProfileImage" width="14" height="17"/>
         <image name="icon-close" width="15" height="15"/>
         <image name="liveImageSlec" width="22" height="16"/>

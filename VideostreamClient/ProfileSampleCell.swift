@@ -24,6 +24,9 @@ class ProfileSampleCell: UITableViewCell {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileNameLabel: UILabel!
     
+    var watchButton: UIButton!
+    var detailMenuButton: UIButton!
+    
     var viewModel = PublishSubject<ProfileSampleViewModel>()
     func setViewModel(_ newViewModel: ProfileSampleViewModel) {
         self.viewModel.onNext(newViewModel)
@@ -63,9 +66,20 @@ class ProfileSampleCell: UITableViewCell {
         
         profileImageView = UIImageView()
         profileNameLabel = UILabel()
+        profileNameLabel.layer.borderWidth = 1
+        
+        watchButton = UIButton(type: .custom)
+        watchButton.setImage(R.image.eye(), for: .normal)
+        watchButton.imageView?.contentMode = .scaleAspectFit
+        
+        detailMenuButton = UIButton(type: .custom)
+        detailMenuButton.setImage(R.image.detailMenu(), for: .normal)
+        detailMenuButton.imageView?.contentMode = .scaleAspectFit
         
         contentView.addSubview(profileImageView)
         contentView.addSubview(profileNameLabel)
+        contentView.addSubview(watchButton)
+        contentView.addSubview(detailMenuButton)
         
         profileImageView.snp.makeConstraints{ make in
             
@@ -81,10 +95,37 @@ class ProfileSampleCell: UITableViewCell {
         
         profileNameLabel.snp.makeConstraints{ make in
             
-            make.right.equalToSuperview().offset(8)
+            make.centerY.equalToSuperview()
+            
+        }
+        
+        watchButton.snp.makeConstraints{ make in
+            
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            
+            make.left.equalTo(profileNameLabel.snp.right).offset(8)
+            make.right.equalTo(detailMenuButton.snp.left).offset(-35)
             
             make.centerY.equalToSuperview()
+            
+            make.width.equalTo(32)
+            
         }
+        
+        detailMenuButton.snp.makeConstraints{ make in
+            
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            
+            make.right.equalToSuperview().offset(-24)
+            
+            make.centerY.equalToSuperview()
+            
+            make.width.equalTo(8)
+            
+        }
+        
         layoutIfNeeded()
         
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
