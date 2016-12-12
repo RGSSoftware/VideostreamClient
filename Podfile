@@ -33,6 +33,7 @@ target 'VideostreamClient' do
     
         pod 'Quick'
         pod 'Nimble'
+        pod 'Nimble-Snapshots'
         
     end
 end

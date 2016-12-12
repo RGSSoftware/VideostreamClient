@@ -9,14 +9,54 @@
 import UIKit
 import SnapKit
 
+import RxSwift
+import RxCocoa
+import NSObject_Rx
+
 class ProfileSampleCell: UITableViewCell {
+    
+    typealias DownloadImageClosure = (_ url: URL?, _ imageView: UIImageView) -> ()
+    typealias CancelDownloadImageClosure = (_ imageView: UIImageView) -> ()
+    
+    var downloadImage: DownloadImageClosure?
+    var cancelDownloadImage: CancelDownloadImageClosure?
 
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileNameLabel: UILabel!
     
+    var viewModel = PublishSubject<ProfileSampleViewModel>()
+    func setViewModel(_ newViewModel: ProfileSampleViewModel) {
+        self.viewModel.onNext(newViewModel)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+        setupSubscriptions()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cancelDownloadImage?(profileImageView)
+//        _preparingForReuse.onNext()
+        setupSubscriptions()
+        
+        
+
+    }
+    
+    func setupSubscriptions() {
+        
+        viewModel.map { (viewModel) -> URL? in
+            return viewModel.imageURL
+            }.subscribe(onNext: { [weak self] url in
+                 guard let imageView = self?.profileImageView else { return }
+                self?.downloadImage?(url, imageView)
+            }).addDisposableTo(rx_disposeBag)
+        
+        viewModel.map { $0.username }
+            .bindTo(profileNameLabel.rx.text)
+            .addDisposableTo(rx_disposeBag)
     }
     
     func setup() {
@@ -46,6 +86,9 @@ class ProfileSampleCell: UITableViewCell {
             make.centerY.equalToSuperview()
         }
         layoutIfNeeded()
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.height/2
+        profileImageView.layer.masksToBounds = true
     }
 
 }

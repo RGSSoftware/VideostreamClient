@@ -10,6 +10,28 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     
     var viewModel: (UserListable & ProfileSampleViewModelable)!
     
+    var downloadImage: ProfileSampleCell.DownloadImageClosure = { (url, imageView) -> () in
+        if let url = url {
+            imageView.sd_setImage(with: url,
+               placeholderImage:R.image.profilePlaceholderImage(),
+               options:[SDWebImageOptions.avoidAutoSetImage]){ [weak imageView] (image, _, _, _ ) in
+                guard let strongImageView = imageView else { return }
+                
+                UIView.transition(with: strongImageView,
+                                  duration:0.4,
+                                  options: UIViewAnimationOptions.transitionCrossDissolve,
+                                  animations: { strongImageView.image = image },
+                                  completion: nil)
+            }
+
+        } else {
+            imageView.image = R.image.profilePlaceholderImage()
+        }
+    }
+    var cancelDownloadImage: ProfileSampleCell.CancelDownloadImageClosure = { (imageView) -> () in
+        imageView.sd_cancelCurrentImageLoad()
+    }
+    
     var itemInfo: IndicatorInfo = "View"
 
     override func viewDidLoad() {
@@ -51,25 +73,12 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileSampleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.profileCell.identifier, for: indexPath) as! ProfileSampleCell
         
-        let user = viewModel.userAtIndexPath(indexPath)
-        cell.profileNameLabel.text = user.username
+        cell.downloadImage = downloadImage
+        cell.cancelDownloadImage = cancelDownloadImage
         
-        cell.profileImageView!.sd_setImage(with: URL(string: user.imageUrl),
-                                           placeholderImage:R.image.profilePlaceholderImage(),
-                                           options:[SDWebImageOptions.avoidAutoSetImage]){ [weak cell] (image, _, _, _ ) in
-            guard let strongCell = cell else { return }
-            
-            UIView.transition(with: strongCell.profileImageView,
-                                      duration:0.4,
-                                      options: UIViewAnimationOptions.transitionCrossDissolve,
-                                      animations: { strongCell.profileImageView.image = image },
-                                      completion: nil)
-        }
-        
-        cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.height/2
-        cell.profileImageView.layer.masksToBounds = true
+        cell.setViewModel(viewModel.profileSampleViewModelForIndexPath(indexPath)!)
         
         return cell
     }

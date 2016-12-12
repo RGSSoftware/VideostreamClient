@@ -9,6 +9,11 @@ PODS:
     - Artsy+OSSUIFonts
     - Artsy+UIColors (~> 3.0)
     - UIView+BooleanAnimations
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
   - Hue (2.0.1)
   - IQKeyboardManagerSwift (4.0.7)
   - LFLiveKit (2.3)
@@ -22,6 +27,12 @@ PODS:
     - Moya/Core
     - RxSwift (~> 3.0)
   - Nimble (5.1.1)
+  - Nimble-Snapshots (4.4.0):
+    - Nimble-Snapshots/Core (= 4.4.0)
+  - Nimble-Snapshots/Core (4.4.0):
+    - FBSnapshotTestCase (~> 2.0)
+    - Nimble
+    - Quick
   - NSObject+Rx (2.0.0):
     - RxSwift
   - Quick (1.0.0)
@@ -55,6 +66,7 @@ DEPENDENCIES:
   - Moya (= 8.0.0-beta.5)
   - Moya/RxSwift (= 8.0.0-beta.5)
   - Nimble
+  - Nimble-Snapshots
   - NSObject+Rx (= 2.0.0)
   - Quick
   - R.swift (= 3.1.0)
@@ -89,12 +101,14 @@ SPEC CHECKSUMS:
   Artsy+OSSUIFonts: 4b01bb7451a35a877a055cefcdd92cffa2207781
   Artsy+UIColors: 31c03c4146f5e6618a9b950f37dfe02dd9ac09a6
   Artsy-UIButtons: 0c87d8a112e6b1d688b153c2a7a8f155e2f1a18f
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
   LFLiveKit: 76a5cb34509f8cbe25e3a95824cf80f36d36679b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Moya: a3bbabe1e21a96066199a2dad874db1949510214
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
   NSObject+Rx: 2a9cd801d9c847e6d2486cbad8d7701b67834e70
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   R.swift: 14400e5784224d1e4e59a8fc5549198c7e8fe360
@@ -112,6 +126,6 @@ SPEC CHECKSUMS:
   UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 1a473bd013c313332c9774ac0f027338234c0667
+PODFILE CHECKSUM: 17e269e5cf23287efebc416443c9f09f421425bd
 
 COCOAPODS: 1.1.1
