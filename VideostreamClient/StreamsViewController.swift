@@ -80,6 +80,19 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         
         cell.setViewModel(viewModel.profileSampleViewModelForIndexPath(indexPath)!)
         
+        let watch = cell.watchPressed.takeUntil(cell.preparingForReuse)
+        let detail = cell.detailPressed.takeUntil(cell.preparingForReuse)
+        
+        watch.subscribe(onNext:{ _ in
+            print("did tap watch: \(indexPath.row)")
+            
+        }).addDisposableTo(rx_disposeBag)
+        
+        detail.subscribe(onNext:{ _ in
+            print("did tap detail: \(indexPath.row)")
+            
+        }).addDisposableTo(rx_disposeBag)
+        
         return cell
     }
     

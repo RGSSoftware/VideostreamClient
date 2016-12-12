@@ -3,6 +3,7 @@ import NSObject_Rx
 import RxSwift
 import SwiftyJSON
 import UIKit
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sVC.provider = provider
         
 
+        SDImageCache.shared().store(R.image.one50x150(), forKey: "https://placehold.it/150x150", completion: nil)
+        
         ConfigManger.jsonResourceName = "jsonConfig"
         
         return true

@@ -1,17 +1,10 @@
-//
-//  ProfileSampleCell.swift
-//  VideostreamClient
-//
-//  Created by PC on 11/24/16.
-//  Copyright © 2016 Randel Smith rs@randelsmith.com. All rights reserved.
-//
-
 import UIKit
 import SnapKit
 
 import RxSwift
 import RxCocoa
 import NSObject_Rx
+import KGHitTestingViews
 
 class ProfileSampleCell: UITableViewCell {
     
@@ -21,11 +14,28 @@ class ProfileSampleCell: UITableViewCell {
     var downloadImage: DownloadImageClosure?
     var cancelDownloadImage: CancelDownloadImageClosure?
 
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var profileNameLabel: UILabel!
+    var profileImageView: UIImageView!
+    var profileNameLabel: UILabel!
     
     var watchButton: UIButton!
-    var detailMenuButton: UIButton!
+    var detailButton: UIButton!
+    
+    var reuseBag: DisposeBag?
+    
+    fileprivate var _watchPressed = PublishSubject<Void>()
+    var watchPressed: Observable<Void> {
+        return _watchPressed.asObservable()
+    }
+    
+    fileprivate var _detailPressed = PublishSubject<Void>()
+    var detailPressed: Observable<Void> {
+        return _detailPressed.asObservable()
+    }
+    
+    fileprivate var _preparingForReuse = PublishSubject<Void>()
+    var preparingForReuse: Observable<Void> {
+        return _preparingForReuse.asObservable()
+    }
     
     var viewModel = PublishSubject<ProfileSampleViewModel>()
     func setViewModel(_ newViewModel: ProfileSampleViewModel) {
@@ -41,45 +51,54 @@ class ProfileSampleCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         cancelDownloadImage?(profileImageView)
-//        _preparingForReuse.onNext()
+        _preparingForReuse.onNext()
         setupSubscriptions()
-        
-        
-
     }
     
     func setupSubscriptions() {
+        
+        reuseBag = DisposeBag()
+        guard let reuseBag = reuseBag else { return }
         
         viewModel.map { (viewModel) -> URL? in
             return viewModel.imageURL
             }.subscribe(onNext: { [weak self] url in
                  guard let imageView = self?.profileImageView else { return }
                 self?.downloadImage?(url, imageView)
-            }).addDisposableTo(rx_disposeBag)
+            }).addDisposableTo(reuseBag)
         
         viewModel.map { $0.username }
             .bindTo(profileNameLabel.rx.text)
-            .addDisposableTo(rx_disposeBag)
+            .addDisposableTo(reuseBag)
+        
+        watchButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?._watchPressed.onNext()
+        }).addDisposableTo(reuseBag)
+        
+        detailButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?._detailPressed.onNext()
+        }).addDisposableTo(reuseBag)
     }
     
     func setup() {
         
         profileImageView = UIImageView()
         profileNameLabel = UILabel()
-        profileNameLabel.layer.borderWidth = 1
         
         watchButton = UIButton(type: .custom)
         watchButton.setImage(R.image.eye(), for: .normal)
         watchButton.imageView?.contentMode = .scaleAspectFit
+        watchButton.setMinimumHitTestWidth(50, height: 0)
         
-        detailMenuButton = UIButton(type: .custom)
-        detailMenuButton.setImage(R.image.detailMenu(), for: .normal)
-        detailMenuButton.imageView?.contentMode = .scaleAspectFit
+        detailButton = UIButton(type: .custom)
+        detailButton.setImage(R.image.detailMenu(), for: .normal)
+        detailButton.imageView?.contentMode = .scaleAspectFit
+        detailButton.setMinimumHitTestWidth(50, height: 0)
         
         contentView.addSubview(profileImageView)
         contentView.addSubview(profileNameLabel)
         contentView.addSubview(watchButton)
-        contentView.addSubview(detailMenuButton)
+        contentView.addSubview(detailButton)
         
         profileImageView.snp.makeConstraints{ make in
             
@@ -105,7 +124,7 @@ class ProfileSampleCell: UITableViewCell {
             make.bottom.equalToSuperview()
             
             make.left.equalTo(profileNameLabel.snp.right).offset(8)
-            make.right.equalTo(detailMenuButton.snp.left).offset(-35)
+            make.right.equalTo(detailButton.snp.left).offset(-35)
             
             make.centerY.equalToSuperview()
             
@@ -113,7 +132,7 @@ class ProfileSampleCell: UITableViewCell {
             
         }
         
-        detailMenuButton.snp.makeConstraints{ make in
+        detailButton.snp.makeConstraints{ make in
             
             make.top.equalToSuperview()
             make.bottom.equalToSuperview()

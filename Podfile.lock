@@ -16,6 +16,7 @@ PODS:
     - FBSnapshotTestCase/Core
   - Hue (2.0.1)
   - IQKeyboardManagerSwift (4.0.7)
+  - KGHitTestingViews (0.9.5)
   - LFLiveKit (2.3)
   - MBProgressHUD (1.0.0)
   - Moya (8.0.0-beta.5):
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - Artsy-UIButtons (= 2.0.3)
   - Hue (= 2.0.1)
   - IQKeyboardManagerSwift (= 4.0.7)
+  - KGHitTestingViews
   - LFLiveKit (= 2.3)
   - MBProgressHUD (= 1.0.0)
   - Moya (= 8.0.0-beta.5)
@@ -104,6 +106,7 @@ SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   Hue: 354caec055fdc9d38b5ef33ca2e7224721843baf
   IQKeyboardManagerSwift: 58bbcf46b5cf9fd4ed625d28a60cb2fbae4ab0f4
+  KGHitTestingViews: 34a1c05a3ec0778ca8c46fadf994c9292c56f374
   LFLiveKit: 76a5cb34509f8cbe25e3a95824cf80f36d36679b
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   Moya: a3bbabe1e21a96066199a2dad874db1949510214
@@ -126,6 +129,6 @@ SPEC CHECKSUMS:
   UIView+BooleanAnimations: a760be9a066036e55f298b7b7350a6cb14cfcd97
   XLPagerTabStrip: c46e802a8dcac29edbcea573de8fe920e052455b
 
-PODFILE CHECKSUM: 17e269e5cf23287efebc416443c9f09f421425bd
+PODFILE CHECKSUM: e52021a67f3fa006ec438f94b1c8417b8566f5b7
 
 COCOAPODS: 1.1.1

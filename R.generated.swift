@@ -96,7 +96,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 21 images.
+  /// This `R.image` struct is generated, and contains static references to 22 images.
   struct image {
     /// Image `detailMenu`.
     static let detailMenu = Rswift.ImageResource(bundle: R.hostingBundle, name: "detailMenu")
@@ -132,6 +132,8 @@ struct R: Rswift.Validatable {
     static let navStreamsImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "navStreamsImage")
     /// Image `navWatchLiveImage`.
     static let navWatchLiveImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "navWatchLiveImage")
+    /// Image `one50x150`.
+    static let one50x150 = Rswift.ImageResource(bundle: R.hostingBundle, name: "one50x150")
     /// Image `profilePlaceholderImage`.
     static let profilePlaceholderImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "profilePlaceholderImage")
     /// Image `profileUsernameSle`.
@@ -224,6 +226,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "navWatchLiveImage", bundle: ..., traitCollection: ...)`
     static func navWatchLiveImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navWatchLiveImage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "one50x150", bundle: ..., traitCollection: ...)`
+    static func one50x150(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.one50x150, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "profilePlaceholderImage", bundle: ..., traitCollection: ...)`
