@@ -20,6 +20,7 @@
 		2225C0F41DFDC8AF008A5878 /* LiveTopViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */; };
 		2225C1081DFE0CBA008A5878 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C1071DFE0CBA008A5878 /* UIViewControllerExtensions.swift */; };
 		2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */; };
+		2225C16E1DFF58F6008A5878 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C16D1DFF58F6008A5878 /* GlobalFunctions.swift */; };
 		224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224597C71DDED84A00E784B2 /* AppDelegate.swift */; };
 		224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224597CB1DDED84A00E784B2 /* Main.storyboard */; };
 		224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224597CE1DDED84A00E784B2 /* Assets.xcassets */; };
@@ -127,6 +128,7 @@
 		2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTopViewModelSpec.swift; sourceTree = "<group>"; };
 		2225C1071DFE0CBA008A5878 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchPagerViewControllerSpec.swift; sourceTree = "<group>"; };
+		2225C16D1DFF58F6008A5878 /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		224597C41DDED84A00E784B2 /* VideostreamClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideostreamClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224597C71DDED84A00E784B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224597CC1DDED84A00E784B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				224FBA651DDEEC7E00574B2D /* BroadcasterViewController.swift */,
 				229E9FE31DE136D200160514 /* ConfigManger.swift */,
 				226F19001DE697A900A68678 /* DataStore.swift */,
+				2225C16D1DFF58F6008A5878 /* GlobalFunctions.swift */,
 				22F076681DF0C40C007C1CA2 /* HelperFunctions.swift */,
 				224FBA671DDEEDC300574B2D /* HomeViewController.swift */,
 				226F18FB1DE4EFEC00A68678 /* InstagramPagerViewController.swift */,
@@ -678,6 +681,7 @@
 				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
 				229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */,
 				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
+				2225C16E1DFF58F6008A5878 /* GlobalFunctions.swift in Sources */,
 				22F076691DF0C40C007C1CA2 /* HelperFunctions.swift in Sources */,
 				224FBA681DDEEDC300574B2D /* HomeViewController.swift in Sources */,
 				226F18FC1DE4EFEC00A68678 /* InstagramPagerViewController.swift in Sources */,

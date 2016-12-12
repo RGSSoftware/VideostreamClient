@@ -11,7 +11,7 @@ protocol UserListable: Pagintaionable {
     func userAtIndexPath(_ indexPath: IndexPath) -> User
 }
 
-class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleViewModelable{
+class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleViewModelable {
     let provider: RxMoyaProvider<StreamAPI>
     
     internal var elements: [User] = []

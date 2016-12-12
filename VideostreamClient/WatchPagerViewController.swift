@@ -20,7 +20,7 @@ class WatchPagerViewController: InstagramPagerViewController {
         
         pageControllers = [child_1, child_2]
         
-        let leftArrowButton = UIButton(image: UIImage(named: "menu")!)
+        let leftArrowButton = UIButton(image: R.image.menu())
         leftArrowButton?.setFrameSizeHeight((navigationController?.navigationBar.frame.size.height)!)
         leftArrowButton?.addTarget(self, action: #selector(leftNavTap(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
@@ -34,23 +34,3 @@ class WatchPagerViewController: InstagramPagerViewController {
     }
 
 }
-
-protocol Callable{
-    var first: String { get }
-}
-
-//protocol Person{
-//    var last: String { get set }
-//}
-
-class Person {
-    
-    var last: String?
-}
-
-class Joe: Person, Callable {
-    var first: String {
-        return "Joe"
-    }
-}
-
