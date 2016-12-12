@@ -8,7 +8,7 @@ import Foundation
 @testable
 import VideostreamClient
 
-class StreamsViewControllerSpec: QuickSpec {
+class WatchPagerViewControllerSpec: QuickSpec {
     
     override func spec() {
         var subject: UINavigationController!

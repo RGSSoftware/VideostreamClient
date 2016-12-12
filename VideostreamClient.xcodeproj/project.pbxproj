@@ -19,7 +19,7 @@
 		2225C0ED1DFDC4A6008A5878 /* LiveFollowingViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0EC1DFDC4A6008A5878 /* LiveFollowingViewModelSpec.swift */; };
 		2225C0F41DFDC8AF008A5878 /* LiveTopViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */; };
 		2225C1081DFE0CBA008A5878 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C1071DFE0CBA008A5878 /* UIViewControllerExtensions.swift */; };
-		2225C10B1DFE0E34008A5878 /* StreamsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C10A1DFE0E34008A5878 /* StreamsViewControllerSpec.swift */; };
+		2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */; };
 		224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224597C71DDED84A00E784B2 /* AppDelegate.swift */; };
 		224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224597CB1DDED84A00E784B2 /* Main.storyboard */; };
 		224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224597CE1DDED84A00E784B2 /* Assets.xcassets */; };
@@ -126,7 +126,7 @@
 		2225C0EC1DFDC4A6008A5878 /* LiveFollowingViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveFollowingViewModelSpec.swift; sourceTree = "<group>"; };
 		2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveTopViewModelSpec.swift; sourceTree = "<group>"; };
 		2225C1071DFE0CBA008A5878 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		2225C10A1DFE0E34008A5878 /* StreamsViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamsViewControllerSpec.swift; sourceTree = "<group>"; };
+		2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchPagerViewControllerSpec.swift; sourceTree = "<group>"; };
 		224597C41DDED84A00E784B2 /* VideostreamClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideostreamClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224597C71DDED84A00E784B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224597CC1DDED84A00E784B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 				2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */,
 				2225C0D51DFB8157008A5878 /* ProfileSampleViewModelSpec.swift */,
 				22E8C6BC1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift */,
-				2225C10A1DFE0E34008A5878 /* StreamsViewControllerSpec.swift */,
+				2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */,
 				225328101DFA36840087393D /* UserListViewModelSpec.swift */,
 			);
 			path = VideostreamClientTests;
@@ -728,7 +728,7 @@
 				2225C0F41DFDC8AF008A5878 /* LiveTopViewModelSpec.swift in Sources */,
 				2225C0D61DFB8157008A5878 /* ProfileSampleViewModelSpec.swift in Sources */,
 				22E8C6BD1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift in Sources */,
-				2225C10B1DFE0E34008A5878 /* StreamsViewControllerSpec.swift in Sources */,
+				2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */,
 				225328111DFA36840087393D /* UserListViewModelSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
