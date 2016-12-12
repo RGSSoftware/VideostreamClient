@@ -15,6 +15,10 @@ class ProfileSampleViewModel {
         return user.username
     }
     
+    var isLive: Bool?{
+        return user.stream.isLive
+    }
+    
     init(user: User) {
         
         self.user = user

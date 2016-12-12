@@ -28,6 +28,18 @@ class ProfileSampleViewModelSpec: QuickSpec {
             }
         }
         
+        describe("isLive"){
+            it("returns the user's steam's live status"){
+                subject = ProfileSampleViewModel(user: userModel(isLive: true))
+    
+                expect(subject.isLive).to(equal(true))
+    
+                subject = ProfileSampleViewModel(user: userModel(isLive: false))
+    
+                expect(subject.isLive).to(equal(false))
+            }
+        }
+        
         describe("imageURL"){
             it("returns the user's imageurl as URL"){
                 
