@@ -1,6 +1,6 @@
 import Foundation
 
-class ProfileSampleViewModel {
+class ProfileSampleViewModel: NSObject {
     internal let user: User
 
     var userId: String{

@@ -2,32 +2,17 @@ import Foundation
 import RxSwift
 import Moya
 
-class ProfileViewModel: NSObject {
+class ProfileViewModel: ProfileSampleViewModel {
     
     internal let provider: RxMoyaProvider<StreamAPI>
     
-    internal let user: User
-    
     var isFollowing = Variable<Bool>(false)
-    
-    var imageURL: URL?{
-        return URL(string:user.imageUrl)
-    }
-    
-    var username: String?{
-        return user.username
-    }
-    
-    var isLive: Bool?{
-        return user.stream.isLive
-    }
     
     init(provider: RxMoyaProvider<StreamAPI>, user: User) {
         
         self.provider = provider
-        self.user = user
         
-        super.init()
+        super.init(user: user)
         
         reqestIsFollowing(user.id)
         
