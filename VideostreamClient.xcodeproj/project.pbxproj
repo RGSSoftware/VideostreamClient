@@ -378,8 +378,8 @@
 				2225C0F31DFDC8AF008A5878 /* LiveTopViewModelSpec.swift */,
 				2225C0D51DFB8157008A5878 /* ProfileSampleViewModelSpec.swift */,
 				22E8C6BC1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift */,
-				2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */,
 				225328101DFA36840087393D /* UserListViewModelSpec.swift */,
+				2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */,
 			);
 			path = VideostreamClientTests;
 			sourceTree = "<group>";
@@ -728,8 +728,8 @@
 				2225C0F41DFDC8AF008A5878 /* LiveTopViewModelSpec.swift in Sources */,
 				2225C0D61DFB8157008A5878 /* ProfileSampleViewModelSpec.swift in Sources */,
 				22E8C6BD1DF8984A00ED8CF1 /* ProfileViewModelSpec.swift in Sources */,
-				2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */,
 				225328111DFA36840087393D /* UserListViewModelSpec.swift in Sources */,
+				2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
