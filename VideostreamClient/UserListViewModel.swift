@@ -57,7 +57,6 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     }
     
     func loadCurrentPage() {
-        endOfUsers.value = false
         reqestPart().addDisposableTo(rx_disposeBag)
     }
     
