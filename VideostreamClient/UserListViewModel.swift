@@ -22,7 +22,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     internal var insertedElementIndexes = VariablePublish<Array<IndexPath>>([])
     var updatedUserIndexes = VariablePublish<Array<IndexPath>>([])
     
-    var endOfUsers = Variable<Bool>(false)
+    var endOfUsers = Variable<Bool>(true)
     
     internal var endPoint: StreamAPI{
         assert(false, "This method must be overriden by the subclass")
@@ -57,6 +57,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     }
     
     func loadCurrentPage() {
+        endOfUsers.value = false
         reqestPart().addDisposableTo(rx_disposeBag)
     }
     
