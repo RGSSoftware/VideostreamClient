@@ -960,10 +960,13 @@
                             <outlet property="delegate" destination="Ejw-4h-qZN" id="hXh-KP-WtB"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="b4b-gP-Nlh" kind="show" identifier="from_Streams_to_Profile" id="GjU-dB-TJn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pud-a0-kNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.80000000000001" y="3867.6161919040483"/>
+            <point key="canvasLocation" x="-1658" y="1878"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="ubb-UW-wRv">
@@ -978,7 +981,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-fa-dVn" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="118" y="88" width="140" height="140"/>
+                                <rect key="frame" x="118" y="44" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dl-PX-kBw">
                                         <rect key="frame" x="18" y="0.0" width="105" height="105"/>
@@ -1013,18 +1016,19 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-CF-xyf">
-                                <rect key="frame" x="75" y="256" width="225" height="80"/>
+                                <rect key="frame" x="75" y="212" width="225" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-aE-c1O">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-aE-c1O">
                                         <rect key="frame" x="0.0" y="0.0" width="225" height="34"/>
                                         <color key="backgroundColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <inset key="imageEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <state key="normal" title="Follow" image="fullProfileImage">
+                                        <state key="normal" title="Follow" image="fullProfileImage"/>
+                                        <state key="selected" title="Following" image="fullProfileImageSlec">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-fv-IDU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-fv-IDU" customClass="ARFlatButton">
                                         <rect key="frame" x="0.0" y="46" width="225" height="34"/>
                                         <color key="backgroundColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1061,10 +1065,11 @@
         <image name="eye" width="24" height="15"/>
         <image name="eyepdf" width="24" height="15"/>
         <image name="fullProfileImage" width="14" height="17"/>
+        <image name="fullProfileImageSlec" width="27" height="17"/>
         <image name="icon-close" width="15" height="15"/>
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v6F-7I-Xhm"/>
+        <segue reference="GjU-dB-TJn"/>
     </inferredMetricsTieBreakers>
 </document>

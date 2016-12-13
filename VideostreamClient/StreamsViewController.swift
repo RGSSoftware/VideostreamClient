@@ -8,7 +8,7 @@ import XLPagerTabStrip
 
 class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     
-    var viewModel: (UserListable & ProfileSampleViewModelable)!
+    var viewModel: (UserListable & ProfileSampleViewModelable & DetailProfile & WatchLiveStream)!
     
     var downloadImage: ProfileSampleCell.DownloadImageClosure = { (url, imageView) -> () in
         if let url = url {
@@ -83,19 +83,39 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
         let watch = cell.watchPressed.takeUntil(cell.preparingForReuse)
         let detail = cell.detailPressed.takeUntil(cell.preparingForReuse)
         
-        watch.subscribe(onNext:{ _ in
-            print("did tap watch: \(indexPath.row)")
+        watch.subscribe(onNext:{[weak self] _ in
+            
+            self?.viewModel.showLiveStreamForIndexPath(indexPath)
             
         }).addDisposableTo(rx_disposeBag)
         
-        detail.subscribe(onNext:{ _ in
-            print("did tap detail: \(indexPath.row)")
+        detail.subscribe(onNext:{[weak self] _ in
+            
+            self?.viewModel.showDetailProfileForIndexPath(indexPath)
             
         }).addDisposableTo(rx_disposeBag)
         
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == R.segue.streamsViewController.from_Streams_to_Profile.identifier {
+            let pVC = segue.destination as! ProfileViewController
+            pVC.viewModel = sender as! ProfileViewModel
+        }
+    }
+    
+    func showDetails(forProfileViewModel profileViewModel: ProfileViewModel) {
+        performSegue(withIdentifier: R.segue.streamsViewController.from_Streams_to_Profile.identifier, sender: profileViewModel)
+        
+        print("show detail for: \(profileViewModel.username)")
+        
+    }
+    
+    func showStream(forStreamViewModel streamViewModel: StreamViewModel) {
+        
+        print("show stream for:")
+    }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo

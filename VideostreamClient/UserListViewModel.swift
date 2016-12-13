@@ -11,7 +11,7 @@ protocol UserListable: Pagintaionable {
     func userAtIndexPath(_ indexPath: IndexPath) -> User
 }
 
-class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleViewModelable {
+class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleViewModelable, DetailProfile, WatchLiveStream {
     let provider: RxMoyaProvider<StreamAPI>
     
     internal var elements: [User] = []
@@ -31,11 +31,17 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     internal var pageSize: Int
     internal var page: Int
     
-    init(provider: RxMoyaProvider<StreamAPI>, page: Int = 1, pageSize: Int = 20){
+    var showDetailProfile: ShowDetailsClosure
+    var showLiveStream: ShowLiveStreamClosure
+    
+    init(provider: RxMoyaProvider<StreamAPI>, showDetails: @escaping ShowDetailsClosure, showStream: @escaping ShowLiveStreamClosure, page: Int = 1, pageSize: Int = 20){
         
         self.provider = provider
         self.pageSize = pageSize
         self.page = page
+        
+        self.showDetailProfile = showDetails
+        self.showLiveStream = showStream
         
         super.init()
         
@@ -65,6 +71,14 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
         }
         
         return .none
+    }
+    
+    func showDetailProfileForIndexPath(_ indexPath: IndexPath) {
+        showDetailProfile(ProfileViewModel(provider:provider, user: userAtIndexPath(indexPath)))
+    }
+    
+    func showLiveStreamForIndexPath(_ indexPath: IndexPath) {
+        showLiveStream(StreamViewModel())
     }
 
 }

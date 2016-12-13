@@ -11,7 +11,9 @@ class SearchViewController: UIViewController {
     var provider: RxMoyaProvider<StreamAPI>!
     
     lazy var viewModel: SearchUsersViewModel = {
-        return SearchUsersViewModel(provider: self.provider!)
+        return SearchUsersViewModel(provider: self.provider!,
+                                    showDetails: applyUnowned(self, SearchViewController.showDetails),
+                                    showStream: applyUnowned(self, SearchViewController.showStream))
     }()
     
     
@@ -107,6 +109,16 @@ class SearchViewController: UIViewController {
             pVC.profileId = sender as? String
             
         }
+    }
+    
+    func showDetails(forProfileViewModel profileViewModel: ProfileViewModel) {
+        
+        
+    }
+    
+    func showStream(forStreamViewModel streamViewModel: StreamViewModel) {
+        
+        
     }
 }
 

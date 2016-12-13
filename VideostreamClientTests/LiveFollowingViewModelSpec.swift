@@ -15,7 +15,7 @@ class LiveFollowingViewModelSpec: QuickSpec {
         beforeEach {
             
             let provider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(0.1))
-            subject = LiveFollowingViewModel(provider: provider)
+            subject = LiveFollowingViewModel(provider: provider, showDetails: {_ in }, showStream: {_ in })
             
         }
         

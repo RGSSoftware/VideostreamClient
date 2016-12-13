@@ -271,7 +271,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 4 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 5 view controllers.
   struct segue {
     /// This struct is generated for `HomeViewController`, and contains static references to 2 segues.
     struct homeViewController {
@@ -337,6 +337,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func from_Splash_to_Login(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SplashViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.splashViewController.from_Splash_to_Login, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `StreamsViewController`, and contains static references to 1 segues.
+    struct streamsViewController {
+      /// Segue identifier `from_Streams_to_Profile`.
+      static let from_Streams_to_Profile: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, StreamsViewController, ProfileViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Streams_to_Profile")
+      
+      /// Optionally returns a typed version of segue `from_Streams_to_Profile`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func from_Streams_to_Profile(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, StreamsViewController, ProfileViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.streamsViewController.from_Streams_to_Profile, segue: segue)
       }
       
       fileprivate init() {}
@@ -461,6 +476,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "fullProfileImageSlec") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'fullProfileImageSlec' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "liveImageSlec") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'liveImageSlec' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "eyepdf") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eyepdf' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "icon-close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon-close' is used in storyboard 'Main', but couldn't be loaded.") }

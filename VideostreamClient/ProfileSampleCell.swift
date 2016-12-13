@@ -71,6 +71,11 @@ class ProfileSampleCell: UITableViewCell {
             .bindTo(profileNameLabel.rx.text)
             .addDisposableTo(reuseBag)
         
+        viewModel.map { $0.isLive }
+            .map{ !$0 }
+            .bindTo(watchButton.rx.isHidden)
+            .addDisposableTo(reuseBag)
+    
         watchButton.rx.tap.subscribe(onNext: { [weak self] in
             self?._watchPressed.onNext()
         }).addDisposableTo(reuseBag)

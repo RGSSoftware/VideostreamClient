@@ -16,7 +16,7 @@ class UserListViewModelSpec: QuickSpec {
         beforeEach {
             
             let provider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(0.1))
-            subject = MockUserListViewModel(provider: provider)
+            subject = MockUserListViewModel(provider: provider, showDetails: {_ in }, showStream: {_ in })
             
             disposeBag = DisposeBag()
 

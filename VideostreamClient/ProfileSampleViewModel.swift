@@ -15,7 +15,7 @@ class ProfileSampleViewModel: NSObject {
         return user.username
     }
     
-    var isLive: Bool?{
+    var isLive: Bool{
         return user.stream.isLive
     }
     
