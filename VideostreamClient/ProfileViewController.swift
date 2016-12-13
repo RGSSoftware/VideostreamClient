@@ -4,6 +4,7 @@ import RxSwift
 import SDWebImage
 import UIKit
 import Artsy_UIButtons
+import SVProgressHUD
 
 
 class ProfileViewController: UIViewController {
@@ -29,6 +30,10 @@ class ProfileViewController: UIViewController {
         leftArrowButton?.setFrameSizeHeight((navigationController?.navigationBar.frame.size.height)!)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftArrowButton!)
         
+        viewModel.showSpinner.subscribe(onNext:{ showSpinner in
+            showSpinner == true ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        }).addDisposableTo(rx_disposeBag)
+                
         leftArrowButton?.rx.tap
             .subscribe(onNext:{[weak self] in _ = self?.navigationController?.popViewController(animated: true)})
             .addDisposableTo(rx_disposeBag)
@@ -41,13 +46,13 @@ class ProfileViewController: UIViewController {
             profileSampleView.profileImageButton.setImage(R.image.profilePlaceholderImage(), for: .normal)
         }
         
-        viewModel?.isFollowing.asObservable().bindTo(followButton.rx.isSelected).addDisposableTo(rx_disposeBag)
+        viewModel.isFollowing.asObservable().bindTo(followButton.rx.isSelected).addDisposableTo(rx_disposeBag)
+        followButton.rx.tap
+            .subscribe(onNext: {[weak self] in self?.viewModel.followButtonDidTap()})
+            .addDisposableTo(rx_disposeBag)
+        
         watchLiveButton.isEnabled = viewModel.isLive
 
-    }
-    
-    func leftNavTap(_ id: Any) {
-        
     }
 
 }

@@ -22,6 +22,7 @@
 		2225C10B1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */; };
 		2225C16E1DFF58F6008A5878 /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C16D1DFF58F6008A5878 /* GlobalFunctions.swift */; };
 		2225C1761DFF6924008A5878 /* StreamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C1751DFF6924008A5878 /* StreamViewModel.swift */; };
+		2225C19B1E00AC92008A5878 /* currentUserFollowing.json in Resources */ = {isa = PBXBuildFile; fileRef = 2225C19A1E00AC92008A5878 /* currentUserFollowing.json */; };
 		224597C81DDED84A00E784B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224597C71DDED84A00E784B2 /* AppDelegate.swift */; };
 		224597CD1DDED84A00E784B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224597CB1DDED84A00E784B2 /* Main.storyboard */; };
 		224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224597CE1DDED84A00E784B2 /* Assets.xcassets */; };
@@ -131,6 +132,7 @@
 		2225C10A1DFE0E34008A5878 /* WatchPagerViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchPagerViewControllerSpec.swift; sourceTree = "<group>"; };
 		2225C16D1DFF58F6008A5878 /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		2225C1751DFF6924008A5878 /* StreamViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewModel.swift; sourceTree = "<group>"; };
+		2225C19A1E00AC92008A5878 /* currentUserFollowing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = currentUserFollowing.json; sourceTree = "<group>"; };
 		224597C41DDED84A00E784B2 /* VideostreamClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideostreamClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224597C71DDED84A00E784B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224597CC1DDED84A00E784B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		2224EEED1DF46793007828E5 /* Stubbed Responses */ = {
 			isa = PBXGroup;
 			children = (
+				2225C19A1E00AC92008A5878 /* currentUserFollowing.json */,
 				22E8C68D1DF7845900ED8CF1 /* isFollowing.json */,
 				22E6F9871DF5C24200F55F24 /* live_Top_x1.json */,
 				22E6F98A1DF5C26C00F55F24 /* live_Top_x2.json */,
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				224597CF1DDED84A00E784B2 /* Assets.xcassets in Resources */,
+				2225C19B1E00AC92008A5878 /* currentUserFollowing.json in Resources */,
 				22E8C68E1DF7845900ED8CF1 /* isFollowing.json in Resources */,
 				229E9FE11DE1363C00160514 /* jsonConfig.json in Resources */,
 				224597D21DDED84A00E784B2 /* LaunchScreen.storyboard in Resources */,

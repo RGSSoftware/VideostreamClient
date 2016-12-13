@@ -2,8 +2,8 @@ import Foundation
 import Moya
 
 let StreamProvider = RxMoyaProvider<StreamAPI>()
-//let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(4))
-let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
+let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(2))
+//let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
 
 enum StreamAPI {
     case login(password: String, username: String)
@@ -13,6 +13,8 @@ enum StreamAPI {
     case searchUsers(q: String, page: Int, pageSize: Int)
     case user(id: String)
     case isCurrentUserFollowing(id: String)
+    case currentUserFollowing(id: String)
+    case currentUserDeleteFollowing(id: String)
 }
 
 extension StreamAPI : TargetType {
@@ -31,6 +33,10 @@ extension StreamAPI : TargetType {
             return "/users/\(id)"
         case .isCurrentUserFollowing(let id):
             return "/user/isfollowing/\(id)"
+        case .currentUserFollowing(let id),
+             .currentUserDeleteFollowing(let id):
+            return "/user/following/\(id)"
+        
         }
     }
     
@@ -63,6 +69,10 @@ extension StreamAPI : TargetType {
         case .login,
              .register:
             return .post
+        case .currentUserFollowing:
+             return .put
+        case .currentUserDeleteFollowing:
+            return .delete
         default:
             return .get
         }
@@ -103,6 +113,9 @@ extension StreamAPI : TargetType {
             return stubbedResponse("User")
         case .isCurrentUserFollowing:
             return stubbedResponse("isFollowing")
+        case .currentUserFollowing,
+             .currentUserDeleteFollowing:
+            return stubbedResponse("currentUserFollowing")
         }
     }
     
