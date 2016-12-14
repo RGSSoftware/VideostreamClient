@@ -39,7 +39,7 @@
 		224FBA761DDEF61600574B2D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA751DDEF61600574B2D /* OpenGLES.framework */; };
 		224FBA781DDEF61C00574B2D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224FBA771DDEF61C00574B2D /* VideoToolbox.framework */; };
 		224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */; };
-		224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */; };
+		224FBA9E1DE0DFB600574B2D /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBA9D1DE0DFB600574B2D /* UserListViewController.swift */; };
 		224FBAA11DE10E4100574B2D /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224FBAA01DE10E4100574B2D /* SplashViewController.swift */; };
 		225328001DF91ECC0087393D /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225327FF1DF91ECC0087393D /* Stream.swift */; };
 		225328111DFA36840087393D /* UserListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225328101DFA36840087393D /* UserListViewModelSpec.swift */; };
@@ -151,7 +151,7 @@
 		224FBA751DDEF61600574B2D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		224FBA771DDEF61C00574B2D /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		224FBA981DDEFFCD00574B2D /* AudienceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudienceViewController.swift; sourceTree = "<group>"; };
-		224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamsViewController.swift; sourceTree = "<group>"; };
+		224FBA9D1DE0DFB600574B2D /* UserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		224FBAA01DE10E4100574B2D /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		225327FF1DF91ECC0087393D /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		225328101DFA36840087393D /* UserListViewModelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListViewModelSpec.swift; sourceTree = "<group>"; };
@@ -351,7 +351,7 @@
 				226F190C1DE8DABC00A68678 /* SignupViewController.swift */,
 				224FBAA01DE10E4100574B2D /* SplashViewController.swift */,
 				22D24B8C1DE49796000E76DB /* StreamerCell.swift */,
-				224FBA9D1DE0DFB600574B2D /* StreamsViewController.swift */,
+				224FBA9D1DE0DFB600574B2D /* UserListViewController.swift */,
 				22E6F97C1DF5ACF600F55F24 /* VariablePublish.swift */,
 				226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */,
 			);
@@ -719,13 +719,13 @@
 				225328001DF91ECC0087393D /* Stream.swift in Sources */,
 				22F0765C1DEF2C91007C1CA2 /* StreamAPI.swift in Sources */,
 				22D24B8D1DE49796000E76DB /* StreamerCell.swift in Sources */,
-				224FBA9E1DE0DFB600574B2D /* StreamsViewController.swift in Sources */,
 				2225C1761DFF6924008A5878 /* StreamViewModel.swift in Sources */,
 				225330671DE125B5008F61C1 /* UIButton+Exten.swift in Sources */,
 				2253306A1DE12649008F61C1 /* UIView+Exten.swift in Sources */,
 				226F18FF1DE5085F00A68678 /* UIViewController+Exten.swift in Sources */,
 				2225C1081DFE0CBA008A5878 /* UIViewControllerExtensions.swift in Sources */,
 				2224EEF81DF46A21007828E5 /* User.swift in Sources */,
+				224FBA9E1DE0DFB600574B2D /* UserListViewController.swift in Sources */,
 				22E8C6521DF669F400ED8CF1 /* UserListViewModel.swift in Sources */,
 				22E6F97D1DF5ACF600F55F24 /* VariablePublish.swift in Sources */,
 				226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */,

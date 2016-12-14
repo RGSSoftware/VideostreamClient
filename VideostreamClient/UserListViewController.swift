@@ -6,7 +6,7 @@ import UIScrollView_InfiniteScroll
 import XLPagerTabStrip
 
 
-class StreamsViewController: UITableViewController, IndicatorInfoProvider {
+class UserListViewController: UITableViewController, IndicatorInfoProvider {
     
     var viewModel: (UserListable & ProfileSampleViewModelable & DetailProfile & WatchLiveStream)!
     
@@ -99,14 +99,14 @@ class StreamsViewController: UITableViewController, IndicatorInfoProvider {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == R.segue.streamsViewController.from_Streams_to_Profile.identifier {
+        if segue.identifier == R.segue.userListViewController.from_Streams_to_Profile.identifier {
             let pVC = segue.destination as! ProfileViewController
             pVC.viewModel = sender as! ProfileViewModel
         }
     }
     
     func showDetails(forProfileViewModel profileViewModel: ProfileViewModel) {
-        performSegue(withIdentifier: R.segue.streamsViewController.from_Streams_to_Profile.identifier, sender: profileViewModel)
+        performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Profile.identifier, sender: profileViewModel)
         
         print("show detail for: \(profileViewModel.username)")
         

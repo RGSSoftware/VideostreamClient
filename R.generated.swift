@@ -350,16 +350,16 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `StreamsViewController`, and contains static references to 1 segues.
-    struct streamsViewController {
+    /// This struct is generated for `UserListViewController`, and contains static references to 1 segues.
+    struct userListViewController {
       /// Segue identifier `from_Streams_to_Profile`.
-      static let from_Streams_to_Profile: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, StreamsViewController, ProfileViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Streams_to_Profile")
+      static let from_Streams_to_Profile: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserListViewController, ProfileViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Streams_to_Profile")
       
       /// Optionally returns a typed version of segue `from_Streams_to_Profile`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func from_Streams_to_Profile(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, StreamsViewController, ProfileViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.streamsViewController.from_Streams_to_Profile, segue: segue)
+      static func from_Streams_to_Profile(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserListViewController, ProfileViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userListViewController.from_Streams_to_Profile, segue: segue)
       }
       
       fileprivate init() {}
@@ -428,7 +428,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = SplashViewController
+      typealias InitialController = UIKit.UINavigationController
       
       let audience = StoryboardViewControllerResource<AudienceViewController>(identifier: "audience")
       let broadcaster_Screen = StoryboardViewControllerResource<BroadcasterViewController>(identifier: "Broadcaster_Screen")
@@ -441,7 +441,7 @@ struct _R: Rswift.Validatable {
       let profile_Nav_Screen = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Profile_Nav_Screen")
       let profile_Screen = StoryboardViewControllerResource<MyProfileViewController>(identifier: "Profile_Screen")
       let search_Nav_Screen = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Search_Nav_Screen")
-      let streams_Screen = StoryboardViewControllerResource<StreamsViewController>(identifier: "Streams_Screen")
+      let streams_Screen = StoryboardViewControllerResource<UserListViewController>(identifier: "Streams_Screen")
       
       func audience(_: Void = ()) -> AudienceViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: audience)
@@ -479,7 +479,7 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: search_Nav_Screen)
       }
       
-      func streams_Screen(_: Void = ()) -> StreamsViewController? {
+      func streams_Screen(_: Void = ()) -> UserListViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: streams_Screen)
       }
       
@@ -492,7 +492,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'eye' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().search_Nav_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'search_Nav_Screen' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.main().navPager_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'navPager_Screen' could not be loaded from storyboard 'Main' as 'UIKit.UINavigationController'.") }
-        if _R.storyboard.main().streams_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'streams_Screen' could not be loaded from storyboard 'Main' as 'StreamsViewController'.") }
+        if _R.storyboard.main().streams_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'streams_Screen' could not be loaded from storyboard 'Main' as 'UserListViewController'.") }
         if _R.storyboard.main().audience() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'audience' could not be loaded from storyboard 'Main' as 'AudienceViewController'.") }
         if _R.storyboard.main().profile_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'profile_Screen' could not be loaded from storyboard 'Main' as 'MyProfileViewController'.") }
         if _R.storyboard.main().left_Nav_Screen() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'left_Nav_Screen' could not be loaded from storyboard 'Main' as 'LeftNavViewController'.") }
