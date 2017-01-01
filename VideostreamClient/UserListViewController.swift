@@ -72,7 +72,6 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
             
             }.addDisposableTo(rx_disposeBag)
         
-        viewModel.loadCurrentPage()
         
         viewModel.showDetailProfile.subscribe(onNext: { [weak self] viewModel in
         

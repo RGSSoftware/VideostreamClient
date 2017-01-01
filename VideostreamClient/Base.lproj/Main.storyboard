@@ -953,7 +953,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pud-a0-kNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1791" y="1584"/>
+            <point key="canvasLocation" x="-1574" y="1700"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="ubb-UW-wRv">
@@ -1183,6 +1183,6 @@
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tur-Is-62h"/>
+        <segue reference="GjU-dB-TJn"/>
     </inferredMetricsTieBreakers>
 </document>

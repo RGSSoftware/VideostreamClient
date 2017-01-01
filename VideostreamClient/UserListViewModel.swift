@@ -56,7 +56,6 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
         super.init()
         
         self.showDetailProfile = self.userProfileDidSelect.map({[weak self] indexPath in
-            print("show")
             return ProfileViewModel(provider:self!.provider, user: self!.userAtIndexPath(indexPath))})
             .asObservable()
         
@@ -80,7 +79,6 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     }
     
     func userAtIndexPath(_ indexPath: IndexPath) -> User {
-        print("user")
         return elements[indexPath.row]
     }
     
