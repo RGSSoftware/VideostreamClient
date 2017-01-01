@@ -788,20 +788,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQB-NT-Hx1">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2BB-WY-68y">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="-20" width="375" height="687"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwK-LE-Wi5">
-                                <rect key="frame" x="164" y="86" width="47" height="16"/>
+                                <rect key="frame" x="164" y="22" width="47" height="16"/>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAL-HC-Nsb" customClass="DesignableButton" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="10" y="74" width="40" height="40"/>
+                                <rect key="frame" x="10" y="10" width="40" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="7Gf-pX-FRt"/>
@@ -842,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2i-tc-dgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1969" y="1728"/>
+            <point key="canvasLocation" x="-633" y="1765"/>
         </scene>
         <!--WATCH LIVE-->
         <scene sceneID="7b1-Wi-RRZ">
@@ -949,6 +949,7 @@
                     </tableView>
                     <connections>
                         <segue destination="b4b-gP-Nlh" kind="show" identifier="from_Streams_to_Profile" id="GjU-dB-TJn"/>
+                        <segue destination="53O-oY-Vkp" kind="show" identifier="from_Streams_to_Audience" id="L8T-Nz-bF2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pud-a0-kNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -968,7 +969,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-fa-dVn" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="118" y="88" width="140" height="140"/>
+                                <rect key="frame" x="118" y="24" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dl-PX-kBw">
                                         <rect key="frame" x="18" y="0.0" width="105" height="105"/>
@@ -1003,7 +1004,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-CF-xyf">
-                                <rect key="frame" x="75" y="256" width="225" height="80"/>
+                                <rect key="frame" x="75" y="192" width="225" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-aE-c1O">
                                         <rect key="frame" x="0.0" y="0.0" width="225" height="34"/>
@@ -1183,6 +1184,7 @@
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="L8T-Nz-bF2"/>
         <segue reference="GjU-dB-TJn"/>
     </inferredMetricsTieBreakers>
 </document>

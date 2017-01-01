@@ -83,7 +83,7 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
         
         viewModel.showLiveStream.subscribe(onNext: { [weak self] viewModel in
             
-//            self?.performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Profile.identifier, sender: viewModel)
+            self?.performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Audience.identifier, sender: viewModel)
             
             print("show watch for: ")
             
@@ -130,6 +130,10 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
         if segue.identifier == R.segue.userListViewController.from_Streams_to_Profile.identifier {
             let pVC = segue.destination as! ProfileViewController
             pVC.viewModel = sender as! ProfileViewModel
+        } else if segue.identifier == R.segue.userListViewController.from_Streams_to_Audience.identifier{
+            let aVC = segue.destination as! AudienceViewController
+            aVC.viewModel = sender as! StreamViewModel
+
         }
     }
     

@@ -359,10 +359,19 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `UserListViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `UserListViewController`, and contains static references to 2 segues.
     struct userListViewController {
+      /// Segue identifier `from_Streams_to_Audience`.
+      static let from_Streams_to_Audience: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserListViewController, AudienceViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Streams_to_Audience")
       /// Segue identifier `from_Streams_to_Profile`.
       static let from_Streams_to_Profile: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UserListViewController, ProfileViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Streams_to_Profile")
+      
+      /// Optionally returns a typed version of segue `from_Streams_to_Audience`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func from_Streams_to_Audience(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UserListViewController, AudienceViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.userListViewController.from_Streams_to_Audience, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `from_Streams_to_Profile`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.

@@ -1,43 +1,29 @@
-
-//
-//  AudienceViewController.swift
-//  Live
-//
-//  Created by leo on 16/7/11.
-//  Copyright © 2016年 io.ltebean. All rights reserved.
-//
-
 import UIKit
 import IJKMediaFramework
-
 
 class AudienceViewController: UIViewController {
 
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     
-    var streamKey: String!
-
+    var viewModel: StreamViewModel!
     
     var player: IJKFFMoviePlayerController!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlString = "rtmp://rtmpserver.pixeljaw.com/live/" + streamKey!
-        player = IJKFFMoviePlayerController(contentURLString: urlString, with: IJKFFOptions.byDefault())  //contetURLStrint helps you making a complete stream at rooms with special characters.
+        let urlString = ConfigManger.shared["services"]["baseRtmpPlayURL"].stringValue + viewModel.streamKey
+        player = IJKFFMoviePlayerController(contentURLString: urlString, with: IJKFFOptions.byDefault())
         
         player.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         player.view.frame = previewView.bounds
         previewView.addSubview(player.view)
-        
-
+    
         player.prepareToPlay()
-        
         
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         player.play()
