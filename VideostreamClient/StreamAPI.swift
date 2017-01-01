@@ -2,8 +2,8 @@ import Foundation
 import Moya
 
 let StreamProvider = RxMoyaProvider<StreamAPI>()
-let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(2))
-//let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
+//let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.delayedStub(2))
+let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.immediatelyStub)
 
 enum StreamAPI {
     case login(password: String, username: String)

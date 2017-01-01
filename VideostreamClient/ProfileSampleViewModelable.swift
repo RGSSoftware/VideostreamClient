@@ -1,4 +1,6 @@
 import Foundation
+import RxSwift
+import RxCocoa
 
 typealias ShowDetailsClosure = (ProfileViewModel) -> Void
 typealias ShowLiveStreamClosure = (StreamViewModel) -> Void
@@ -8,15 +10,11 @@ protocol ProfileSampleViewModelable {
 }
 
 protocol DetailProfile {
-    
-    var showDetailProfile: ShowDetailsClosure { get set }
-    
-    func showDetailProfileForIndexPath(_ indexPath: IndexPath)
+    var userProfileDidSelect: PublishSubject<IndexPath> { get }
+    var showDetailProfile: Observable<ProfileViewModel>! { get }
 }
 
 protocol WatchLiveStream {
-    
-    var showLiveStream: ShowLiveStreamClosure { get set }
-    
-    func showLiveStreamForIndexPath(_ indexPath: IndexPath)
+    var userWatchDidSelect: PublishSubject<IndexPath> { get }
+    var showLiveStream: Observable<StreamViewModel>! { get }
 }

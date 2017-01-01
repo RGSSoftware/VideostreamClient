@@ -320,16 +320,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `SearchViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `SearchViewController`, and contains static references to 2 segues.
     struct searchViewController {
       /// Segue identifier `from_Search_to_Profile`.
       static let from_Search_to_Profile: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SearchViewController, ProfileViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_Search_to_Profile")
+      /// Segue identifier `from_se`.
+      static let from_se: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, SearchViewController, UserListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "from_se")
       
       /// Optionally returns a typed version of segue `from_Search_to_Profile`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func from_Search_to_Profile(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SearchViewController, ProfileViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.searchViewController.from_Search_to_Profile, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `from_se`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func from_se(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, SearchViewController, UserListViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.searchViewController.from_se, segue: segue)
       }
       
       fileprivate init() {}
@@ -428,7 +437,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = SplashViewController
       
       let audience = StoryboardViewControllerResource<AudienceViewController>(identifier: "audience")
       let broadcaster_Screen = StoryboardViewControllerResource<BroadcasterViewController>(identifier: "Broadcaster_Screen")

@@ -63,7 +63,32 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
             
              }.addDisposableTo(rx_disposeBag)
         
+        viewModel.deletedUserIndexes.asObservable().bindNext{ [weak self] indexes in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.tableView.beginUpdates()
+            strongSelf.tableView.deleteRows(at: indexes, with: .automatic)
+            strongSelf.tableView.endUpdates()
+            
+            }.addDisposableTo(rx_disposeBag)
+        
         viewModel.loadCurrentPage()
+        
+        viewModel.showDetailProfile.subscribe(onNext: { [weak self] viewModel in
+        
+            self?.performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Profile.identifier, sender: viewModel)
+            
+            print("show detail for: \(viewModel.username)")
+            
+        }).addDisposableTo(rx_disposeBag)
+        
+        viewModel.showLiveStream.subscribe(onNext: { [weak self] viewModel in
+            
+//            self?.performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Profile.identifier, sender: viewModel)
+            
+            print("show watch for: ")
+            
+        }).addDisposableTo(rx_disposeBag)
 
         
     }
@@ -83,17 +108,21 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
         let watch = cell.watchPressed.takeUntil(cell.preparingForReuse)
         let detail = cell.detailPressed.takeUntil(cell.preparingForReuse)
         
-        watch.subscribe(onNext:{[weak self] _ in
-            
-            self?.viewModel.showLiveStreamForIndexPath(indexPath)
-            
-        }).addDisposableTo(rx_disposeBag)
+        watch.map{indexPath}.subscribe { [weak self] (event) in
+            switch event {
+                case .next:
+                    self?.viewModel.userWatchDidSelect.on(event)
+                default:()
+                }
+            }.addDisposableTo(rx_disposeBag)
         
-        detail.subscribe(onNext:{[weak self] _ in
-            
-            self?.viewModel.showDetailProfileForIndexPath(indexPath)
-            
-        }).addDisposableTo(rx_disposeBag)
+        detail.map{indexPath}.subscribe { [weak self] (event) in
+            switch event {
+                case .next:
+                    self?.viewModel.userProfileDidSelect.on(event)
+                default:()
+                }
+            }.addDisposableTo(rx_disposeBag)
         
         return cell
     }
@@ -103,18 +132,6 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
             let pVC = segue.destination as! ProfileViewController
             pVC.viewModel = sender as! ProfileViewModel
         }
-    }
-    
-    func showDetails(forProfileViewModel profileViewModel: ProfileViewModel) {
-        performSegue(withIdentifier: R.segue.userListViewController.from_Streams_to_Profile.identifier, sender: profileViewModel)
-        
-        print("show detail for: \(profileViewModel.username)")
-        
-    }
-    
-    func showStream(forStreamViewModel streamViewModel: StreamViewModel) {
-        
-        print("show stream for:")
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

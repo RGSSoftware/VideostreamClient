@@ -2,11 +2,14 @@ import Foundation
 import Moya
 import NSObject_Rx
 import RxSwift
+import RxCocoa
 
 protocol UserListable: Pagintaionable {
     var endOfUsers: Variable<Bool> { get set }
     var numberOfUsers: Int { get }
+    
     var updatedUserIndexes: VariablePublish<Array<IndexPath>> { get set }
+    var deletedUserIndexes: VariablePublish<Array<IndexPath>> { get set }
     
     func userAtIndexPath(_ indexPath: IndexPath) -> User
 }
@@ -21,6 +24,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     
     internal var insertedElementIndexes = VariablePublish<Array<IndexPath>>([])
     var updatedUserIndexes = VariablePublish<Array<IndexPath>>([])
+    var deletedUserIndexes = VariablePublish<Array<IndexPath>>([])
     
     var endOfUsers = Variable<Bool>(true)
     
@@ -31,19 +35,34 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     internal var pageSize: Int
     internal var page: Int
     
-    var showDetailProfile: ShowDetailsClosure
-    var showLiveStream: ShowLiveStreamClosure
+//    var showDetailProfile: ShowDetailsClosure
+//    var showLiveStream: ShowLiveStreamClosure
     
-    init(provider: RxMoyaProvider<StreamAPI>, showDetails: @escaping ShowDetailsClosure, showStream: @escaping ShowLiveStreamClosure, page: Int = 1, pageSize: Int = 20){
+    
+    //input
+    var userWatchDidSelect = PublishSubject<IndexPath>()
+    var userProfileDidSelect = PublishSubject<IndexPath>()
+    
+    //output
+    var showDetailProfile: Observable<ProfileViewModel>!
+    var showLiveStream: Observable<StreamViewModel>!
+    
+    init(provider: RxMoyaProvider<StreamAPI>, page: Int = 1, pageSize: Int = 20){
         
         self.provider = provider
         self.pageSize = pageSize
         self.page = page
         
-        self.showDetailProfile = showDetails
-        self.showLiveStream = showStream
-        
         super.init()
+        
+        self.showDetailProfile = self.userProfileDidSelect.map({[weak self] indexPath in
+            print("show")
+            return ProfileViewModel(provider:self!.provider, user: self!.userAtIndexPath(indexPath))})
+            .asObservable()
+        
+        self.showLiveStream = self.userWatchDidSelect.map({[weak self] indexPath in
+            StreamViewModel()})
+            .asObservable()
         
         let o = insertedElementIndexes
             .asObservable()
@@ -61,6 +80,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     }
     
     func userAtIndexPath(_ indexPath: IndexPath) -> User {
+        print("user")
         return elements[indexPath.row]
     }
     
@@ -71,14 +91,6 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
         }
         
         return .none
-    }
-    
-    func showDetailProfileForIndexPath(_ indexPath: IndexPath) {
-        showDetailProfile(ProfileViewModel(provider:provider, user: userAtIndexPath(indexPath)))
-    }
-    
-    func showLiveStreamForIndexPath(_ indexPath: IndexPath) {
-        showLiveStream(StreamViewModel())
     }
 
 }

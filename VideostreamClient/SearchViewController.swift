@@ -11,9 +11,7 @@ class SearchViewController: UIViewController {
     var provider: RxMoyaProvider<StreamAPI>!
     
     lazy var viewModel: SearchUsersViewModel = {
-        return SearchUsersViewModel(provider: self.provider!,
-                                    showDetails: applyUnowned(self, SearchViewController.showDetails),
-                                    showStream: applyUnowned(self, SearchViewController.showStream))
+        return SearchUsersViewModel(provider: self.provider!)
     }()
     
     
@@ -24,49 +22,16 @@ class SearchViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuNavButton()!)
         
-        tableView.infiniteScrollIndicatorMargin = 40
-        tableView.infiniteScrollTriggerOffset = 500
-        tableView.addInfiniteScroll { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.viewModel.loadNextPage()
-        }
-        
-        viewModel.endOfUsers.asObservable().bindNext{[weak self] isEnd in
-            guard let strongSelf = self else { return }
-            print(isEnd)
-            strongSelf.tableView.setShouldShowInfiniteScrollHandler{ _ in return !isEnd}
+        searchTextField.rx.text
+            .filter { $0 != nil }
+            .map { $0! }
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .filter { $0.characters.count > 0 }
+            .bindNext{[weak self] q in
+                guard let strongSelf = self else { return }
+                strongSelf.viewModel.searchUsernamesWith(q)
             }.addDisposableTo(rx_disposeBag)
-        
-        viewModel.updatedUserIndexes.asObservable().bindNext{ [weak self] indexes in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.tableView.beginUpdates()
-            strongSelf.tableView.insertRows(at: indexes, with: .automatic)
-            strongSelf.tableView.endUpdates()
-            
-            strongSelf.tableView.finishInfiniteScroll()
-            
-            }.addDisposableTo(rx_disposeBag)
-        
-        viewModel.deletedUserIndexes.asObservable().bindNext{ [weak self] indexes in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.tableView.beginUpdates()
-            strongSelf.tableView.deleteRows(at: indexes, with: .automatic)
-            strongSelf.tableView.endUpdates()
-            
-            }.addDisposableTo(rx_disposeBag)
-        
-            searchTextField.rx.text
-                .filter { $0 != nil }
-                .map { $0! }
-                .throttle(0.5, scheduler: MainScheduler.instance)
-                .distinctUntilChanged()
-                .filter { $0.characters.count > 0 }
-                .bindNext{[weak self] q in
-                    guard let strongSelf = self else { return }
-                    strongSelf.viewModel.searchUsernamesWith(q)
-                }.addDisposableTo(rx_disposeBag)
 
     }
     
@@ -108,17 +73,10 @@ class SearchViewController: UIViewController {
             let pVC = segue.destination as! ProfileViewController
             pVC.profileId = sender as? String
             
+        } else if segue.destination is UserListViewController {
+            let uVC = segue.destination as! UserListViewController
+            uVC.viewModel = viewModel
         }
-    }
-    
-    func showDetails(forProfileViewModel profileViewModel: ProfileViewModel) {
-        
-        
-    }
-    
-    func showStream(forStreamViewModel streamViewModel: StreamViewModel) {
-        
-        
     }
 }
 
@@ -131,35 +89,6 @@ extension SearchViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         resignSearch()
         return true
-    }
-}
-
-extension SearchViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfUsers
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.profileCell.identifier, for: indexPath) as! ProfileSampleCell
-        
-        let user = viewModel.userAtIndexPath(indexPath)
-        
-        cell.profileNameLabel?.text =  user.username
-        cell.profileImageView.image = R.image.profilePlaceholderImage()
-        
-        return cell
-    }
-}
-
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        resignSearch()
-        
-        let user = viewModel.userAtIndexPath(indexPath)
-        
-        performSegue(withIdentifier: R.segue.searchViewController.from_Search_to_Profile.identifier, sender: user.id)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

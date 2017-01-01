@@ -10,16 +10,12 @@ class WatchPagerViewController: InstagramPagerViewController {
         
         let child_1 = R.storyboard.main.streams_Screen()!
         child_1.itemInfo = "TOP"
-        child_1.viewModel = LiveTopViewModel(provider: provider,
-                                             showDetails: applyUnowned(child_1, UserListViewController.showDetails),
-                                             showStream: applyUnowned(child_1, UserListViewController.showStream))
+        child_1.viewModel = LiveTopViewModel(provider: provider)
         
         
         let child_2 = R.storyboard.main.streams_Screen()!
         child_2.itemInfo = "FOLLOWING"
-        child_2.viewModel = LiveFollowingViewModel(provider: provider,
-                                                   showDetails: applyUnowned(child_2, UserListViewController.showDetails),
-                                                   showStream: applyUnowned(child_2, UserListViewController.showStream))
+        child_2.viewModel = LiveFollowingViewModel(provider: provider)
         
         
         pageControllers = [child_1, child_2]

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2659" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d5H-iV-cMd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IM6-zp-xP7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -88,7 +88,7 @@
         <scene sceneID="Zzb-pA-laZ">
             <objects>
                 <navigationController id="2vO-TZ-42H" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Wa2-A3-Srg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Wa2-A3-Srg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -479,7 +479,7 @@
         <scene sceneID="muP-GL-SNQ">
             <objects>
                 <navigationController storyboardIdentifier="Search_Nav_Screen" id="JZ8-Kx-qZR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2gQ-HM-aoI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2gQ-HM-aoI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94117647059999998" green="0.5450980392" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -504,31 +504,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="guf-oe-jMx">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCT-UZ-DyJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" rowHeight="73" id="nPT-ZC-r96" customClass="ProfileSampleCell" customModule="VideostreamClient" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="73"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nPT-ZC-r96" id="iJ5-P2-rho">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="gl4-uz-8X0" id="rw8-kG-CC9"/>
-                                    <outlet property="delegate" destination="gl4-uz-8X0" id="83l-o4-LmP"/>
+                                    <segue destination="Ejw-4h-qZN" kind="embed" identifier="from_se" id="7UP-dF-sb5"/>
                                 </connections>
-                            </tableView>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="guf-oe-jMx" firstAttribute="top" secondItem="ywI-JM-0sH" secondAttribute="top" id="5Mo-Yc-kX7"/>
-                            <constraint firstAttribute="trailing" secondItem="guf-oe-jMx" secondAttribute="trailing" id="Be5-QI-fQG"/>
-                            <constraint firstItem="16Y-d5-gbp" firstAttribute="top" secondItem="guf-oe-jMx" secondAttribute="bottom" id="lKm-oA-eYt"/>
-                            <constraint firstItem="guf-oe-jMx" firstAttribute="leading" secondItem="ywI-JM-0sH" secondAttribute="leading" id="uBg-fN-uLm"/>
+                            <constraint firstItem="tCT-UZ-DyJ" firstAttribute="top" secondItem="ywI-JM-0sH" secondAttribute="top" id="1Ur-Yy-9R6"/>
+                            <constraint firstItem="tCT-UZ-DyJ" firstAttribute="leading" secondItem="ywI-JM-0sH" secondAttribute="leading" id="5Up-al-NHV"/>
+                            <constraint firstItem="16Y-d5-gbp" firstAttribute="top" secondItem="tCT-UZ-DyJ" secondAttribute="bottom" id="VJP-DK-arV"/>
+                            <constraint firstAttribute="trailing" secondItem="tCT-UZ-DyJ" secondAttribute="trailing" id="duh-O5-tpt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RSg-Hk-4ru">
@@ -557,7 +545,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="qUo-eR-d0Z" id="S2V-eP-2Gg"/>
-                        <outlet property="tableView" destination="guf-oe-jMx" id="xHp-dX-xHH"/>
                         <segue destination="b4b-gP-Nlh" kind="show" identifier="from_Search_to_Profile" id="Tur-Is-62h"/>
                     </connections>
                 </viewController>
@@ -569,7 +556,7 @@
         <scene sceneID="Jaz-X6-dbd">
             <objects>
                 <navigationController storyboardIdentifier="Profile_Nav_Screen" id="g41-B6-GcG" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WlO-yL-AcK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WlO-yL-AcK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -629,7 +616,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="ECj-FA-V2Z">
-                                <rect key="frame" x="137" y="256" width="102" height="17"/>
+                                <rect key="frame" x="137.5" y="256" width="101.5" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAz-zY-0CH">
                                         <rect key="frame" x="0.0" y="0.0" width="9" height="17"/>
@@ -638,7 +625,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOLLOWING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NG-3z-gz1">
-                                        <rect key="frame" x="20" y="0.0" width="82" height="17"/>
+                                        <rect key="frame" x="20" y="0.0" width="81.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -714,7 +701,7 @@
         <scene sceneID="nNq-eT-mHH">
             <objects>
                 <navigationController storyboardIdentifier="Home_Screen" id="Mcc-D5-Lia" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Hi-0l-BsL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8Hi-0l-BsL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -915,7 +902,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="7zX-ip-1Lt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="7zX-ip-1Lt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94117647059999998" green="0.5450980392" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -966,7 +953,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pud-a0-kNe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="3767"/>
+            <point key="canvasLocation" x="-1791" y="1584"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="ubb-UW-wRv">
@@ -981,7 +968,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5f-fa-dVn" customClass="ProfileSampleView" customModule="VideostreamClient" customModuleProvider="target">
-                                <rect key="frame" x="118" y="44" width="140" height="140"/>
+                                <rect key="frame" x="118" y="88" width="140" height="140"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dl-PX-kBw">
                                         <rect key="frame" x="18" y="0.0" width="105" height="105"/>
@@ -1016,7 +1003,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-CF-xyf">
-                                <rect key="frame" x="75" y="212" width="225" height="80"/>
+                                <rect key="frame" x="75" y="256" width="225" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-aE-c1O">
                                         <rect key="frame" x="0.0" y="0.0" width="225" height="34"/>
@@ -1064,7 +1051,7 @@
         <scene sceneID="UVw-ZW-MUE">
             <objects>
                 <navigationController id="d5H-iV-cMd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dyt-Es-Ty8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dyt-Es-Ty8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1196,6 +1183,6 @@
         <image name="liveImageSlec" width="22" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GjU-dB-TJn"/>
+        <segue reference="Tur-Is-62h"/>
     </inferredMetricsTieBreakers>
 </document>

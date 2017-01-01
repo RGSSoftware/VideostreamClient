@@ -3,7 +3,6 @@ import Moya
 import RxSwift
 
 protocol SearchUsersable: UserListable {
-    var deletedUserIndexes: VariablePublish<Array<IndexPath>> { get set }
     
     func searchUsernamesWith(_ q: String)
 }
@@ -15,8 +14,6 @@ class SearchUsersViewModel: UserListViewModel, SearchUsersable {
     }
     
     internal var q = ""
-    var deletedUserIndexes = VariablePublish<Array<IndexPath>>([])
-
     
     internal var requestDisposable: Disposable?
     
