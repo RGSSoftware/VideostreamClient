@@ -32,7 +32,7 @@ class ProfileViewModel: ProfileSampleViewModel {
         if isFollowing.value {
             req = provider.request(.currentUserDeleteFollowing(id: user.id))
         } else {
-            req = provider.request(.currentUserFollowing(id: user.id))
+            req = provider.request(.currentUserFollowUser(id: user.id))
         }
             
             req.filterStatusCode(200)

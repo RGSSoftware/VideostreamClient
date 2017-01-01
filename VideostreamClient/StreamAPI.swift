@@ -8,14 +8,19 @@ let StubStreamProvider = RxMoyaProvider<StreamAPI>(stubClosure: MoyaProvider.imm
 enum StreamAPI {
     case login(password: String, username: String)
     case register(password: String, username: String, email: String)
-    case liveTop(page: Int, pageSize: Int)
-    case liveFollowing(page: Int, pageSize: Int)
+    
+    case liveTopUsers(page: Int, pageSize: Int)
     case searchUsers(q: String, page: Int, pageSize: Int)
+    
     case user(id: String)
+    
+    case me
     case isCurrentUserFollowing(id: String)
-    case currentUserFollowing(id: String)
+    case currentUserFollowUser(id: String)
     case currentUserDeleteFollowing(id: String)
+    case currentUserLiveFollowing(page: Int, pageSize: Int)
 }
+
 
 extension StreamAPI : TargetType {
     var path: String {
@@ -24,18 +29,24 @@ extension StreamAPI : TargetType {
             return "/login"
         case .register:
             return "/register"
-        case .liveTop,
-             .liveFollowing:
-            return "/live/top"
+            
+        case .liveTopUsers:
+            return "/users"
         case .searchUsers:
             return "/search/users"
+            
         case .user(let id):
             return "/users/\(id)"
+        
+        case .me:
+            return "/user"
         case .isCurrentUserFollowing(let id):
             return "/user/isfollowing/\(id)"
-        case .currentUserFollowing(let id),
-             .currentUserDeleteFollowing(let id):
+        case .currentUserFollowUser(let id),
+            .currentUserDeleteFollowing(let id):
             return "/user/following/\(id)"
+        case .currentUserLiveFollowing:
+            return "/user/following"
         
         }
     }
@@ -49,11 +60,15 @@ extension StreamAPI : TargetType {
             return ["password": password, "username": username]
         case .register(let password, let username, let email):
             return ["password": password, "username": username, "email": email]
-        case .liveTop(let page, let pageSize),
-             .liveFollowing(let page, let pageSize):
+            
+        case .liveTopUsers(let page, let pageSize):
             return ["page": page, "limit": pageSize]
+            
         case .searchUsers(let q, let page, let pageSize):
             return ["q": q, "page": page, "limit": pageSize]
+            
+        case .currentUserLiveFollowing(let page, let pageSize):
+            return ["streamStatus": 0, "page": page, "limit": pageSize]
         default:
             return nil
         }
@@ -69,7 +84,7 @@ extension StreamAPI : TargetType {
         case .login,
              .register:
             return .post
-        case .currentUserFollowing:
+        case .currentUserFollowUser:
              return .put
         case .currentUserDeleteFollowing:
             return .delete
@@ -84,16 +99,8 @@ extension StreamAPI : TargetType {
             return stubbedResponse("Me")
         case .register:
             return stubbedResponse("Me")
-        case .liveTop(let page, _):
-            if page == 1{
-                return stubbedResponse("live_Top_x1")
-            } else if (page == 2){
-                return stubbedResponse("live_Top_x2")
-            } else {
-                return stubbedResponse("live_Top_x3")
-            }
             
-        case .liveFollowing(let page, _):
+        case .liveTopUsers(let page, _):
             if page == 1{
                 return stubbedResponse("live_Top_x2")
             } else if (page == 2){
@@ -103,19 +110,33 @@ extension StreamAPI : TargetType {
             }
         case .searchUsers(_, let page, _):
             if page == 1{
-                return stubbedResponse("live_Top_x2")
-            } else if (page == 2){
-                return stubbedResponse("live_Top_x3")
-            } else {
                 return stubbedResponse("live_Top_x1")
+            } else if (page == 2){
+                return stubbedResponse("live_Top_x2")
+            } else {
+                return stubbedResponse("live_Top_x3")
             }
+            
         case .user:
             return stubbedResponse("User")
+          
+        case .me:
+            return stubbedResponse("Me")
+            
         case .isCurrentUserFollowing:
             return stubbedResponse("isFollowing")
-        case .currentUserFollowing,
+        case .currentUserFollowUser,
              .currentUserDeleteFollowing:
             return stubbedResponse("currentUserFollowing")
+            
+        case .currentUserLiveFollowing(let page, _):
+            if page == 1{
+                return stubbedResponse("live_Top_x2")
+            } else if (page == 2){
+                return stubbedResponse("live_Top_x1")
+            } else {
+                return stubbedResponse("live_Top_x3")
+            }
         }
     }
     

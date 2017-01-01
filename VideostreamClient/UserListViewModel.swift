@@ -35,10 +35,6 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     internal var pageSize: Int
     internal var page: Int
     
-//    var showDetailProfile: ShowDetailsClosure
-//    var showLiveStream: ShowLiveStreamClosure
-    
-    
     //input
     var userWatchDidSelect = PublishSubject<IndexPath>()
     var userProfileDidSelect = PublishSubject<IndexPath>()
@@ -60,7 +56,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
             .asObservable()
         
         self.showLiveStream = self.userWatchDidSelect.map({[weak self] indexPath in
-            StreamViewModel()})
+            return StreamViewModel(provider:self!.provider, user: self!.userAtIndexPath(indexPath))})
             .asObservable()
         
         let o = insertedElementIndexes
@@ -96,7 +92,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
 class LiveFollowingViewModel: UserListViewModel {
     
     override internal var endPoint: StreamAPI{
-        return .liveFollowing(page: page, pageSize: pageSize)
+        return .currentUserLiveFollowing(page: page, pageSize: pageSize)
     }
     
 }
@@ -104,7 +100,7 @@ class LiveFollowingViewModel: UserListViewModel {
 class LiveTopViewModel: UserListViewModel {
     
     override internal var endPoint: StreamAPI{
-        return .liveTop(page: page, pageSize: pageSize)
+        return .liveTopUsers(page: page, pageSize: pageSize)
     }
     
 }
