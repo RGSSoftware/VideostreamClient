@@ -5,32 +5,35 @@ import UIKit
 import UIScrollView_InfiniteScroll
 import XLPagerTabStrip
 
+struct ImageDownloader {
+    let downloadImage: DownloadImageClosure = { (url, imageView) -> () in
+        if let url = url {
+            imageView.sd_setImage(with: url,
+                                  placeholderImage:R.image.profilePlaceholderImage(),
+                                  options:[SDWebImageOptions.avoidAutoSetImage]){ [weak imageView] (image, _, _, _ ) in
+                                    guard let strongImageView = imageView else { return }
+                                    
+                                    UIView.transition(with: strongImageView,
+                                                      duration:0.4,
+                                                      options: UIViewAnimationOptions.transitionCrossDissolve,
+                                                      animations: { strongImageView.image = image },
+                                                      completion: nil)
+            }
+            
+        } else {
+            imageView.image = R.image.profilePlaceholderImage()
+        }
+    }
+    let cancelDownloadImage: CancelDownloadImageClosure = { (imageView) -> () in
+        imageView.sd_cancelCurrentImageLoad()
+    }
+}
 
 class UserListViewController: UITableViewController, IndicatorInfoProvider {
     
     var viewModel: (UserListable & ProfileSampleViewModelable & DetailProfile & WatchLiveStream)!
     
-    var downloadImage: ProfileSampleCell.DownloadImageClosure = { (url, imageView) -> () in
-        if let url = url {
-            imageView.sd_setImage(with: url,
-               placeholderImage:R.image.profilePlaceholderImage(),
-               options:[SDWebImageOptions.avoidAutoSetImage]){ [weak imageView] (image, _, _, _ ) in
-                guard let strongImageView = imageView else { return }
-                
-                UIView.transition(with: strongImageView,
-                                  duration:0.4,
-                                  options: UIViewAnimationOptions.transitionCrossDissolve,
-                                  animations: { strongImageView.image = image },
-                                  completion: nil)
-            }
-
-        } else {
-            imageView.image = R.image.profilePlaceholderImage()
-        }
-    }
-    var cancelDownloadImage: ProfileSampleCell.CancelDownloadImageClosure = { (imageView) -> () in
-        imageView.sd_cancelCurrentImageLoad()
-    }
+    let imageDownloader = ImageDownloader()
     
     var itemInfo: IndicatorInfo = "View"
 
@@ -99,8 +102,8 @@ class UserListViewController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.profileCell.identifier, for: indexPath) as! ProfileSampleCell
         
-        cell.downloadImage = downloadImage
-        cell.cancelDownloadImage = cancelDownloadImage
+        cell.downloadImage = imageDownloader.downloadImage
+        cell.cancelDownloadImage = imageDownloader.cancelDownloadImage
         
         cell.setViewModel(viewModel.profileSampleViewModelForIndexPath(indexPath)!)
         

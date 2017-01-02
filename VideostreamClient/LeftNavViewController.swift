@@ -8,6 +8,12 @@ class LeftNavViewController: UIViewController {
     var provider: RxMoyaProvider<StreamAPI>!
     
     @IBOutlet weak var navProfileView: ProfileSampleView!
+    
+    lazy var myProfileViewModel: MyProfileSampleViewModel = {
+        return MyProfileSampleViewModel(provider: self.provider!)
+    }()
+    
+    let imageDownloader = ImageDownloader()
 
     let model = LeftNavModel.fromJSON(ConfigManger.shared["Left_Nav_Screen"])
     
@@ -17,6 +23,12 @@ class LeftNavViewController: UIViewController {
         super.viewDidLoad()
         
         navProfileView.profileImageButton.setImage(R.image.profilePlaceholderImage(), for: .normal)
+        
+        myProfileViewModel.username.bindTo(navProfileView.profileNameLabel.rx.text).addDisposableTo(rx_disposeBag)
+        myProfileViewModel.imageURL.subscribe(onNext:{[weak self] in
+            print($0)
+            self?.imageDownloader.downloadImage($0, (self?.navProfileView.profileImageButton.imageView)!)})
+            .addDisposableTo(rx_disposeBag)
     }
 
     @IBAction func profileImageDidTap(_ sender: Any) {
@@ -25,7 +37,6 @@ class LeftNavViewController: UIViewController {
         if contentVCScreenId == R.storyboard.main.profile_Nav_Screen.identifier {
             
             return sideMenuViewController.hideViewController()
-
         }
         
         let nVC = R.storyboard.main.profile_Nav_Screen()!

@@ -6,10 +6,13 @@ import RxCocoa
 import NSObject_Rx
 import KGHitTestingViews
 
+typealias DownloadImageClosure = (_ url: URL?, _ imageView: UIImageView) -> ()
+typealias CancelDownloadImageClosure = (_ imageView: UIImageView) -> ()
+
 class ProfileSampleCell: UITableViewCell {
     
-    typealias DownloadImageClosure = (_ url: URL?, _ imageView: UIImageView) -> ()
-    typealias CancelDownloadImageClosure = (_ imageView: UIImageView) -> ()
+//    typealias DownloadImageClosure = (_ url: URL?, _ imageView: UIImageView) -> ()
+//    typealias CancelDownloadImageClosure = (_ imageView: UIImageView) -> ()
     
     var downloadImage: DownloadImageClosure?
     var cancelDownloadImage: CancelDownloadImageClosure?

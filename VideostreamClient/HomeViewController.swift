@@ -62,11 +62,11 @@ class HomeViewController: UIViewController {
             bVC.streamKey = user?["streamKey"] as! String
         }
         
-        if segue.identifier == "to_Stream" &&
-            segue.destination is AudienceViewController {
-            let bVC = segue.destination as! AudienceViewController
-            bVC.streamKey = streamKeyTextField.text
-        }
+//        if segue.identifier == "to_Stream" &&
+//            segue.destination is AudienceViewController {
+//            let bVC = segue.destination as! AudienceViewController
+//            bVC.streamKey = streamKeyTextField.text
+//        }
     }
     
 }

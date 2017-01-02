@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220F54DF1E19AEDB00AECAF8 /* BroadcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F54DE1E19AEDB00AECAF8 /* BroadcastViewModel.swift */; };
+		220F54E21E19D7C900AECAF8 /* MyProfileSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F54E11E19D7C900AECAF8 /* MyProfileSampleViewModel.swift */; };
 		2224EEE21DF3DA44007828E5 /* Me.json in Resources */ = {isa = PBXBuildFile; fileRef = 2224EEE11DF3DA44007828E5 /* Me.json */; };
 		2224EEE51DF3E119007828E5 /* watch_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 2224EEE41DF3E119007828E5 /* watch_live.json */; };
 		2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */; };
@@ -117,6 +119,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220F54DE1E19AEDB00AECAF8 /* BroadcastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastViewModel.swift; sourceTree = "<group>"; };
+		220F54E11E19D7C900AECAF8 /* MyProfileSampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileSampleViewModel.swift; sourceTree = "<group>"; };
 		2224EEE11DF3DA44007828E5 /* Me.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Me.json; sourceTree = "<group>"; };
 		2224EEE41DF3E119007828E5 /* watch_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = watch_live.json; sourceTree = "<group>"; };
 		2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
@@ -370,6 +374,8 @@
 		22E8C6531DF66A0B00ED8CF1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				220F54DE1E19AEDB00AECAF8 /* BroadcastViewModel.swift */,
+				220F54E11E19D7C900AECAF8 /* MyProfileSampleViewModel.swift */,
 				2225C0C61DFB6316008A5878 /* ProfileSampleViewModel.swift */,
 				22E8C6871DF759C700ED8CF1 /* ProfileViewModel.swift */,
 				22E8C6561DF66AC400ED8CF1 /* SearchUsersViewModel.swift */,
@@ -686,6 +692,7 @@
 				2225C0CA1DFB67A1008A5878 /* Array+Exten.swift in Sources */,
 				224FBA991DDEFFCD00574B2D /* AudienceViewController.swift in Sources */,
 				224FBA661DDEEC7E00574B2D /* BroadcasterViewController.swift in Sources */,
+				220F54DF1E19AEDB00AECAF8 /* BroadcastViewModel.swift in Sources */,
 				229E9FE41DE136D200160514 /* ConfigManger.swift in Sources */,
 				226F19011DE697A900A68678 /* DataStore.swift in Sources */,
 				2225C16E1DFF58F6008A5878 /* GlobalFunctions.swift in Sources */,
@@ -698,6 +705,7 @@
 				22E8C64D1DF669A500ED8CF1 /* ListReqestable.swift in Sources */,
 				224FBA641DDEE79500574B2D /* LoginViewController.swift in Sources */,
 				22F076601DF07893007C1CA2 /* LoginViewModel.swift in Sources */,
+				220F54E21E19D7C900AECAF8 /* MyProfileSampleViewModel.swift in Sources */,
 				226F19031DE789C300A68678 /* MyProfileViewController.swift in Sources */,
 				229E9FE81DE1414900160514 /* NavCell.swift in Sources */,
 				2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */,
