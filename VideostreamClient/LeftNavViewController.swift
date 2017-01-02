@@ -21,13 +21,10 @@ class LeftNavViewController: UIViewController {
     @IBOutlet weak var footerTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navProfileView.profileImageButton.setImage(R.image.profilePlaceholderImage(), for: .normal)
-        
+                
         myProfileViewModel.username.bindTo(navProfileView.profileNameLabel.rx.text).addDisposableTo(rx_disposeBag)
         myProfileViewModel.imageURL.subscribe(onNext:{[weak self] in
-            print($0)
-            self?.imageDownloader.downloadImage($0, (self?.navProfileView.profileImageButton.imageView)!)})
+            self?.imageDownloader.downloadUIButtonImage($0, (self?.navProfileView.profileImageButton)!)})
             .addDisposableTo(rx_disposeBag)
     }
 
@@ -127,6 +124,8 @@ extension LeftNavViewController: UITableViewDelegate {
                 if screen == R.storyboard.main.broadcaster_Screen.identifier {
                     
                     let bVC = R.storyboard.main.broadcaster_Screen()!
+                    bVC.provider = provider
+                    
                     present(bVC, animated: true, completion: nil)
                     
                 } else if screen == R.storyboard.main.navPager_Screen.identifier {

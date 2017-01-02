@@ -19,6 +19,8 @@ enum StreamAPI {
     case currentUserFollowUser(id: String)
     case currentUserDeleteFollowing(id: String)
     case currentUserLiveFollowing(page: Int, pageSize: Int)
+    
+    case startBroadcast
 }
 
 
@@ -47,6 +49,9 @@ extension StreamAPI : TargetType {
             return "/user/following/\(id)"
         case .currentUserLiveFollowing:
             return "/user/following"
+            
+        case .startBroadcast:
+            return "/user/streamkey"
         
         }
     }
@@ -87,6 +92,8 @@ extension StreamAPI : TargetType {
         case .currentUserFollowUser:
              return .put
         case .currentUserDeleteFollowing:
+            return .delete
+        case .startBroadcast:
             return .delete
         default:
             return .get
@@ -137,7 +144,11 @@ extension StreamAPI : TargetType {
             } else {
                 return stubbedResponse("live_Top_x3")
             }
+            
+        case .startBroadcast:
+            return stubbedResponse("Me")
         }
+        
     }
     
     var parameterEncoding: Moya.ParameterEncoding {

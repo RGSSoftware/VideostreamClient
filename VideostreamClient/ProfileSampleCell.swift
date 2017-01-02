@@ -5,7 +5,7 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import KGHitTestingViews
-
+typealias DownloadUIButtonImageClosure = (_ url: URL?, _ UIButton: UIButton) -> ()
 typealias DownloadImageClosure = (_ url: URL?, _ imageView: UIImageView) -> ()
 typealias CancelDownloadImageClosure = (_ imageView: UIImageView) -> ()
 

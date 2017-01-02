@@ -24,6 +24,19 @@ struct ImageDownloader {
             imageView.image = R.image.profilePlaceholderImage()
         }
     }
+    
+    let downloadUIButtonImage: DownloadUIButtonImageClosure = { (url, button) -> () in
+        if let url = url {
+            button.sd_setImage(with: url,
+                               for: .normal,
+                                  placeholderImage:R.image.profilePlaceholderImage())
+            
+            
+        } else {
+            button.setImage(R.image.profilePlaceholderImage(), for: .normal)
+        }
+    }
+    
     let cancelDownloadImage: CancelDownloadImageClosure = { (imageView) -> () in
         imageView.sd_cancelCurrentImageLoad()
     }

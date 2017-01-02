@@ -4,13 +4,27 @@ import NSObject_Rx
 import RxSwift
 import RxCocoa
 
-class BroadcastViewModel {
-    let provider: RxMoyaProvider<StreamAPI>
-    internal let user: User
+class BroadcastViewModel: NSObject {
+    //input
+    var startStreamDidSelect = PublishSubject<Void>()
     
-    init(provider: RxMoyaProvider<StreamAPI>, user: User){
+    //output
+    var steamKey = PublishSubject<String>()
+    
+    let provider: RxMoyaProvider<StreamAPI>
+    
+    init(provider: RxMoyaProvider<StreamAPI>){
         self.provider = provider
-        self.user = user
+        
+        super.init()
+        
+        self.startStreamDidSelect.flatMap({
+            provider.request(.startBroadcast)
+        }).mapJSON()
+            .mapTo(object: User.self)
+            .map{$0.stream.key}
+            .bindTo(steamKey)
+            .addDisposableTo(rx_disposeBag)
         
     }
 }

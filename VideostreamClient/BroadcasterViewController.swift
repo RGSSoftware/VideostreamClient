@@ -1,14 +1,13 @@
-//
-//  BroadcasterViewController.swift
-//  Live
-//
-//  Created by leo on 16/7/11.
-//  Copyright © 2016年 io.ltebean. All rights reserved.
-//
-
 import UIKit
 
 import LFLiveKit
+
+import Moya
+import SwiftyJSON
+import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 
 
 class BroadcasterViewController: UIViewController {
@@ -16,6 +15,10 @@ class BroadcasterViewController: UIViewController {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var statusLabel: UILabel!
     
+    var provider: RxMoyaProvider<StreamAPI>!
+    lazy var viewModel: BroadcastViewModel = {
+        return BroadcastViewModel(provider: self.provider!)
+    }()
     
 
     lazy var session: LFLiveSession = {
@@ -38,6 +41,16 @@ class BroadcasterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.steamKey.asObserver().subscribe(onNext:{[weak self] in
+            let stream = LFLiveStreamInfo()
+            stream.url = "\("rtmp://rtmpserver.pixeljaw.com/live/")\($0)"
+            self?.session.startLive(stream)
+        }).addDisposableTo(rx_disposeBag)
+        
+        Observable.just().bindTo(viewModel.startStreamDidSelect).addDisposableTo(rx_disposeBag)
+        
+        
 
     }
     
@@ -45,11 +58,6 @@ class BroadcasterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !session.running{
-            start()
-        }
-        
-//        session.running = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,9 +75,9 @@ class BroadcasterViewController: UIViewController {
 
     func start() {
         
-//        let stream = LFLiveStreamInfo()
-//        stream.url = "\("rtmp://rtmpserver.pixeljaw.com/live/")\(streamKey!)"
-//        session.startLive(stream)
+        let stream = LFLiveStreamInfo()
+        stream.url = "\("rtmp://rtmpserver.pixeljaw.com/live/")\(viewModel.steamKey)"
+        session.startLive(stream)
         
     }
     
