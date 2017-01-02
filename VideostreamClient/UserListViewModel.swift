@@ -43,7 +43,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     var showDetailProfile: Observable<ProfileViewModel>!
     var showLiveStream: Observable<StreamViewModel>!
     
-    init(provider: RxMoyaProvider<StreamAPI>, page: Int = 1, pageSize: Int = 20){
+    init(provider: RxMoyaProvider<StreamAPI>, page: Int = 0, pageSize: Int = 20){
         
         self.provider = provider
         self.pageSize = pageSize
@@ -80,7 +80,7 @@ class UserListViewModel: NSObject, ListReqestable, UserListable, ProfileSampleVi
     
     func profileSampleViewModelForIndexPath(_ indexPath: IndexPath) -> ProfileSampleViewModel?{
         
-        if indexPath.count < numberOfUsers {
+        if indexPath.row < numberOfUsers {
             return ProfileSampleViewModel(user: userAtIndexPath(indexPath))
         }
         

@@ -8,7 +8,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import NSObject_Rx
-
+import Alamofire
 
 class BroadcasterViewController: UIViewController {
         
@@ -23,7 +23,7 @@ class BroadcasterViewController: UIViewController {
 
     lazy var session: LFLiveSession = {
         let audioConfiguration = LFLiveAudioConfiguration.default()
-        let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: .medium3)
+        let videoConfiguration = LFLiveVideoConfiguration.defaultConfiguration(for: .low1)
 //        videoConfiguration?.autorotate = true
 //        videoConfiguration?.videoSize = CGSize(width: 960, height: 540)
 //        videoConfiguration?.outputImageOrientation = UIInterfaceOrientation.landscapeLeft
@@ -41,11 +41,12 @@ class BroadcasterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        session.running = true
         viewModel.steamKey.asObserver().subscribe(onNext:{[weak self] in
             let stream = LFLiveStreamInfo()
             stream.url = "\("rtmp://rtmpserver.pixeljaw.com/live/")\($0)"
             self?.session.startLive(stream)
+            
         }).addDisposableTo(rx_disposeBag)
         
         Observable.just().bindTo(viewModel.startStreamDidSelect).addDisposableTo(rx_disposeBag)
@@ -100,12 +101,45 @@ extension BroadcasterViewController: LFLiveSessionDelegate {
             statusLabel.text = "ready"
         case.start:
             statusLabel.text = "start"
+            
+            
+            
+            let parameters: Parameters = [
+                "streamStatus": true
+            ]
+            
+            
+            Alamofire.request(ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/streamstatus", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().response { (response) in
+                if let error = response.error {
+                    return print("error: \(error)")
+                }
+                
+                print("did post streamstatus")
+            }
+            
+            
         case.stop:
             statusLabel.text = "stop"
+            
+            
+            let parameters: Parameters = [
+                "streamStatus": false
+            ]
+            
+            
+            Alamofire.request(ConfigManger.shared["services"]["baseApiURL"].stringValue + "/user/streamstatus", method: .post, parameters: parameters, encoding: JSONEncoding.default).validate().response { (response) in
+                if let error = response.error {
+                    return print("error: \(error)")
+                }
+                
+                print("did post streamstatus")
+            }
         
         }
         
-        print("stattttttt: \(state.rawValue)")
+        
+        
+        print("stattttttt: \(state)")
         
     }
     

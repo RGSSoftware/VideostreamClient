@@ -67,13 +67,13 @@ extension StreamAPI : TargetType {
             return ["password": password, "username": username, "email": email]
             
         case .liveTopUsers(let page, let pageSize):
-            return ["page": page, "limit": pageSize]
+            return ["streamStatus": 1, "page": page, "limit": pageSize]
             
         case .searchUsers(let q, let page, let pageSize):
             return ["q": q, "page": page, "limit": pageSize]
             
         case .currentUserLiveFollowing(let page, let pageSize):
-            return ["streamStatus": 0, "page": page, "limit": pageSize]
+            return ["streamStatus": 1, "page": page, "limit": pageSize]
         default:
             return nil
         }

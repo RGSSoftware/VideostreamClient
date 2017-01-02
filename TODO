@@ -2,9 +2,25 @@
 * - search screen
 * - signup screen
 * - logout
-- eula screen
-- watch live screen
-  - top cap
-  - streamer profile image
-- log error to file
+
+🌩 - eula screen
+
+🌩 - log all errors to file
+
+🌩 - test app against live api
+
+🎉 - live streams
+	🎉 - show
+
+🌩 - my profile
+	🌩 - new design
+
+🎉 - Go live
+
+🌩 - profile
+	🌩 - new design
+
+🌩 - users list
+	🌩 - pull to refresh
+	
 

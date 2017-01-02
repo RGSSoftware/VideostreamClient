@@ -62,7 +62,6 @@ class LoginViewController: UIViewController {
             
             SVProgressHUD.show()
             
-            print(self!.loginButton.isEnabled)
             let provider = StreamProvider
             let req = provider.request(.login(password: self!.passwordTextField.text!, username: self!.usernameTextField.text!))
             req.subscribe(onNext: { (res) in

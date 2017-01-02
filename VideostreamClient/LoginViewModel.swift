@@ -15,7 +15,6 @@ struct LoginViewModel {
             req.filterSuccessfulStatusCodes()
                 .mapJSON()
                 .subscribe(onNext: { (res) in
-                    print("one r")
                     print(res)
                 })
 //                .addDisposableTo(rx_disposeBag)

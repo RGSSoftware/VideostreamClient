@@ -27,6 +27,8 @@ extension Observable {
 
     /// Get given JSONified data, pass back objects as an array
     func mapTo<B: JSONAbleType>(arrayOf classType: B.Type) -> Observable<[B]> {
+        
+        
         return self.map { json in
             guard let array = json as? [AnyObject] else {
                 throw StreamClientError.couldNotParseJSON

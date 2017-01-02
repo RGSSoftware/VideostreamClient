@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		220F54DF1E19AEDB00AECAF8 /* BroadcastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F54DE1E19AEDB00AECAF8 /* BroadcastViewModel.swift */; };
 		220F54E21E19D7C900AECAF8 /* MyProfileSampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220F54E11E19D7C900AECAF8 /* MyProfileSampleViewModel.swift */; };
+		220F55281E1AC45200AECAF8 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 220F55231E1AC33B00AECAF8 /* IJKMediaFramework.framework */; };
 		2224EEE21DF3DA44007828E5 /* Me.json in Resources */ = {isa = PBXBuildFile; fileRef = 2224EEE11DF3DA44007828E5 /* Me.json */; };
 		2224EEE51DF3E119007828E5 /* watch_live.json in Resources */ = {isa = PBXBuildFile; fileRef = 2224EEE41DF3E119007828E5 /* watch_live.json */; };
 		2224EEE71DF454F3007828E5 /* Observable+JSONAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */; };
@@ -55,7 +56,6 @@
 		226F19071DE7E5D500A68678 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19061DE7E5D500A68678 /* ProfileViewController.swift */; };
 		226F19091DE8A23A00A68678 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19081DE8A23A00A68678 /* SearchViewController.swift */; };
 		226F190D1DE8DABC00A68678 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F190C1DE8DABC00A68678 /* SignupViewController.swift */; };
-		226F19261DEE334E00A68678 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 226F19211DEE32E000A68678 /* IJKMediaFramework.framework */; };
 		226F192E1DEE3B5D00A68678 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F192D1DEE3B5D00A68678 /* R.generated.swift */; };
 		226F19301DEE461B00A68678 /* WatchPagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */; };
 		226F19321DEE576600A68678 /* LeftNavModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226F19311DEE576600A68678 /* LeftNavModel.swift */; };
@@ -88,23 +88,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		226F19201DEE32E000A68678 /* PBXContainerItemProxy */ = {
+		220F55221E1AC33B00AECAF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA8A1B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
 		};
-		226F19221DEE32E000A68678 /* PBXContainerItemProxy */ = {
+		220F55241E1AC33B00AECAF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = E654EA941B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFrameworkTests;
 		};
-		226F19241DEE334300A68678 /* PBXContainerItemProxy */ = {
+		220F55261E1AC34700AECAF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
+			containerPortal = 220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = E654EA891B6B27E600B0F2D0;
 			remoteInfo = IJKMediaFramework;
@@ -121,6 +121,7 @@
 /* Begin PBXFileReference section */
 		220F54DE1E19AEDB00AECAF8 /* BroadcastViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastViewModel.swift; sourceTree = "<group>"; };
 		220F54E11E19D7C900AECAF8 /* MyProfileSampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileSampleViewModel.swift; sourceTree = "<group>"; };
+		220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../Desktop/hateRE/ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		2224EEE11DF3DA44007828E5 /* Me.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Me.json; sourceTree = "<group>"; };
 		2224EEE41DF3E119007828E5 /* watch_live.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = watch_live.json; sourceTree = "<group>"; };
 		2224EEE61DF454F3007828E5 /* Observable+JSONAble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+JSONAble.swift"; sourceTree = "<group>"; };
@@ -169,7 +170,6 @@
 		226F19061DE7E5D500A68678 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		226F19081DE8A23A00A68678 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		226F190C1DE8DABC00A68678 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IJKMediaPlayer.xcodeproj; path = "../../../Desktop/hateRE/ijkplayer-ios/ios/IJKMediaPlayer/IJKMediaPlayer.xcodeproj"; sourceTree = "<group>"; };
 		226F192D1DEE3B5D00A68678 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchPagerViewController.swift; sourceTree = "<group>"; };
 		226F19311DEE576600A68678 /* LeftNavModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftNavModel.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				224FBA6A1DDEF5D900574B2D /* AudioToolbox.framework in Frameworks */,
 				224FBA6C1DDEF5E100574B2D /* AVFoundation.framework in Frameworks */,
 				224FBA6E1DDEF5EA00574B2D /* CoreMedia.framework in Frameworks */,
-				226F19261DEE334E00A68678 /* IJKMediaFramework.framework in Frameworks */,
+				220F55281E1AC45200AECAF8 /* IJKMediaFramework.framework in Frameworks */,
 				224FBA721DDEF60800574B2D /* libbz2.tbd in Frameworks */,
 				224FBA701DDEF5FE00574B2D /* libz.tbd in Frameworks */,
 				224FBA741DDEF60F00574B2D /* MediaPlayer.framework in Frameworks */,
@@ -238,6 +238,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		220F551E1E1AC33B00AECAF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				220F55231E1AC33B00AECAF8 /* IJKMediaFramework.framework */,
+				220F55251E1AC33B00AECAF8 /* IJKMediaFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2224EEED1DF46793007828E5 /* Stubbed Responses */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,7 +315,7 @@
 				224597C51DDED84A00E784B2 /* Products */,
 				224597C61DDED84A00E784B2 /* VideostreamClient */,
 				22E8C6B01DF8963100ED8CF1 /* VideostreamClientTests */,
-				226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */,
+				220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,15 +369,6 @@
 				226F192F1DEE461B00A68678 /* WatchPagerViewController.swift */,
 			);
 			path = VideostreamClient;
-			sourceTree = "<group>";
-		};
-		226F191C1DEE32DF00A68678 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				226F19211DEE32E000A68678 /* IJKMediaFramework.framework */,
-				226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		22E8C6531DF66A0B00ED8CF1 /* ViewModels */ = {
@@ -455,7 +455,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				226F19251DEE334300A68678 /* PBXTargetDependency */,
+				220F55271E1AC34700AECAF8 /* PBXTargetDependency */,
 			);
 			name = VideostreamClient;
 			productName = VideostreamClient;
@@ -518,8 +518,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 226F191C1DEE32DF00A68678 /* Products */;
-					ProjectRef = 226F191B1DEE32DF00A68678 /* IJKMediaPlayer.xcodeproj */;
+					ProductGroup = 220F551E1E1AC33B00AECAF8 /* Products */;
+					ProjectRef = 220F551D1E1AC33B00AECAF8 /* IJKMediaPlayer.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -531,18 +531,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		226F19211DEE32E000A68678 /* IJKMediaFramework.framework */ = {
+		220F55231E1AC33B00AECAF8 /* IJKMediaFramework.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = IJKMediaFramework.framework;
-			remoteRef = 226F19201DEE32E000A68678 /* PBXContainerItemProxy */;
+			remoteRef = 220F55221E1AC33B00AECAF8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		226F19231DEE32E000A68678 /* IJKMediaFrameworkTests.xctest */ = {
+		220F55251E1AC33B00AECAF8 /* IJKMediaFrameworkTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = IJKMediaFrameworkTests.xctest;
-			remoteRef = 226F19221DEE32E000A68678 /* PBXContainerItemProxy */;
+			remoteRef = 220F55241E1AC33B00AECAF8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -756,10 +756,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		226F19251DEE334300A68678 /* PBXTargetDependency */ = {
+		220F55271E1AC34700AECAF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = IJKMediaFramework;
-			targetProxy = 226F19241DEE334300A68678 /* PBXContainerItemProxy */;
+			targetProxy = 220F55261E1AC34700AECAF8 /* PBXContainerItemProxy */;
 		};
 		22E8C6B51DF8963100ED8CF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -888,6 +888,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 32V3SFMGKM;
 				INFOPLIST_FILE = VideostreamClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Software.VideostreamClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -903,6 +904,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 32V3SFMGKM;
 				INFOPLIST_FILE = VideostreamClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Software.VideostreamClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -24,7 +24,7 @@ class SearchUsersViewModel: UserListViewModel, SearchUsersable {
         let indexPaths = (0..<elementsCount).map { IndexPath(row: $0, section: 0) }
         elements.removeAll()
         deletedUserIndexes.value = indexPaths
-        page = 1
+        page = 0
         
         self.q = q
         

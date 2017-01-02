@@ -13,7 +13,8 @@ class AudienceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlString = ConfigManger.shared["services"]["baseRtmpPlayURL"].stringValue + viewModel.streamKey
+                
+        let urlString = "rtmp://rtmpserver.pixeljaw.com/live/" + viewModel.streamKey
         player = IJKFFMoviePlayerController(contentURLString: urlString, with: IJKFFOptions.byDefault())
         
         player.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

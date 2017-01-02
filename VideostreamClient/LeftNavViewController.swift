@@ -162,9 +162,7 @@ extension LeftNavViewController: UITableViewDelegate {
         let data = model.footerCells[indexPath.row]
         
         let screenId = sideMenuViewController.contentViewController.screenId
-        
-        print(data.action)
-        
+                
         switch data.action {
         case .show(let screen):
             
